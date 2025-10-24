@@ -1,0 +1,63 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Inventory System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+</head>
+<body class="login-page d-flex justify-content-center align-items-center vh-100">
+
+  <div class="login-container p-4 fade-in" style="width: 400px; border-radius: 12px; box-shadow: 0 10px 30px rgba(31,74,89,0.08);">
+    <div class="text-center mb-4">
+      <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
+      <h3 class="fw-bold">University Inventory</h3>
+      <p class="text-muted">Sign in to manage equipment</p>
+    </div>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="/login">
+      <div class="mb-3">
+        <label for="username" class="form-label">
+          <i class="fas fa-user me-2"></i>Nom d'utilisateur
+        </label>
+        <input type="text" id="username" name="username" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          <i class="fas fa-lock me-2"></i>Mot de passe
+        </label>
+        <input type="password" id="password" name="password" class="form-control" required>
+      </div>
+
+      
+
+      <button type="submit" class="btn btn-primary w-100" style="background: var(--accent); border: none;">
+        <i class="fas fa-sign-in-alt me-2"></i>Connexion
+      </button>
+    </form>
+    
+    <div class="text-center mt-4">
+      <small class="text-muted">
+        <i class="fas fa-shield-alt me-1" style="color: var(--accent);"></i>Système de connexion sécurisée
+      </small>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

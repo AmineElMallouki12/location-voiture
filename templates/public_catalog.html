@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Public - Système d'Inventaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='CSS/style.css') }}" rel="stylesheet">
+</head>
+<body class="catalog-page">
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-boxes me-2"></i>Système d'Inventaire
+            </a>
+            {% if current_user.is_authenticated %}
+            <div class="navbar-nav ms-auto">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-2"></i>{{ current_user.username }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('dashboard') }}">Tableau de bord</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                    <i class="fas fa-sign-in-alt me-2"></i>Se connecter
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- Main Content -->
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2><i class="fas fa-boxes me-2"></i>Catalogue Public</h2>
+                    {% if current_user.is_authenticated %}
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success" onclick="exportToExcel()">
+                            <i class="fas fa-file-excel me-2"></i>Exporter Excel
+                        </button>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Search Bar at Top -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher un article...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="equipmentGrid">
+                    {% for item in items %}
+                    <div class="col-md-6 col-lg-4 mb-4 equipment-item" 
+                         data-designation="{{ item.designation|lower }}"
+                         data-status="{{ item.status|lower }}"
+                         data-category="{{ item.category|default('', true)|lower }}">
+                        <div class="card h-100">
+                            <div class="card-img-top-container">
+                                {% if item.image %}
+                                <img src="{{ url_for('static', filename='uploads/' + item.image) }}?v=1" 
+                                     class="card-img-top equipment-image" alt="{{ item.designation }}">
+                                {% else %}
+                                <div class="default-icon">
+                                    <i class="fas fa-box fa-3x"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ item.designation }}</h5>
+                                <p class="card-text">
+                                    <strong>Marque:</strong> {{ item.marque or 'N/A' }}<br>
+                                    <strong>Modèle:</strong> {{ item.modele or 'N/A' }}<br>
+                                    <strong>Disponible:</strong> {{ item.quantite_disponible or 1 }}
+                                </p>
+                                <div class="mt-auto">
+                                    <button class="btn btn-primary btn-sm w-100" onclick="openItemDetails(this)"
+                                            data-id="{{ item.id }}"
+                                            data-designation="{{ item.designation|e }}"
+                                            data-marque="{{ item.marque|default('', true)|e }}"
+                                            data-modele="{{ item.modele|default('', true)|e }}"
+                                            data-nserie="{{ item.n_serie|default('', true)|e }}"
+                                            data-quantite="{{ item.quantite_disponible or 1 }}"
+                                            data-description="{{ item.description|default('', true)|e }}"
+                                            data-status="{{ item.status|default('', true)|e }}"
+                                            data-image="{{ item.image and url_for('static', filename='uploads/' + item.image) or '' }}">
+                                        <i class="fas fa-eye me-2"></i>Voir les détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Details Modal -->
+    <div class="modal fade" id="itemDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-box me-2"></i><span id="d-title"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-4 text-center">
+                            <img id="d-image" alt="Image" style="max-width: 100%; border-radius: 6px;" />
+                        </div>
+                        <div class="col-md-8">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">Marque</dt><dd class="col-sm-8" id="d-marque"></dd>
+                                <dt class="col-sm-4">Modèle</dt><dd class="col-sm-8" id="d-modele"></dd>
+                                <dt class="col-sm-4">N° Série</dt><dd class="col-sm-8" id="d-nserie"></dd>
+                                <dt class="col-sm-4">Disponible</dt><dd class="col-sm-8" id="d-quantite"></dd>
+                                <dt class="col-sm-4">Statut</dt><dd class="col-sm-8" id="d-status"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <strong>Description</strong>
+                        <p id="d-description" class="mb-0"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search functionality only
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('searchInput').focus();
+            
+            // Search functionality only
+            document.getElementById('searchInput').addEventListener('input', filterEquipment);
+        });
+
+        function filterEquipment() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            const items = document.querySelectorAll('.equipment-item');
+            
+            items.forEach(item => {
+                const designation = item.dataset.designation;
+                
+                const matchesSearch = designation.includes(searchTerm);
+                
+                if (matchesSearch) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Details modal
+        function openItemDetails(btn) {
+            const data = btn.dataset;
+            document.getElementById('d-title').textContent = data.designation || '';
+            document.getElementById('d-marque').textContent = data.marque || '-';
+            document.getElementById('d-modele').textContent = data.modele || '-';
+            document.getElementById('d-nserie').textContent = data.nserie || '-';
+            document.getElementById('d-quantite').textContent = data.quantite || '1';
+            document.getElementById('d-status').textContent = data.status || '';
+            document.getElementById('d-description').textContent = data.description || '';
+            const img = document.getElementById('d-image');
+            if (data.image) {
+                img.src = data.image;
+                img.style.display = '';
+            } else {
+                img.style.display = 'none';
+            }
+            const modal = new bootstrap.Modal(document.getElementById('itemDetailsModal'));
+            modal.show();
+        }
+
+        function exportToExcel() {
+            window.location.href = '/export/inventory-excel';
+        }
+    </script>
+</body>
+</html> 

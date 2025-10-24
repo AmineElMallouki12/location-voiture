@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Management - Admin{% endblock %}
+
+{% block content %}
+<div class="main-container fade-in">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-3">
+                <i class="fas fa-users me-2"></i>Gérer le personnel
+            </h2>
+            <p class="text-muted">Manage staff members and their access to the system.</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <a href="{{ url_for('add_staff') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Ajouter un membre du personnel
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-list me-2"></i>Staff Members
+                        <span class="badge bg-primary ms-2">{{ staff_members|length }}</span>
+                    </h5>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Nom d'utilisateur</th>
+                                    <th>Rôle</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for staff in staff_members %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ staff.first_name or 'N/A' }} {{ staff.last_name or 'N/A' }}</strong>
+                                    </td>
+                                    <td>
+                                        <code>{{ staff.username }}</code>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info">{{ staff.role }}</span>
+                                    </td>
+                                    <td>{{ staff.created_at or 'N/A' }}</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ url_for('edit_staff', staff_id=staff.id) }}" 
+                                               class="btn btn-sm btn-outline-primary" title="Modifier">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{{ url_for('delete_staff', staff_id=staff.id) }}" 
+                                               class="btn btn-sm btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre du personnel ?')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted py-5">
+                                        <i class="fas fa-users fa-3x mb-3"></i>
+                                        <br>
+                                        <h5>No staff members found</h5>
+                                        <p>Add your first staff member to get started.</p>
+                                        <a href="{{ url_for('add_staff') }}" class="btn btn-primary">
+                                            <i class="fas fa-plus me-2"></i>Add Staff Member
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

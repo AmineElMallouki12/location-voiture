@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block title %}Request Rental - {{ item.designation }}{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold mb-3">
+        <i class="fas fa-clipboard-list me-2"></i>Demande d'utilisation
+      </h2>
+      <p class="text-muted">Soumettre une demande d'utilisation pour cet équipement.</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-box me-2"></i>{{ item.designation }}
+          </h5>
+        </div>
+        <div class="card-body">
+          <!-- Equipment Details -->
+          <div class="row mb-4">
+            <div class="col-md-4">
+              {% if item.image %}
+                <img src="{{ url_for('static', filename='uploads/' ~ item.image) }}" 
+                     alt="Equipment Image" class="equipment-image-large">
+              {% else %}
+                <div class="text-center text-muted">
+                  <i class="fas fa-image fa-3x mb-2"></i>
+                  <br>Aucune image
+                </div>
+              {% endif %}
+            </div>
+            <div class="col-md-8">
+              <h6>Détails de l'équipement:</h6>
+              <p><strong>Marque:</strong> {{ item.marque or 'Non spécifiée' }}</p>
+              <p><strong>Modèle:</strong> {{ item.modele or 'Non spécifié' }}</p>
+              <p><strong>N° Série:</strong> {{ item.n_serie or 'Non spécifié' }}</p>
+              <p><strong>Statut:</strong> <span class="badge bg-success">{{ item.status }}</span></p>
+              <p><strong>Quantité disponible:</strong> <span class="badge bg-secondary">{{ item.quantite_disponible or 1 }} unités</span></p>
+              {% if item.description %}
+                <p><strong>Description:</strong> {{ item.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Rental Request Form -->
+          <form method="POST" action="{{ url_for('request_rental', item_id=item.id) }}">
+            <div class="mb-3">
+              <label class="form-label">
+                <i class="fas fa-user me-2"></i>Votre Nom *
+              </label>
+              <input type="text" name="user_name" class="form-control" required>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">
+                <i class="fas fa-envelope me-2"></i>Adresse Email *
+              </label>
+              <input type="email" name="user_email" class="form-control" required>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-calendar me-2"></i>Date de début *
+                  </label>
+                  <input type="date" name="start_date" class="form-control" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-calendar me-2"></i>Date de fin *
+                  </label>
+                  <input type="date" name="end_date" class="form-control" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-layer-group me-2"></i>Quantité à louer *
+                  </label>
+                  <input type="number" name="quantity" class="form-control" value="1" min="1" 
+                         max="{{ item.quantite_disponible or 1 }}" required>
+                  <div class="form-text">Combien d'unités avez-vous besoin ? (Max: {{ item.quantite_disponible or 1 }})</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-info-circle me-2"></i>Objectif (Optionnel)
+                  </label>
+                  <textarea name="purpose" class="form-control" rows="3" 
+                            placeholder="Description succincte de l'utilisation de l'équipement..."></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane me-2"></i>Soumettre la demande
+              </button>
+              <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Retour au catalogue
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Set minimum date to today
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelector('input[name="start_date"]').min = today;
+    document.querySelector('input[name="end_date"]').min = today;
+    
+    // Update end date minimum when start date changes
+    document.querySelector('input[name="start_date"]').addEventListener('change', function() {
+        document.querySelector('input[name="end_date"]').min = this.value;
+    });
+});
+</script>
+{% endblock %} 

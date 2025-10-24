@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Staff Member - Admin{% endblock %}
+
+{% block content %}
+<div class="main-container fade-in">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-3">
+                <i class="fas fa-plus me-2"></i>Ajouter un membre du personnel
+            </h2>
+            <p class="text-muted">Create a new staff account with access to manage equipment and rentals.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user me-2"></i>Staff Member Details
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add_staff') }}" id="addStaffForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        <i class="fas fa-user me-2"></i>First Name *
+                                    </label>
+                                    <input type="text" name="first_name" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        <i class="fas fa-user me-2"></i>Last Name *
+                                    </label>
+                                    <input type="text" name="last_name" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nom d'utilisateur</label>
+                            <input type="text" name="username" class="form-control" required>
+                            <div class="form-text">Unique username for login (no spaces, lowercase recommended)</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input type="password" name="password" class="form-control" required minlength="6">
+                            <div class="form-text">Minimum 6 caractères</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirmer le mot de passe</label>
+                            <input type="password" name="confirm_password" class="form-control" required minlength="6">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Rôle</label>
+                            <select name="role" class="form-control">
+                                <option value="admin">Administrateur</option>
+                                <option value="technicien laboratoire">Technicien Laboratoire</option>
+                                <option value="manager laboratoire">Manager Laboratoire</option>
+                                <option value="professeur">Professeur</option>
+                                <option value="etudiant">Étudiant</option>
+                            </select>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-plus me-2"></i>Ajouter
+                            </button>
+                            <a href="{{ url_for('admin_staff') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Annuler
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation
+document.getElementById('addStaffForm').addEventListener('submit', function(e) {
+    const username = document.querySelector('input[name="username"]').value.trim();
+    const password = document.querySelector('input[name="password"]').value;
+    const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+    const firstName = document.querySelector('input[name="first_name"]').value.trim();
+    const lastName = document.querySelector('input[name="last_name"]').value.trim();
+    
+    if (!firstName) {
+        e.preventDefault();
+        alert('Please enter a first name');
+        return false;
+    }
+    
+    if (!lastName) {
+        e.preventDefault();
+        alert('Please enter a last name');
+        return false;
+    }
+    
+    if (!username) {
+        e.preventDefault();
+        alert('Please enter a username');
+        return false;
+    }
+    
+    if (password.length < 6) {
+        e.preventDefault();
+        alert('Le mot de passe doit contenir au moins 6 caractères');
+        return false;
+    }
+    if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Les mots de passe ne correspondent pas');
+        return false;
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Ajout...';
+    submitBtn.disabled = true;
+});
+
+// Auto-focus on first name field
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('input[name="first_name"]').focus();
+});
+</script>
+{% endblock %} 

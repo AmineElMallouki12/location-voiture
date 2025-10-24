@@ -1,0 +1,6636 @@
+[{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec1"
+  },
+  "id": "ITEM_0001",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8534",
+  "ancien_cab": "324534",
+  "nouveau_cab": "6120732413702",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.649Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:03:21.287Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec2"
+  },
+  "id": "ITEM_0002",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8552",
+  "ancien_cab": "324533",
+  "nouveau_cab": "6120732413704",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.670Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:54:02.058Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec3"
+  },
+  "id": "ITEM_0003",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8574",
+  "ancien_cab": "324529",
+  "nouveau_cab": "6120732413705",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.671Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:54:17.010Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec4"
+  },
+  "id": "ITEM_0004",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL7654",
+  "ancien_cab": "324532",
+  "nouveau_cab": "6120732413706",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.671Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:54:29.245Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec5"
+  },
+  "id": "ITEM_0005",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL5869",
+  "ancien_cab": "324528",
+  "nouveau_cab": "6120732413707",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.672Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:54:55.668Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec6"
+  },
+  "id": "ITEM_0006",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8573",
+  "ancien_cab": "324530",
+  "nouveau_cab": "6120732413709",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.672Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:54:40.809Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec7"
+  },
+  "id": "ITEM_0007",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GM50",
+  "n_serie": "1Y006579",
+  "ancien_cab": "505286",
+  "nouveau_cab": "6120732413726",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.673Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:55:37.847Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-GM-50-Total-Station.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec8"
+  },
+  "id": "ITEM_0008",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GM50",
+  "n_serie": "1Y006421",
+  "ancien_cab": "505285",
+  "nouveau_cab": "6120732413727",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.673Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:55:52.267Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-GM-50-Total-Station.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ec9"
+  },
+  "id": "ITEM_0009",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8553",
+  "ancien_cab": "324539",
+  "nouveau_cab": "6120732413711",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.674Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:56:08.844Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eca"
+  },
+  "id": "ITEM_0010",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL5880",
+  "ancien_cab": "324542",
+  "nouveau_cab": "6120732413712",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.674Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:56:21.201Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ecb"
+  },
+  "id": "ITEM_0011",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL5882",
+  "ancien_cab": "324544",
+  "nouveau_cab": "6120732413713",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.675Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:56:31.762Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ecc"
+  },
+  "id": "ITEM_0012",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8555",
+  "ancien_cab": "324541",
+  "nouveau_cab": "6120732413714",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.675Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:56:41.830Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ecd"
+  },
+  "id": "ITEM_0013",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8554",
+  "ancien_cab": "324540",
+  "nouveau_cab": "6120732413715",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.676Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:56:59.968Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ece"
+  },
+  "id": "ITEM_0014",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8591",
+  "ancien_cab": "324536",
+  "nouveau_cab": "6120732413717",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.676Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:57:11.661Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ecf"
+  },
+  "id": "ITEM_0015",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8608",
+  "ancien_cab": "324537",
+  "nouveau_cab": "6120732413718",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.677Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:57:22.815Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed0"
+  },
+  "id": "ITEM_0016",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS-751N",
+  "n_serie": "7S0647",
+  "ancien_cab": "321371",
+  "nouveau_cab": "6120732413722",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.677Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:57:41.308Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "topcon-gts-751-long-range-1-total-station-500x500_1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed1"
+  },
+  "id": "ITEM_0017",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS-751N",
+  "n_serie": "7S0717",
+  "ancien_cab": "321369",
+  "nouveau_cab": "6120732413723",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.678Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:57:55.476Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "topcon-gts-751-long-range-1-total-station-500x500_1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed2"
+  },
+  "id": "ITEM_0018",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS-751N",
+  "n_serie": "7S0645",
+  "ancien_cab": "321368",
+  "nouveau_cab": "6120732413719",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.678Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:58:06.717Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "topcon-gts-751-long-range-1-total-station-500x500_1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed3"
+  },
+  "id": "ITEM_0019",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS-751N",
+  "n_serie": "7S0716",
+  "ancien_cab": "321370",
+  "nouveau_cab": "6120732413720",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.679Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:58:19.775Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "topcon-gts-751-long-range-1-total-station-500x500_1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed4"
+  },
+  "id": "ITEM_0020",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS-751N",
+  "n_serie": "7S0714",
+  "ancien_cab": "321372",
+  "nouveau_cab": "6120732413716",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.679Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:58:30.803Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "topcon-gts-751-long-range-1-total-station-500x500_1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed5"
+  },
+  "id": "ITEM_0021",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 223",
+  "n_serie": "UL0764",
+  "ancien_cab": "",
+  "nouveau_cab": "",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.680Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:58:47.433Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "gts223.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed6"
+  },
+  "id": "ITEM_0022",
+  "designation": "Station Totale",
+  "marque": "LEICA",
+  "modele": "TC407",
+  "n_serie": "",
+  "ancien_cab": "324523",
+  "nouveau_cab": "6120732413721",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.680Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:00:07.903Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "leica_tcr_407.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed7"
+  },
+  "id": "ITEM_0023",
+  "designation": "Station Totale",
+  "marque": "LEICA",
+  "modele": "TC407",
+  "n_serie": "",
+  "ancien_cab": "324526",
+  "nouveau_cab": "6120732413724",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.680Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:00:22.066Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "leica_tcr_407.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed8"
+  },
+  "id": "ITEM_0024",
+  "designation": "Station Totale",
+  "marque": "LEICA",
+  "modele": "TC307",
+  "n_serie": "",
+  "ancien_cab": "324522",
+  "nouveau_cab": "6120732413725",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.681Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:00:38.172Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "lieca-tc307.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ed9"
+  },
+  "id": "ITEM_0025",
+  "designation": "Station Totale",
+  "marque": "LEICA",
+  "modele": "TC1102",
+  "n_serie": "",
+  "ancien_cab": "",
+  "nouveau_cab": "",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.682Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:00:55.775Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "leica_tc1102_screen.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eda"
+  },
+  "id": "ITEM_0026",
+  "designation": "Station Totale",
+  "marque": "SATLAB",
+  "modele": "SLT12",
+  "n_serie": "VAWN16432177",
+  "ancien_cab": "SANS",
+  "nouveau_cab": "6120732427971",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.683Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:01:22.373Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "slt12.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708edb"
+  },
+  "id": "ITEM_0027",
+  "designation": "Station Totale",
+  "marque": "SATLAB",
+  "modele": "SLT12",
+  "n_serie": "VAWN16432231",
+  "ancien_cab": "SANS",
+  "nouveau_cab": "6120732427972",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.683Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:01:37.786Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "slt12.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708edc"
+  },
+  "id": "ITEM_0028",
+  "designation": "Station Totale",
+  "marque": "SATLAB",
+  "modele": "SLT12",
+  "n_serie": "VAWK16431835",
+  "ancien_cab": "SANS",
+  "nouveau_cab": "6120732427973",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.684Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:01:50.730Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "slt12.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708edd"
+  },
+  "id": "ITEM_0029",
+  "designation": "Station Totale",
+  "marque": "KOLIDA",
+  "modele": "KTS-582R",
+  "n_serie": "K31698",
+  "ancien_cab": "324525",
+  "nouveau_cab": "Donant ",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.684Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:02:21.193Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "kolida_kts582.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ede"
+  },
+  "id": "ITEM_0030",
+  "designation": "Station Totale Robotique",
+  "marque": "SPECTRA PRECISION ",
+  "modele": "FOCUS 35",
+  "n_serie": "",
+  "ancien_cab": "350222",
+  "nouveau_cab": "6120732413746",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.685Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:04:37.540Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "stationtotal_robotique_spectra.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708edf"
+  },
+  "id": "ITEM_0031",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL8529",
+  "ancien_cab": "234535",
+  "nouveau_cab": "6120732413703",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.685Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:02:48.083Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee0"
+  },
+  "id": "ITEM_0032",
+  "designation": "Station Totale",
+  "marque": "TOPCON",
+  "modele": "GTS 235N",
+  "n_serie": "OL7648",
+  "ancien_cab": "324543",
+  "nouveau_cab": "6120732713708",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.686Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:03:05.902Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "Topcon-Total-Station-GTS-235N.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee1"
+  },
+  "id": "ITEM_0033",
+  "designation": "CARNET DE TERRAIN HVR",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "505278",
+  "nouveau_cab": "6120731413752",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.687Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:34:36.210Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee2"
+  },
+  "id": "ITEM_0034",
+  "designation": "CARNET DE TERRAIN HVR",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "505275",
+  "nouveau_cab": "6120731413753",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.687Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:34:46.402Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee3"
+  },
+  "id": "ITEM_0035",
+  "designation": "CARNET DE TERRAIN HVR",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "505277",
+  "nouveau_cab": "6120731413754",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.688Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:34:56.266Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee4"
+  },
+  "id": "ITEM_0036",
+  "designation": "CARNET DE TERRAIN HVR",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "505276",
+  "nouveau_cab": "6120731413755",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.688Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:36:04.400Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee5"
+  },
+  "id": "ITEM_0037",
+  "designation": "CARNET DE TERRAIN HVR",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "505279",
+  "nouveau_cab": "6120731413756",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.688Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:36:13.593Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee6"
+  },
+  "id": "ITEM_0038",
+  "designation": "CARNET DE TERRAIN HV",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "384918",
+  "nouveau_cab": "6120731413758",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.689Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-12T18:22:53.097Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee7"
+  },
+  "id": "ITEM_0039",
+  "designation": "CARNET DE TERRAIN HV",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "384915",
+  "nouveau_cab": "6120731413760",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.689Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-10T18:51:38.403Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee8"
+  },
+  "id": "ITEM_0040",
+  "designation": "CARNET DE TERRAIN HV",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "384917",
+  "nouveau_cab": "6120731413762",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.690Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-10T18:39:37.088Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ee9"
+  },
+  "id": "ITEM_0041",
+  "designation": "CARNET DE TERRAIN HV",
+  "marque": "TOPCON",
+  "modele": "FC500",
+  "n_serie": "",
+  "ancien_cab": "384916",
+  "nouveau_cab": "6120731413764",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 4,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.690Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-11T18:05:36.824Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "carnet",
+  "image": "fc_500_topconcontrolleur_terrain.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eea"
+  },
+  "id": "ITEM_0042",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper VR",
+  "n_serie": "1491-12716",
+  "ancien_cab": "505274",
+  "nouveau_cab": "6120907213750",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.691Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:40:31.587Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hipervr-1000.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eeb"
+  },
+  "id": "ITEM_0043",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper VR",
+  "n_serie": "1491-12545",
+  "ancien_cab": "505270",
+  "nouveau_cab": "6120907213751",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.692Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:40:41.797Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hipervr-1000.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eec"
+  },
+  "id": "ITEM_0044",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper VR",
+  "n_serie": "1491-12702",
+  "ancien_cab": "505271",
+  "nouveau_cab": "6120907213751",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.692Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:40:53.657Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hipervr-1000.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eed"
+  },
+  "id": "ITEM_0045",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper VR",
+  "n_serie": "1491-12666",
+  "ancien_cab": "505272",
+  "nouveau_cab": "6120907213751",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.692Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:41:02.819Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hipervr-1000.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eee"
+  },
+  "id": "ITEM_0046",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper VR",
+  "n_serie": "1491-12712",
+  "ancien_cab": "505273",
+  "nouveau_cab": "6120907213751",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.693Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:41:12.028Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hipervr-1000.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eef"
+  },
+  "id": "ITEM_0047",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper V",
+  "n_serie": "1122-23727",
+  "ancien_cab": "384911",
+  "nouveau_cab": "6120907213757",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.693Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:37:16.945Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hvr.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef0"
+  },
+  "id": "ITEM_0048",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper V",
+  "n_serie": "1122-24530",
+  "ancien_cab": "384914",
+  "nouveau_cab": "6120907213759",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.694Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:37:28.753Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hvr.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef1"
+  },
+  "id": "ITEM_0049",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper V",
+  "n_serie": "1122-23710",
+  "ancien_cab": "384913",
+  "nouveau_cab": "6120907213761",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.696Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:37:38.236Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hvr.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef2"
+  },
+  "id": "ITEM_0050",
+  "designation": "GNSS/GPS",
+  "marque": "TOPCON",
+  "modele": "Hiper V",
+  "n_serie": "1122-23554",
+  "ancien_cab": "384912",
+  "nouveau_cab": "6120907213763",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.696Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:37:48.378Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "hvr.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef3"
+  },
+  "id": "ITEM_0051",
+  "designation": "GNSS/GPS",
+  "marque": "SPECTRA PRECISION ",
+  "modele": "SP60",
+  "n_serie": "5627550389",
+  "ancien_cab": "501010",
+  "nouveau_cab": "Sans ",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.697Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:38:21.042Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "sp60-product.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef4"
+  },
+  "id": "ITEM_0052",
+  "designation": "GNSS/GPS",
+  "marque": "SPECTRA PRECISION ",
+  "modele": "SP60",
+  "n_serie": "5625550058",
+  "ancien_cab": "501013",
+  "nouveau_cab": "Sans ",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.697Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:38:33.395Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "sp60-product.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef5"
+  },
+  "id": "ITEM_0053",
+  "designation": "GNSS/GPS",
+  "marque": "Géomax",
+  "modele": "Zenith 20",
+  "n_serie": "GMZ203720029",
+  "ancien_cab": "330703",
+  "nouveau_cab": "6120907213765",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.697Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:39:11.807Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "zenith-25-p-4.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef6"
+  },
+  "id": "ITEM_0054",
+  "designation": "GNSS/GPS",
+  "marque": "Géomax",
+  "modele": "Zenith 20",
+  "n_serie": "GMZ203720019",
+  "ancien_cab": "330702",
+  "nouveau_cab": "6120907213766",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.698Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:39:21.539Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "zenith-25-p-4.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef7"
+  },
+  "id": "ITEM_0055",
+  "designation": "GNSS/GPS",
+  "marque": "HI-TARGET",
+  "modele": "",
+  "n_serie": "1161-6328",
+  "ancien_cab": "383551",
+  "nouveau_cab": "6120732013767",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.699Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:40:20.694Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "Hi-Target-iRTK5-GNSS-RTK-System.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef8"
+  },
+  "id": "ITEM_0056",
+  "designation": "GNSS/GPS",
+  "marque": "HI-TARGET",
+  "modele": "",
+  "n_serie": "1161-7778",
+  "ancien_cab": "383553",
+  "nouveau_cab": "6120907213768",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.699Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:39:38.091Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "Hi-Target-iRTK5-GNSS-RTK-System.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708ef9"
+  },
+  "id": "ITEM_0057",
+  "designation": "GNSS/GPS",
+  "marque": "HI-TARGET",
+  "modele": "",
+  "n_serie": "1161-0969",
+  "ancien_cab": "383552",
+  "nouveau_cab": "6120907213769",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.700Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:39:46.727Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "Hi-Target-iRTK5-GNSS-RTK-System.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708efa"
+  },
+  "id": "ITEM_0058",
+  "designation": "GNSS/GPS",
+  "marque": "SPECTRA PRECISION ",
+  "modele": "SP60",
+  "n_serie": "à remplir",
+  "ancien_cab": "501012",
+  "nouveau_cab": "Sans ",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.700Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:40:02.232Z"
+  },
+  "category": "GNSS/GPS/CARNET",
+  "category_keyword": "gnss/gps",
+  "image": "sp60-product.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708efb"
+  },
+  "id": "ITEM_0059",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL 101C",
+  "n_serie": "",
+  "ancien_cab": "321360",
+  "nouveau_cab": "6120731713730",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.701Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:46:28.111Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "niveaunumerique_topcon_dl_101c_102c.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708efc"
+  },
+  "id": "ITEM_0060",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL 101C",
+  "n_serie": "",
+  "ancien_cab": "112206",
+  "nouveau_cab": "6120731613731",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.701Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-10T18:39:45.183Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "niveaunumerique_topcon_dl_101c_102c.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708efd"
+  },
+  "id": "ITEM_0061",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL 101C",
+  "n_serie": "",
+  "ancien_cab": "321361",
+  "nouveau_cab": "6120731613732",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.702Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:46:39.394Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "niveaunumerique_topcon_dl_101c_102c.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708efe"
+  },
+  "id": "ITEM_0062",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL502",
+  "n_serie": "",
+  "ancien_cab": "383555",
+  "nouveau_cab": "6120731613823",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.702Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:47:21.089Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "DL502.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708eff"
+  },
+  "id": "ITEM_0063",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL502",
+  "n_serie": "",
+  "ancien_cab": "384920",
+  "nouveau_cab": "6120731613824",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.703Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:47:33.797Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "DL502.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f00"
+  },
+  "id": "ITEM_0064",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL502",
+  "n_serie": "",
+  "ancien_cab": "383554",
+  "nouveau_cab": "6120731613825",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.703Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:47:43.192Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "DL502.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f01"
+  },
+  "id": "ITEM_0065",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL502",
+  "n_serie": "",
+  "ancien_cab": "383556",
+  "nouveau_cab": "6120731613826",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.704Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:47:51.131Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "DL502.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f02"
+  },
+  "id": "ITEM_0066",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL502",
+  "n_serie": "",
+  "ancien_cab": "384921",
+  "nouveau_cab": "6120731613827",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.704Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:47:59.655Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "DL502.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f03"
+  },
+  "id": "ITEM_0067",
+  "designation": "Niveau Numérique",
+  "marque": "TOPCON",
+  "modele": "DL503",
+  "n_serie": "",
+  "ancien_cab": "Sans",
+  "nouveau_cab": "6120731727967",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.705Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:48:09.917Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "dl503.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f04"
+  },
+  "id": "ITEM_0068",
+  "designation": "Niveau Numérique",
+  "marque": "LEICA",
+  "modele": "DNA 03",
+  "n_serie": "",
+  "ancien_cab": "230382",
+  "nouveau_cab": "",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.707Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:48:26.543Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "dna03.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f05"
+  },
+  "id": "ITEM_0069",
+  "designation": "Niveau Optique",
+  "marque": "TOPCON",
+  "modele": "AT-G2",
+  "n_serie": "6Z3374",
+  "ancien_cab": "321356",
+  "nouveau_cab": "6120731813733",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.707Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:49:24.913Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "Topcon-AT-G2-Automatic-Level.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f06"
+  },
+  "id": "ITEM_0070",
+  "designation": "Niveau Optique",
+  "marque": "TOPCON",
+  "modele": "AT-G2",
+  "n_serie": "6Z3369",
+  "ancien_cab": "321355",
+  "nouveau_cab": "6120731813734",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.707Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:49:38.378Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "Topcon-AT-G2-Automatic-Level.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f07"
+  },
+  "id": "ITEM_0071",
+  "designation": "Niveau Optique",
+  "marque": "TOPCON",
+  "modele": "AT-G2",
+  "n_serie": "6Z3372",
+  "ancien_cab": "321359",
+  "nouveau_cab": "6120731813735",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.708Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:49:50.150Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "Topcon-AT-G2-Automatic-Level.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f08"
+  },
+  "id": "ITEM_0072",
+  "designation": "Niveau Optique",
+  "marque": "TOPCON",
+  "modele": "AT-G2",
+  "n_serie": "6Z3385",
+  "ancien_cab": "321358",
+  "nouveau_cab": "6120731813736",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.708Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:50:01.692Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "Topcon-AT-G2-Automatic-Level.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f09"
+  },
+  "id": "ITEM_0073",
+  "designation": "Niveau Optique",
+  "marque": "TOPCON",
+  "modele": "AT-G2",
+  "n_serie": "6Z3375",
+  "ancien_cab": "321357",
+  "nouveau_cab": "6120731813737",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.709Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:50:14.814Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "Topcon-AT-G2-Automatic-Level.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0a"
+  },
+  "id": "ITEM_0074",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "184298",
+  "ancien_cab": "112103",
+  "nouveau_cab": "6120731813738",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.710Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:50:44.522Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0b"
+  },
+  "id": "ITEM_0075",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "211126",
+  "ancien_cab": "112101",
+  "nouveau_cab": "6120731813739",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.710Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:51:26.492Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0c"
+  },
+  "id": "ITEM_0076",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "",
+  "ancien_cab": "112099",
+  "nouveau_cab": "6120731813740",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.710Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:51:40.403Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0d"
+  },
+  "id": "ITEM_0077",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "194544",
+  "ancien_cab": "112107",
+  "nouveau_cab": "6120731813741",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.711Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:52:04.883Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0e"
+  },
+  "id": "ITEM_0078",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "211451",
+  "ancien_cab": "112104",
+  "nouveau_cab": "6120731813742",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.711Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:52:26.578Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f0f"
+  },
+  "id": "ITEM_0079",
+  "designation": "Niveau Optique",
+  "marque": "WILD",
+  "modele": "N2",
+  "n_serie": "211336",
+  "ancien_cab": "112106",
+  "nouveau_cab": "6120731813743",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.712Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:52:54.944Z"
+  },
+  "category": "Niveau Numerique/Optique",
+  "category_keyword": "niveau",
+  "image": "wild_n2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f10"
+  },
+  "id": "ITEM_0080",
+  "designation": "SCANNER LASER",
+  "marque": "LEICA",
+  "modele": "P40",
+  "n_serie": "1852283",
+  "ancien_cab": "503064",
+  "nouveau_cab": "6120732313745",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.712Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T19:01:12.885Z"
+  },
+  "category": "Scanner Laser",
+  "category_keyword": "scanner",
+  "image": "leica_scanstation_p30_-_p40_2.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f11"
+  },
+  "id": "ITEM_0081",
+  "designation": "Drone à voilure fixe ",
+  "marque": "EBEE-X",
+  "modele": "SENSEFLY",
+  "n_serie": "1587A051000ZZB4",
+  "ancien_cab": "504393",
+  "nouveau_cab": "6120710513744",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.712Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-12T18:24:31.975Z"
+  },
+  "category": "Drone a voilure Fixe",
+  "category_keyword": "drone",
+  "image": "drone_a_voilure.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f12"
+  },
+  "id": "ITEM_0082",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380552",
+  "nouveau_cab": "6120731413809",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.713Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:40.490Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f13"
+  },
+  "id": "ITEM_0083",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380551",
+  "nouveau_cab": "6120731413810",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.713Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:47.615Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f14"
+  },
+  "id": "ITEM_0084",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327028",
+  "nouveau_cab": "6120731413811",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.714Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:54.642Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f15"
+  },
+  "id": "ITEM_0085",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327026",
+  "nouveau_cab": "6120731413812",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.714Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:03.435Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f16"
+  },
+  "id": "ITEM_0086",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327027",
+  "nouveau_cab": "6120731413813",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.715Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:10.717Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f17"
+  },
+  "id": "ITEM_0087",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327025",
+  "nouveau_cab": "6120731413814",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.715Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:19.284Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f18"
+  },
+  "id": "ITEM_0088",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380550",
+  "nouveau_cab": "6120731413815",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.716Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:26.972Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f19"
+  },
+  "id": "ITEM_0089",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380553",
+  "nouveau_cab": "6120731413816",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.716Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:34.507Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1a"
+  },
+  "id": "ITEM_0090",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380549",
+  "nouveau_cab": "6120731413817",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.716Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:43.036Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1b"
+  },
+  "id": "ITEM_0091",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380565",
+  "nouveau_cab": "6120731413818",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.717Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:52.583Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1c"
+  },
+  "id": "ITEM_0092",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327029",
+  "nouveau_cab": "6120731413819",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.717Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:34:00.831Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1d"
+  },
+  "id": "ITEM_0093",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380573",
+  "nouveau_cab": "6120731413830",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.718Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:34:10.441Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1e"
+  },
+  "id": "ITEM_0094",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE062",
+  "nouveau_cab": "6120731413923",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.718Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:34:20.689Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f1f"
+  },
+  "id": "ITEM_0095",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE063",
+  "nouveau_cab": "6120731413924",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.719Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:34:29.573Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f20"
+  },
+  "id": "ITEM_0096",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE064",
+  "nouveau_cab": "6120731413925",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.719Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:34:40.831Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f21"
+  },
+  "id": "ITEM_0097",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE065",
+  "nouveau_cab": "6120731413926",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.720Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:35:17.274Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f22"
+  },
+  "id": "ITEM_0098",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE066",
+  "nouveau_cab": "6120731413927",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.720Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:35:34.121Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f23"
+  },
+  "id": "ITEM_0099",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE067",
+  "nouveau_cab": "6120731413928",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.720Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:01.474Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f24"
+  },
+  "id": "ITEM_0100",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE068",
+  "nouveau_cab": "6120731413929",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.721Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:36:16.580Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f25"
+  },
+  "id": "ITEM_0101",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE069",
+  "nouveau_cab": "6120731413930",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.721Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:36:26.775Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f26"
+  },
+  "id": "ITEM_0102",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE070",
+  "nouveau_cab": "6120731413931",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.722Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:08.934Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f27"
+  },
+  "id": "ITEM_0103",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE071",
+  "nouveau_cab": "6120731413932",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.723Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:35:54.976Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f28"
+  },
+  "id": "ITEM_0104",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE072",
+  "nouveau_cab": "6120731413933",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.723Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:35:44.264Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f29"
+  },
+  "id": "ITEM_0105",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE073",
+  "nouveau_cab": "6120731413934",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.724Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:53.103Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2a"
+  },
+  "id": "ITEM_0106",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE074",
+  "nouveau_cab": "6120731413935",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.724Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-10T18:39:51.437Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2b"
+  },
+  "id": "ITEM_0107",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE075",
+  "nouveau_cab": "6120731413936",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.724Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:29:27.401Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2c"
+  },
+  "id": "ITEM_0108",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE076",
+  "nouveau_cab": "6120731413937",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.725Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:29:34.904Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2d"
+  },
+  "id": "ITEM_0109",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE077",
+  "nouveau_cab": "6120731413938",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.725Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:29:50.403Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2e"
+  },
+  "id": "ITEM_0110",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE078",
+  "nouveau_cab": "6120731413939",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.727Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:28.835Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f2f"
+  },
+  "id": "ITEM_0111",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE079",
+  "nouveau_cab": "6120731413940",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.727Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:21.234Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f30"
+  },
+  "id": "ITEM_0112",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE080",
+  "nouveau_cab": "6120731413941",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.727Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:29:42.987Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f31"
+  },
+  "id": "ITEM_0113",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE081",
+  "nouveau_cab": "6120731413942",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.728Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:36.252Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f32"
+  },
+  "id": "ITEM_0114",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE082",
+  "nouveau_cab": "6120731413943",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.728Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:50.326Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f33"
+  },
+  "id": "ITEM_0115",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE083",
+  "nouveau_cab": "6120731413944",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.729Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:58.418Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f34"
+  },
+  "id": "ITEM_0116",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE084",
+  "nouveau_cab": "6120731413945",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.730Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:36:07.079Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f35"
+  },
+  "id": "ITEM_0117",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE085",
+  "nouveau_cab": "6120731413946",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.730Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:05.777Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f36"
+  },
+  "id": "ITEM_0118",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE086",
+  "nouveau_cab": "6120731413947",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.731Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:21.686Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f37"
+  },
+  "id": "ITEM_0119",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE087",
+  "nouveau_cab": "6120731413948",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.731Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:30:43.446Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f38"
+  },
+  "id": "ITEM_0120",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE088",
+  "nouveau_cab": "6120731413949",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.731Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:13.696Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f39"
+  },
+  "id": "ITEM_0121",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE089",
+  "nouveau_cab": "6120731413950",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.733Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:42.949Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3a"
+  },
+  "id": "ITEM_0122",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE090",
+  "nouveau_cab": "6120731413951",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.734Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:32:34.854Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3b"
+  },
+  "id": "ITEM_0123",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380572",
+  "nouveau_cab": "6120731413831",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.734Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:31:29.334Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3c"
+  },
+  "id": "ITEM_0124",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380571",
+  "nouveau_cab": "6120731413832",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.735Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:16.152Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3d"
+  },
+  "id": "ITEM_0125",
+  "designation": "Mire de Nivelement",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380570",
+  "nouveau_cab": "6120731413833",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.736Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:33:25.099Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "mire",
+  "image": "mire-invar-2m.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3e"
+  },
+  "id": "ITEM_0126",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320907",
+  "nouveau_cab": "6120732613701",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.736Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.712Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f3f"
+  },
+  "id": "ITEM_0127",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380547",
+  "nouveau_cab": "6120732613770",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.737Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.714Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f40"
+  },
+  "id": "ITEM_0128",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320910",
+  "nouveau_cab": "6120732613771",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.737Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.716Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f41"
+  },
+  "id": "ITEM_0129",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320905",
+  "nouveau_cab": "6120732613772",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.737Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.717Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f42"
+  },
+  "id": "ITEM_0130",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380695",
+  "nouveau_cab": "6120732613773",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.739Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.719Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f43"
+  },
+  "id": "ITEM_0131",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320897",
+  "nouveau_cab": "6120732613774",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.739Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.721Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f44"
+  },
+  "id": "ITEM_0132",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320908",
+  "nouveau_cab": "6120732613775",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.740Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.722Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f45"
+  },
+  "id": "ITEM_0133",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320909",
+  "nouveau_cab": "6120732613776",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.740Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.724Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f46"
+  },
+  "id": "ITEM_0134",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320903",
+  "nouveau_cab": "6120732613777",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.741Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.725Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f47"
+  },
+  "id": "ITEM_0135",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320902",
+  "nouveau_cab": "6120732613778",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.742Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.727Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f48"
+  },
+  "id": "ITEM_0136",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "GST20",
+  "n_serie": "",
+  "ancien_cab": "327836",
+  "nouveau_cab": "6120732613779",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.743Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.728Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f49"
+  },
+  "id": "ITEM_0137",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320912",
+  "nouveau_cab": "6120732613780",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.744Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.730Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4a"
+  },
+  "id": "ITEM_0138",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320914",
+  "nouveau_cab": "6120732613781",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.745Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.731Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4b"
+  },
+  "id": "ITEM_0139",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320921",
+  "nouveau_cab": "6120732613782",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.746Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.733Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4c"
+  },
+  "id": "ITEM_0140",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320904",
+  "nouveau_cab": "6120732613783",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.747Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.734Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4d"
+  },
+  "id": "ITEM_0141",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE0015",
+  "nouveau_cab": "6120732613784",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.748Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.736Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4e"
+  },
+  "id": "ITEM_0142",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE016",
+  "nouveau_cab": "6120732613785",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.748Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.737Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f4f"
+  },
+  "id": "ITEM_0143",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380565",
+  "nouveau_cab": "6120732613786",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.749Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.739Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f50"
+  },
+  "id": "ITEM_0144",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380561",
+  "nouveau_cab": "6120732613787",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.750Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.740Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f51"
+  },
+  "id": "ITEM_0145",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380564",
+  "nouveau_cab": "6120732613788",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.750Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.742Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f52"
+  },
+  "id": "ITEM_0146",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380562",
+  "nouveau_cab": "6120732613789",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.751Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.744Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f53"
+  },
+  "id": "ITEM_0147",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380560",
+  "nouveau_cab": "6120732613790",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.752Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.746Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f54"
+  },
+  "id": "ITEM_0148",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380559",
+  "nouveau_cab": "6120732613791",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.752Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.747Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f55"
+  },
+  "id": "ITEM_0149",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380563",
+  "nouveau_cab": "6120732613792",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.753Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.749Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f56"
+  },
+  "id": "ITEM_0150",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327837",
+  "nouveau_cab": "6120732613793",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.754Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.751Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f57"
+  },
+  "id": "ITEM_0151",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "112161",
+  "nouveau_cab": "6120732613794",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.755Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.753Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f58"
+  },
+  "id": "ITEM_0152",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "127828",
+  "nouveau_cab": "6120732613795",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.756Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.755Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f59"
+  },
+  "id": "ITEM_0153",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "112174",
+  "nouveau_cab": "6120732613796",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.757Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.756Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5a"
+  },
+  "id": "ITEM_0154",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380558",
+  "nouveau_cab": "6120732613797",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.757Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.757Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5b"
+  },
+  "id": "ITEM_0155",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327833",
+  "nouveau_cab": "6120732613798",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.759Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.759Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5c"
+  },
+  "id": "ITEM_0156",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327830",
+  "nouveau_cab": "6120732613799",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.760Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.760Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5d"
+  },
+  "id": "ITEM_0157",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327832",
+  "nouveau_cab": "6120732613800",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.760Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.762Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5e"
+  },
+  "id": "ITEM_0158",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320895",
+  "nouveau_cab": "6120732613801",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.761Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.763Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f5f"
+  },
+  "id": "ITEM_0159",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327835",
+  "nouveau_cab": "6120732613802",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.762Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.765Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f60"
+  },
+  "id": "ITEM_0160",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320896",
+  "nouveau_cab": "6120732613803",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.762Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.766Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f61"
+  },
+  "id": "ITEM_0161",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320922",
+  "nouveau_cab": "6120732613804",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.763Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.767Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f62"
+  },
+  "id": "ITEM_0162",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380557",
+  "nouveau_cab": "6120732613805",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.765Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.768Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f63"
+  },
+  "id": "ITEM_0163",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327826",
+  "nouveau_cab": "6120732613806",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.765Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.770Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f64"
+  },
+  "id": "ITEM_0164",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327827",
+  "nouveau_cab": "6120732613807",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.766Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.771Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f65"
+  },
+  "id": "ITEM_0165",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327825",
+  "nouveau_cab": "6120732613808",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.767Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:23:47.761Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f66"
+  },
+  "id": "ITEM_0166",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "TELESCOPEGRE",
+  "n_serie": "",
+  "ancien_cab": "320916",
+  "nouveau_cab": "6120732613820",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.767Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.774Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f67"
+  },
+  "id": "ITEM_0167",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327838",
+  "nouveau_cab": "6120732613821",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.769Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.776Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f68"
+  },
+  "id": "ITEM_0168",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "380548",
+  "nouveau_cab": "6120732613822",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.770Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.777Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f69"
+  },
+  "id": "ITEM_0169",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327829",
+  "nouveau_cab": "6120732613828",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.770Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.779Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6a"
+  },
+  "id": "ITEM_0170",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "327842",
+  "nouveau_cab": "6120732613829",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.771Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.781Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6b"
+  },
+  "id": "ITEM_0171",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE022",
+  "nouveau_cab": "6120732613883",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.771Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.782Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6c"
+  },
+  "id": "ITEM_0172",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE023",
+  "nouveau_cab": "6120732613884",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.773Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.784Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6d"
+  },
+  "id": "ITEM_0173",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE024",
+  "nouveau_cab": "6120732613885",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.774Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.785Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6e"
+  },
+  "id": "ITEM_0174",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE025",
+  "nouveau_cab": "6120732613886",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.774Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.787Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f6f"
+  },
+  "id": "ITEM_0175",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE026",
+  "nouveau_cab": "6120732613887",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.775Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.789Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f70"
+  },
+  "id": "ITEM_0176",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE027",
+  "nouveau_cab": "6120732613888",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.776Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.790Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f71"
+  },
+  "id": "ITEM_0177",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE028",
+  "nouveau_cab": "6120732613889",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.777Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.792Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f72"
+  },
+  "id": "ITEM_0178",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE029",
+  "nouveau_cab": "6120732613890",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.777Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.793Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f73"
+  },
+  "id": "ITEM_0179",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE030",
+  "nouveau_cab": "6120732613891",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.778Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.797Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f74"
+  },
+  "id": "ITEM_0180",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE031",
+  "nouveau_cab": "6120732613892",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.778Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.799Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f75"
+  },
+  "id": "ITEM_0181",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE032",
+  "nouveau_cab": "6120732613893",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.779Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.800Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f76"
+  },
+  "id": "ITEM_0182",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE033",
+  "nouveau_cab": "6120732613894",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.780Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.802Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f77"
+  },
+  "id": "ITEM_0183",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE034",
+  "nouveau_cab": "6120732613895",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.780Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.803Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f78"
+  },
+  "id": "ITEM_0184",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE035",
+  "nouveau_cab": "6120732613896",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.781Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.804Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f79"
+  },
+  "id": "ITEM_0185",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE036",
+  "nouveau_cab": "6120732613897",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.781Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.806Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7a"
+  },
+  "id": "ITEM_0186",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE037",
+  "nouveau_cab": "6120732613898",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.783Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.807Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7b"
+  },
+  "id": "ITEM_0187",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE038",
+  "nouveau_cab": "6120732613899",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.784Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.809Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7c"
+  },
+  "id": "ITEM_0188",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE039",
+  "nouveau_cab": "6120732613900",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.784Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.810Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7d"
+  },
+  "id": "ITEM_0189",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE040",
+  "nouveau_cab": "6120732613901",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.785Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.812Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7e"
+  },
+  "id": "ITEM_0190",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE041",
+  "nouveau_cab": "6120732613902",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.786Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.813Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f7f"
+  },
+  "id": "ITEM_0191",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE042",
+  "nouveau_cab": "6120732613903",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.787Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.814Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f80"
+  },
+  "id": "ITEM_0192",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE043",
+  "nouveau_cab": "6120732613904",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.788Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.816Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f81"
+  },
+  "id": "ITEM_0193",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE044",
+  "nouveau_cab": "6120732613905",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.788Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.817Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f82"
+  },
+  "id": "ITEM_0194",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE045",
+  "nouveau_cab": "6120732613906",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.789Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.818Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f83"
+  },
+  "id": "ITEM_0195",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE046",
+  "nouveau_cab": "6120732613907",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.790Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.820Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f84"
+  },
+  "id": "ITEM_0196",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE047",
+  "nouveau_cab": "6120732613908",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.790Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.822Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f85"
+  },
+  "id": "ITEM_0197",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE048",
+  "nouveau_cab": "6120732613909",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.791Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.823Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f86"
+  },
+  "id": "ITEM_0198",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE049",
+  "nouveau_cab": "6120732613910",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.791Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.824Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f87"
+  },
+  "id": "ITEM_0199",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE050",
+  "nouveau_cab": "6120732613911",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.792Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.826Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f88"
+  },
+  "id": "ITEM_0200",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE051",
+  "nouveau_cab": "6120732613912",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.793Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.827Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f89"
+  },
+  "id": "ITEM_0201",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE052",
+  "nouveau_cab": "6120732613913",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.794Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.829Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8a"
+  },
+  "id": "ITEM_0202",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE053",
+  "nouveau_cab": "6120732613914",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.794Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.830Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8b"
+  },
+  "id": "ITEM_0203",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE054",
+  "nouveau_cab": "6120732613915",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.795Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.832Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8c"
+  },
+  "id": "ITEM_0204",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE055",
+  "nouveau_cab": "6120732613916",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.796Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.833Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8d"
+  },
+  "id": "ITEM_0205",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE056",
+  "nouveau_cab": "6120732613917",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.796Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.835Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8e"
+  },
+  "id": "ITEM_0206",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE057",
+  "nouveau_cab": "6120732613918",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.797Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.836Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f8f"
+  },
+  "id": "ITEM_0207",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE058",
+  "nouveau_cab": "6120732613919",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.798Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.837Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f90"
+  },
+  "id": "ITEM_0208",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE059",
+  "nouveau_cab": "6120732613920",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.798Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.839Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f91"
+  },
+  "id": "ITEM_0209",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE060",
+  "nouveau_cab": "6120732613921",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.799Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.840Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f92"
+  },
+  "id": "ITEM_0210",
+  "designation": "Trépied",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AE061",
+  "nouveau_cab": "6120732613922",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.800Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.841Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "trépied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f93"
+  },
+  "id": "ITEM_0211",
+  "designation": "TRIPIED",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z002",
+  "nouveau_cab": "6120732627968",
+  "status": "Disponible",
+  "date_inv": "2025-06-02 00:00:00",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "image": "tripod_red_black.jpg",
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.801Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-07T21:09:55.843Z"
+  },
+  "category": "Mire de nivelement/Tripier",
+  "category_keyword": "tripied"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f94"
+  },
+  "id": "ITEM_0212",
+  "designation": "ECRAN ",
+  "marque": "DELL",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "AB001",
+  "nouveau_cab": "6120401714203",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.801Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-11T18:50:09.922Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecran_dell.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f95"
+  },
+  "id": "ITEM_0213",
+  "designation": "ECRAN ",
+  "marque": " HP",
+  "modele": "L1710",
+  "n_serie": "",
+  "ancien_cab": "A025",
+  "nouveau_cab": "6110401711609",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.802Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-11T17:05:33.268Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "hp_l1710.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f96"
+  },
+  "id": "ITEM_0214",
+  "designation": "ECRAN ",
+  "marque": "HP",
+  "modele": "VS19",
+  "n_serie": "",
+  "ancien_cab": "232085",
+  "nouveau_cab": "6110401711610",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "LCD - *",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.802Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:42:27.291Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "hp_sv19.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f97"
+  },
+  "id": "ITEM_0215",
+  "designation": "ECRAN ",
+  "marque": "DELL",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "381014",
+  "nouveau_cab": "6110401711627",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "NEUF",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.803Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:42:37.384Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecran_dell.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f98"
+  },
+  "id": "ITEM_0216",
+  "designation": "ECRAN LCD",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z004",
+  "nouveau_cab": "6120401727970",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.804Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:43:13.469Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecranLCD.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f99"
+  },
+  "id": "ITEM_0217",
+  "designation": "ECRAN LCD",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z011",
+  "nouveau_cab": "6120401727977",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.804Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:43:21.255Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecranLCD.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9a"
+  },
+  "id": "ITEM_0218",
+  "designation": "ECRAN LCD",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z012",
+  "nouveau_cab": "6120401727978",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.805Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:43:28.272Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecranLCD.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9b"
+  },
+  "id": "ITEM_0219",
+  "designation": "ECRAN LCD",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z013",
+  "nouveau_cab": "6120401727979",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.805Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:43:36.448Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "ecran",
+  "image": "ecranLCD.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9c"
+  },
+  "id": "ITEM_0220",
+  "designation": "ESERVEUR HPE",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "371181",
+  "nouveau_cab": "6110933511611",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.806Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:43:47.056Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "eserveur",
+  "image": "serveur_hpe.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9d"
+  },
+  "id": "ITEM_0221",
+  "designation": "IMPRIMANTE  ",
+  "marque": "HP LASERJET PRO COLOR",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "384758",
+  "nouveau_cab": "6110402811600",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.806Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:44:01.959Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "imprimante",
+  "image": "hp-color-laserjet-pro-m477fdn.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9e"
+  },
+  "id": "ITEM_0222",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "384755",
+  "nouveau_cab": "6110404611605",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.807Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:39:35.234Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708f9f"
+  },
+  "id": "ITEM_0223",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "384754",
+  "nouveau_cab": "6110404611606",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.808Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:40:09.418Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa0"
+  },
+  "id": "ITEM_0224",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "232089",
+  "nouveau_cab": "6110404611616",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.808Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:40:38.514Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa1"
+  },
+  "id": "ITEM_0225",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "324431",
+  "nouveau_cab": "6110404611618",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.809Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:42:09.281Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa2"
+  },
+  "id": "ITEM_0226",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "A026",
+  "nouveau_cab": "6110404611619",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.810Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:40:01.065Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa3"
+  },
+  "id": "ITEM_0227",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "A027",
+  "nouveau_cab": "6110404611620",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.810Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:42:01.062Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa4"
+  },
+  "id": "ITEM_0228",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "DELL",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "330727",
+  "nouveau_cab": "6110404611625",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.811Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:41:49.711Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa5"
+  },
+  "id": "ITEM_0229",
+  "designation": "MICRO ORDINATEUR",
+  "marque": "DELL",
+  "modele": "OPTIPLEX 360",
+  "n_serie": "",
+  "ancien_cab": "321690",
+  "nouveau_cab": "6110404611626",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "UNITES DE TRAITEMENT - 8CRHK4J",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.812Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T20:39:52.440Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "micro",
+  "image": "delloptiplex360.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa6"
+  },
+  "id": "ITEM_0230",
+  "designation": "ONDULEUR",
+  "marque": "APC",
+  "modele": "500 VA",
+  "n_serie": "",
+  "ancien_cab": "381010",
+  "nouveau_cab": "6110909011617",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.812Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:45:07.921Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "onduleur",
+  "image": "onduleur-line-interactive-apc-back-ups-500va-BX500CI.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa7"
+  },
+  "id": "ITEM_0231",
+  "designation": "PC PORTABLE ",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "384757",
+  "nouveau_cab": "6110404711601",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.813Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:45:20.094Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "pc",
+  "image": "pcportable.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa8"
+  },
+  "id": "ITEM_0232",
+  "designation": "PHOTOCOPIEUR",
+  "marque": "KONIKA MINOLTA BUSNESS HUB 284 E",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "395342",
+  "nouveau_cab": "6110900811599",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.814Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:45:36.982Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "photocopieur",
+  "image": "bizhub-284e_medium.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fa9"
+  },
+  "id": "ITEM_0233",
+  "designation": "POINT D ACCEE WIFFI",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "502900",
+  "nouveau_cab": "6110405011612",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.815Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T18:45:46.056Z"
+  },
+  "category": "Equipment informatique",
+  "category_keyword": "point",
+  "image": "Asus-RT-AX86U.png"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708faa"
+  },
+  "id": "ITEM_0234",
+  "designation": "STATION DE TRAITEMENT",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z003",
+  "nouveau_cab": "6120405627969",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.815Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:05:42.698Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "station-totale-geomax-zomm10.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fab"
+  },
+  "id": "ITEM_0235",
+  "designation": "STATION DE TRAITEMENT",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z008",
+  "nouveau_cab": "6120405627974",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.816Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:05:53.656Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "station-totale-geomax-zomm10.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fac"
+  },
+  "id": "ITEM_0236",
+  "designation": "STATION DE TRAITEMENT",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z009",
+  "nouveau_cab": "6120405627975",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.817Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:06:04.717Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "station-totale-geomax-zomm10.jpg"
+},
+{
+  "_id": {
+    "$oid": "68925db18f64fdea48708fad"
+  },
+  "id": "ITEM_0237",
+  "designation": "STATION DE TRAITEMENT",
+  "marque": "",
+  "modele": "",
+  "n_serie": "",
+  "ancien_cab": "Z010",
+  "nouveau_cab": "6120405627976",
+  "status": "Disponible",
+  "date_inv": "",
+  "description": "",
+  "quantite_totale": 1,
+  "quantite_cassée": 0,
+  "quantite_en_réparation": 0,
+  "quantite_disponible": 1,
+  "created_at": {
+    "$date": "2025-08-05T20:38:25.817Z"
+  },
+  "updated_at": {
+    "$date": "2025-08-09T21:05:31.905Z"
+  },
+  "category": "Station Totale",
+  "category_keyword": "station",
+  "image": "station-totale-geomax-zomm10.jpg"
+}]

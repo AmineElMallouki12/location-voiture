@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block title %}Demandes d'utilisation - Staff{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold mb-3">
+        <i class="fas fa-clipboard-list me-2"></i>Demandes d'utilisation
+      </h2>
+      <p class="text-muted">Gérer les demandes d'utilisation des utilisateurs.</p>
+    </div>
+  </div>
+
+  <!-- Requests Table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">
+            <i class="fas fa-list me-2"></i>Toutes les demandes
+            <span class="badge bg-primary ms-2">{{ requests|length }}</span>
+          </h5>
+          <div>
+            <a href="{{ url_for('staff_equipment_used') }}" class="btn btn-outline-info btn-sm me-2">
+              <i class="fas fa-box-open me-2"></i>Matériel utilisé
+            </a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm">
+              <i class="fas fa-arrow-left me-2"></i>Retour au tableau de bord
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Matériel</th>
+                  <th>Quantité</th>
+                  <th>Date de début</th>
+                  <th>Date de fin</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if requests %}
+                {% for reservation in requests %}
+                <tr>
+                  <td>
+                    <strong>{{ reservation.user_name }}</strong>
+                  </td>
+                  <td>
+                    <strong>{{ reservation.equipment_name }}</strong>
+                  </td>
+                  <td>
+                    {% if reservation.quantity %}
+                      <span class="badge bg-secondary">{{ reservation.quantity }} unité(s)</span>
+                    {% else %}
+                      <span class="badge bg-secondary">1 unité(s)</span>
+                    {% endif %}
+                  </td>
+                  <td>{{ reservation.start_date }}</td>
+                  <td>{{ reservation.end_date }}</td>
+                  <td>
+                    {% if reservation.status == 'En attente' %}
+                      <span class="badge bg-warning text-dark">En attente</span>
+                    {% elif reservation.status == 'Approved' %}
+                      <span class="badge bg-success">Approuvée</span>
+                    {% elif reservation.status == 'Rejected' %}
+                      <span class="badge bg-danger">Rejetée</span>
+                    {% else %}
+                      <span class="badge bg-secondary">{{ reservation.status }}</span>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if reservation.status == 'En attente' %}
+                      {% if current_user.role in ['admin', 'technicien laboratoire'] %}
+                        <div class="btn-group" role="group">
+                          <a href="{{ url_for('approve_request', req_id=reservation.id) }}" 
+                             class="btn btn-sm btn-outline-success" 
+                             onclick="return confirm('Approuver cette demande d\'utilisation ?')">
+                            <i class="fas fa-check"></i> Approuver
+                          </a>
+                          <a href="{{ url_for('reject_request', req_id=reservation.id) }}" 
+                             class="btn btn-sm btn-outline-danger" 
+                             onclick="return confirm('Rejeter cette demande d\'utilisation ?')">
+                            <i class="fas fa-times"></i> Rejeter
+                          </a>
+                        </div>
+                      {% elif current_user.role == 'professeur' %}
+                        {% set requester = users|selectattr('username', 'equalto', reservation.user_name)|first %}
+                        {% if requester and requester.role == 'etudiant' %}
+                          <div class="btn-group" role="group">
+                            <a href="{{ url_for('approve_request', req_id=reservation.id) }}" 
+                               class="btn btn-sm btn-outline-success" 
+                               onclick="return confirm('Approuver cette demande d\'utilisation ?')">
+                              <i class="fas fa-check"></i> Approuver
+                            </a>
+                            <a href="{{ url_for('reject_request', req_id=reservation.id) }}" 
+                               class="btn btn-sm btn-outline-danger" 
+                               onclick="return confirm('Rejeter cette demande d\'utilisation ?')">
+                              <i class="fas fa-times"></i> Rejeter
+                            </a>
+                          </div>
+                        {% else %}
+                          <span class="text-muted">Réservé aux étudiants</span>
+                        {% endif %}
+                      {% else %}
+                        <span class="text-muted">Pas d'autorisation</span>
+                      {% endif %}
+                    {% elif reservation.status == 'Approved' %}
+                      <span class="text-success">
+                        <i class="fas fa-check-circle"></i> Approuvée
+                      </span>
+                    {% elif reservation.status == 'Rejected' %}
+                      <span class="text-danger">
+                        <i class="fas fa-times-circle"></i> Rejetée
+                      </span>
+                    {% else %}
+                      <span class="text-muted">{{ reservation.status }}</span>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                  <td colspan="7" class="text-center text-muted py-5">
+                    <i class="fas fa-inbox fa-3x mb-3"></i>
+                    <br>
+                    <h5>Aucune demande trouvée</h5>
+                    <p>Toutes les demandes ont été traitées.</p>
+                  </td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

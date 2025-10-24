@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold mb-3">
+        <i class="fas fa-tachometer-alt me-2"></i>Tableau de bord
+      </h2>
+      <p class="text-muted">Bienvenue, {{ current_user.username }} ! Voici un aperçu de votre inventaire.</p>
+    </div>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="row mb-4">
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-available">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ stats.available }}</div>
+          <div class="stats-label">Éléments disponibles</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-unavailable">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ stats.unavailable }}</div>
+          <div class="stats-label">Éléments indisponibles</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-repair">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ stats.repair }}</div>
+          <div class="stats-label">Nécessite une réparation</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ stats.total }}</div>
+          <div class="stats-label">Total des éléments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-bolt me-2"></i>Actions rapides
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('add_item') }}" class="btn btn-primary w-100">
+                <i class="fas fa-plus me-2"></i>Ajouter un équipement
+              </a>
+            </div>
+            {% endif %}
+            {% if current_user.role in ['professeur', 'etudiant'] %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('reservations') }}" class="btn btn-success w-100">
+                <i class="fas fa-calendar-plus me-2"></i>Faire une réservation
+              </a>
+            </div>
+            {% endif %}
+            {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire', 'professeur'] %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('generate_report') }}" class="btn btn-info w-100">
+                <i class="fas fa-chart-bar me-2"></i>Générer un rapport
+              </a>
+            </div>
+            {% endif %}
+            {% if current_user.role in ['admin', 'technicien laboratoire'] %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('staff_requests') }}" class="btn btn-warning w-100">
+                <i class="fas fa-clipboard-list me-2"></i>Demandes d'utilisation
+              </a>
+            </div>
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('staff_equipment_used') }}" class="btn btn-info w-100">
+                <i class="fas fa-box-open me-2"></i>Matériel utilisé
+              </a>
+            </div>
+            {% endif %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('inventory') }}" class="btn btn-secondary w-100">
+                <i class="fas fa-list me-2"></i>Voir tous les éléments
+              </a>
+            </div>
+            {% if current_user.role == 'admin' %}
+            <div class="col-md-3 mb-2">
+              <a href="{{ url_for('admin_staff') }}" class="btn btn-warning w-100">
+                <i class="fas fa-users me-2"></i>Manage Staff
+              </a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Items Table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">
+            <i class="fas fa-clock me-2"></i>Éléments récents
+          </h5>
+          <div class="d-flex gap-2">
+            <div class="input-group" style="width: 200px;">
+              <span class="input-group-text">
+                <i class="fas fa-search"></i>
+              </span>
+              <input type="text" id="searchInput" class="form-control" placeholder="Rechercher..." onkeyup="searchItems()">
+            </div>
+            <select class="form-select" style="width: 150px;" onchange="filterItems(this.value)">
+              <option value="all">Tous les éléments</option>
+              <option value="available">Disponibles</option>
+              <option value="unavailable">Indisponibles</option>
+              <option value="broken">Cassés</option>
+              <option value="repair">En réparation</option>
+              <option value="needs_repair">Nécessite réparation</option>
+            </select>
+            <a href="{{ url_for('inventory') }}" class="btn btn-sm btn-outline-primary">
+              Voir tout
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>ID</th>
+                  <th>Désignation</th>
+                  <th>Marque</th>
+                  <th>Modèle</th>
+                  <th>N° Série</th>
+                  <th>Ancien CAB</th>
+                  <th>Nouveau CAB</th>
+                  <th>Date d’inventaire</th>
+                  <th>Quantité</th>
+                  <th>Statut</th>
+                  <th>Description / Observation</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in recent_items %}
+                <tr>
+                  <td>
+                    {% if item.image %}
+                      <img src="{{ url_for('static', filename='uploads/' ~ item.image) }}" alt="Image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                    {% else %}
+                      <span class="text-muted"><i class="fas fa-image"></i></span>
+                    {% endif %}
+                  </td>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.designation }}</td>
+                  <td>{{ item.marque }}</td>
+                  <td>{{ item.modele }}</td>
+                  <td>{{ item.n_serie }}</td>
+                  <td>{{ item.ancien_cab }}</td>
+                  <td>{{ item.nouveau_cab }}</td>
+                  <td>{{ item.date_inv }}</td>
+                  <td style="white-space: normal;">{{ item.quantity or 1 }}</td>
+                  <td style="white-space: normal;">
+                    {% if item.status == 'Disponible' %}
+                      <span class="badge bg-success">Disponible</span>
+                    {% elif item.status == 'Indisponible' %}
+                      <span class="badge bg-danger">Indisponible</span>
+                    {% elif item.status == 'Cassée' %}
+                      <span class="badge bg-danger">Cassée</span>
+                    {% elif item.status == 'En réparation' %}
+                      <span class="badge bg-warning text-dark">En réparation</span>
+                    {% elif item.status == 'Nécessite une réparation' %}
+                      <span class="badge bg-warning text-dark">Nécessite réparation</span>
+                    {% elif item.status == 'Perdue' %}
+                      <span class="badge bg-dark">Perdue</span>
+                    {% else %}
+                      <span class="badge bg-secondary">{{ item.status }}</span>
+                    {% endif %}
+                  </td>
+                  <td style="white-space: normal;">{{ item.description }}</td>
+                  <td>
+                    <div class="d-flex gap-2 action-buttons">
+                      {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+                        <a href="{{ url_for('edit_equipment', item_id=item.id) }}" 
+                           class="btn btn-sm btn-outline-primary" 
+                           data-bs-toggle="tooltip" title="Éditer l'équipement">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                      {% endif %}
+                      <a href="{{ url_for('view_equipment', item_id=item.id) }}" 
+                         class="btn btn-sm btn-outline-info" 
+                         data-bs-toggle="tooltip" title="Voir les détails">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                {% else %}
+                <tr>
+                  <td colspan="14" class="text-center text-muted">
+                    <i class="fas fa-inbox fa-2x mb-2"></i>
+                    <br>Aucun matériel trouvé
+                    <p>Commencez par ajouter votre premier matériel à l'inventaire.</p>
+                    {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+                    <a href="{{ url_for('add_item') }}" class="btn btn-primary">
+                      <i class="fas fa-plus me-2"></i>Ajouter un équipement
+                    </a>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Search and filter functions for dashboard
+function searchItems() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+    
+    rows.forEach(row => {
+        // Skip the "no items found" row
+        if (row.querySelector('td[colspan]')) {
+            return;
+        }
+        
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+    });
+}
+
+function filterItems(filter) {
+    console.log('Filter function called with:', filter);
+    const rows = document.querySelectorAll('tbody tr');
+    let visibleCount = 0;
+    
+    rows.forEach((row, index) => {
+        // Skip the "no items found" row
+        if (row.querySelector('td[colspan]')) {
+            return;
+        }
+        
+        // Get all cells
+        const cells = row.querySelectorAll('td');
+        console.log(`Row ${index} has ${cells.length} cells`);
+        
+        if (cells.length >= 4) {
+            const statusCell = cells[3]; // 4th column (index 3)
+            const conditionCell = cells[2]; // 3rd column (index 2)
+            
+            // Get text from badges specifically
+            const statusBadge = statusCell.querySelector('.badge');
+            const conditionBadge = conditionCell.querySelector('.badge');
+            
+            console.log(`Row ${index} - Status badge found:`, statusBadge);
+            console.log(`Row ${index} - Condition badge found:`, conditionBadge);
+            
+            const status = statusBadge ? statusBadge.textContent.trim().toLowerCase() : statusCell.textContent.trim().toLowerCase();
+            const condition = conditionBadge ? conditionBadge.textContent.trim().toLowerCase() : conditionCell.textContent.trim().toLowerCase();
+            
+            // Debug: Show the raw HTML of the status cell
+            console.log(`Row ${index} - Status cell HTML:`, statusCell.innerHTML);
+            console.log(`Row ${index} - Status cell text:`, statusCell.textContent);
+            
+            console.log(`Row ${index} - Status: "${status}", Condition: "${condition}"`);
+            
+            let show = true;
+            
+            if (filter === 'available') {
+                show = status.includes('disponible');
+                console.log(`Row ${index} - Available filter: status="${status}", includes disponible=${status.includes('disponible')}`);
+            } else if (filter === 'unavailable') {
+                show = status.includes('indisponible');
+            } else if (filter === 'broken') {
+                show = status.includes('cassé') || status.includes('cassée');
+            } else if (filter === 'repair') {
+                show = status.includes('en réparation');
+            } else if (filter === 'needs_repair') {
+                show = status.includes('nécessite une réparation');
+            } else if (filter === 'all') {
+                show = true;
+            }
+            
+            console.log(`Row ${index} - Show: ${show}`);
+            row.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
+        }
+    });
+    
+    console.log(`Total visible rows: ${visibleCount}`);
+}
+</script>
+
+{% endblock %}

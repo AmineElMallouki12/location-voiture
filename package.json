@@ -1,0 +1,23 @@
+{
+  "name": "inventory-management-system",
+  "version": "1.0.0",
+  "description": "Système de Gestion d'Inventaire - Flask Application",
+  "main": "app.py",
+  "scripts": {
+    "build": "pip install -r requirements.txt",
+    "start": "python app.py",
+    "dev": "python app.py"
+  },
+  "keywords": [
+    "flask",
+    "inventory",
+    "management",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8.0"
+  }
+}

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %}Add Equipment{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold mb-3">
+        <i class="fas fa-plus me-2"></i>Ajouter un équipement
+      </h2>
+      <p class="text-muted">Add a new piece of equipment to your inventory system.</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-box me-2"></i>Equipment Details
+          </h5>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="{{ url_for('add_item') }}" id="addItemForm" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label">ID</label>
+              <input type="text" name="id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Désignation</label>
+              <input type="text" name="designation" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Catégorie</label>
+              <select name="category" class="form-select" required>
+                <option value="">Sélectionner une catégorie...</option>
+                <option value="Station Totale">Station Totale</option>
+                <option value="GNSS/GPS/CARNET">GNSS/GPS/CARNET</option>
+                <option value="Niveau Numerique/Optique">Niveau Numerique/Optique</option>
+                <option value="Scanner Laser">Scanner Laser</option>
+                <option value="Drone a voilure Fixe">Drone a voilure Fixe</option>
+                <option value="Mire de nivelement/Tripier">Mire de nivelement/Tripier</option>
+                <option value="Equipment informatique">Equipment informatique</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Marque</label>
+              <input type="text" name="marque" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Modèle</label>
+              <input type="text" name="modele" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">N° Série</label>
+              <input type="text" name="n_serie" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Ancien CAB</label>
+              <input type="text" name="ancien_cab" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nouveau CAB</label>
+              <input type="text" name="nouveau_cab" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Statut</label>
+              <select name="status" class="form-select">
+                <option value="Disponible">Disponible</option>
+                <option value="Indisponible">Indisponible</option>
+                <option value="Cassée">Cassée</option>
+                <option value="En réparation">En réparation</option>
+                <option value="Nécessite une réparation">Nécessite une réparation</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date d’inventaire</label>
+              <input type="date" name="date_inv" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description / Observation</label>
+              <textarea name="description" class="form-control" rows="3"></textarea>
+            </div>
+            
+
+            
+            <div class="mb-3">
+              <label class="form-label">Image (optionnelle)</label>
+              <input type="file" name="image" class="form-control" accept="image/*">
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-plus me-2"></i>Ajouter
+              </button>
+              <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Annuler
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Auto-focus on designation field
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('input[name="designation"]').focus();
+});
+
+// Form validation
+document.getElementById('addItemForm').addEventListener('submit', function(e) {
+    const designation = document.querySelector('input[name="designation"]').value.trim();
+    
+    if (!designation) {
+        e.preventDefault();
+        showAlert('Veuillez entrer une désignation', 'warning');
+        return false;
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Ajout en cours...';
+    submitBtn.disabled = true;
+});
+</script>
+{% endblock %}

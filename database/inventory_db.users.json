@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "686d31e9f8cd0f89719de692"
+  },
+  "username": "admin",
+  "password": "$2b$12$.Gqns9Rr12UNZbsYG1Z8ZeoKl9NMRQ76y88RAMbbVvFIu6yxFFkWq",
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "687bccf3d4f354b0d9cd9f8e"
+  },
+  "username": "tech",
+  "password": "$2b$12$jIcU5pl5ND4ljHB8qasRgukJf0mPedNG.RwZ4ZPl1389kv1McTucC",
+  "role": "technicien laboratoire",
+  "first_name": "tech",
+  "last_name": "tech2",
+  "created_at": {
+    "$date": "2025-07-19T17:50:59.128Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "687bcd09d4f354b0d9cd9f8f"
+  },
+  "username": "man",
+  "password": "$2b$12$c7krO9JVT87AzD975s6tUeknlOQnJqoQ91Dgxiv8ADVY71UX0GLbi",
+  "role": "manager laboratoire",
+  "first_name": "man",
+  "last_name": "man2",
+  "created_at": {
+    "$date": "2025-07-19T17:51:21.379Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "687bcd1fd4f354b0d9cd9f90"
+  },
+  "username": "prof",
+  "password": "$2b$12$LgUD0zqUSNgqc05OjuBy9eWgOfdfm8mxm5a8MWOzc7uaHZCWOc1Iq",
+  "role": "professeur",
+  "first_name": "prof",
+  "last_name": "prof2",
+  "created_at": {
+    "$date": "2025-07-19T17:51:43.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "687bcd2dd4f354b0d9cd9f91"
+  },
+  "username": "etu",
+  "password": "$2b$12$fHvJCbeSQB5iFZTKsaaT8.6RSLihZIcAGfDGuO4Fm/SE2EeLHSZoG",
+  "role": "etudiant",
+  "first_name": "etu",
+  "last_name": "etu2",
+  "created_at": {
+    "$date": "2025-07-19T17:51:57.488Z"
+  }
+}]

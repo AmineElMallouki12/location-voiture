@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Retour d'équipement{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="fw-bold mb-3">
+                <i class="fas fa-undo me-2"></i>Retour d'équipement
+            </h2>
+            <p class="text-muted">Marquer l'équipement comme retourné et définir son nouveau statut.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>Détails de l'utilisation
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Équipement</h6>
+                            <p><strong>Désignation:</strong> {{ equipment.designation }}</p>
+                            <p><strong>Marque:</strong> {{ equipment.marque }}</p>
+                            <p><strong>Modèle:</strong> {{ equipment.modele }}</p>
+                            <p><strong>N° Série:</strong> {{ equipment.n_serie }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Détails de l'utilisation</h6>
+                            <p><strong>Utilisateur:</strong> {{ rental_request.user_name }}</p>
+                            <p><strong>Email:</strong> {{ rental_request.user_email }}</p>
+                            <p><strong>Quantité utilisée:</strong> {{ rented_quantity }}</p>
+                            <p><strong>Période:</strong> {{ rental_request.start_date.strftime('%d/%m/%Y') }} - {{ rental_request.end_date.strftime('%d/%m/%Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-cog me-2"></i>Nouveau statut
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="new_status" class="form-label">Statut après retour *</label>
+                                    <select class="form-select" id="new_status" name="new_status" required>
+                                        <option value="">Sélectionner un statut</option>
+                                        <option value="Disponible">Disponible</option>
+                                        <option value="Indisponible">Indisponible</option>
+                                        <option value="Cassée">Cassée</option>
+                                        <option value="En réparation">En réparation</option>
+                                        <option value="Nécessite une réparation">Nécessite une réparation</option>
+                                    </select>
+                                    <div class="form-text">
+                                        <strong>Disponible:</strong> L'équipement est en bon état et peut être réutilisé<br>
+                                        <strong>Indisponible:</strong> L'équipement n'est pas disponible pour le moment<br>
+                                        <strong>Cassée:</strong> L'équipement est endommagé et ne peut plus être utilisé<br>
+                                        <strong>En réparation:</strong> L'équipement est en cours de réparation<br>
+                                        <strong>Nécessite une réparation:</strong> L'équipement nécessite une réparation
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="notes" class="form-label">Notes (optionnel)</label>
+                                    <textarea class="form-control" id="notes" name="notes" rows="4" placeholder="Ajouter des notes sur l'état de l'équipement..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-info">
+                                    <h6><i class="fas fa-info-circle me-2"></i>Impact sur les quantités</h6>
+                                    <p class="mb-0">
+                                        <strong>Quantité actuellement disponible:</strong> {{ current_available }}<br>
+                                        <strong>Quantité retournée:</strong> {{ rented_quantity }}<br>
+                                        <strong>Nouvelle quantité disponible:</strong> {{ current_available + rented_quantity }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('staff_equipment_used') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Annuler
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-check me-2"></i>Confirmer le retour
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

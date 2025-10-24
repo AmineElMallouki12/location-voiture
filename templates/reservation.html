@@ -1,0 +1,971 @@
+{% extends 'base.html' %}
+{% block title %}Reservations{% endblock %}
+{% block content %}
+<style>
+.table thead th {
+  background: #25505A !important;
+  color: white !important;
+  border-color: #25505A !important;
+  font-weight: 600;
+}
+.table thead th:hover {
+  background: #2d5d68 !important;
+}
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h1 class="h3 mb-0">
+            <i class="fas fa-calendar-check me-2"></i>Demandes d'utilisation
+          </h1>
+          <p class="text-muted">Gérer les demandes de location des utilisateurs</p>
+        </div>
+                 <div class="d-flex gap-2">
+           <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+             <i class="fas fa-arrow-left me-2"></i>Retour au tableau de bord
+           </a>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="row mb-4">
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ reservations|length }}</div>
+          <div class="stats-label">Total des réservations</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-available">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ reservations|selectattr('status', 'equalto', 'Active')|list|length }}</div>
+          <div class="stats-label">Réservations actives</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-repair">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ reservations|selectattr('status', 'equalto', 'Pending')|list|length }}</div>
+          <div class="stats-label">Réservations en attente</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="card stats-card status-unavailable">
+        <div class="card-body text-center">
+          <div class="stats-number">{{ reservations|selectattr('status', 'equalto', 'Completed')|list|length }}</div>
+          <div class="stats-label">Réservations terminées</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-bolt me-2"></i>Actions rapides
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            {% if current_user.role in ['professeur', 'etudiant'] %}
+            <div class="col-md-4 mb-2">
+              <button class="btn btn-primary w-100" onclick="showNewReservationModal()">
+                <i class="fas fa-calendar-plus me-2"></i>Nouvelle réservation
+              </button>
+            </div>
+            {% endif %}
+            <div class="col-md-4 mb-2">
+              <a href="{{ url_for('inventory') }}" class="btn btn-success w-100">
+                <i class="fas fa-list me-2"></i>Voir les articles disponibles
+              </a>
+            </div>
+                         <!-- Debug: Current user role is: {{ current_user.role }} -->
+                         {% if current_user.role == 'admin' or current_user.role == 'technicien laboratoire' or current_user.role == 'professeur' %}
+             <div class="col-md-4 mb-2">
+               <a class="btn btn-success w-100" href="{{ url_for('export_report_excel', report_type='reservations') }}">
+                 <i class="fas fa-file-excel me-2"></i>Exporter en Excel (.xlsx)
+               </a>
+             </div>
+             {% else %}
+             <!-- Student role detected: {{ current_user.role }} - Excel button hidden -->
+             {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservations Table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+                 <div class="card-header d-flex justify-content-between align-items-center">
+             <h5 class="mb-0">
+               <i class="fas fa-list me-2"></i>Demandes actives
+             </h5>
+             <div class="d-flex align-items-center gap-2">
+               <span class="badge bg-primary fs-6">{{ reservations|length }}</span>
+               <button class="btn btn-outline-secondary btn-sm" onclick="toggleReservationView()">
+                 <i class="fas fa-history me-1"></i>Voir l'historique
+               </button>
+             </div>
+           </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+                             <thead>
+                 <tr>
+                   <th>Matériel</th>
+                   <th>Nom</th>
+                   <th>Quantité</th>
+                   <th>Date de début</th>
+                   <th>Date de fin</th>
+                   <th>Statut</th>
+                   <th>Actions</th>
+                 </tr>
+               </thead>
+              <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                  <td>
+                    <i class="fas fa-box me-2"></i>{{ reservation.item_name }}
+                  </td>
+                  <td>{{ reservation.user_name }}</td>
+                  <td>
+                    <span class="badge bg-secondary">{{ reservation.quantity }}</span>
+                  </td>
+                  <td>{{ reservation.start_date }}</td>
+                  <td>{{ reservation.end_date }}</td>
+                  <td>
+                    {% if reservation.status == 'Active' %}
+                      <span class="badge bg-success">Active</span>
+                    {% elif reservation.status == 'En attente' %}
+                      <span class="badge bg-warning text-dark">En attente</span>
+                    {% elif reservation.status == 'Approuvée par professeur' %}
+                      <span class="badge bg-info">Approuvée par professeur</span>
+                    {% elif reservation.status == 'Completed' %}
+                      <span class="badge bg-secondary">Completed</span>
+                    {% elif reservation.status == 'Approved' %}
+                      <span class="badge bg-success">Approuvée finalement</span>
+                    {% elif reservation.status == 'Rejected' %}
+                      <span class="badge bg-danger">Rejetée</span>
+                    {% else %}
+                      <span class="badge bg-info">{{ reservation.status }}</span>
+                    {% endif %}
+                  </td>
+                  <td>
+                    <div class="action-buttons">
+                      <!-- Debug: Show status for troubleshooting -->
+                      <small class="text-muted d-block mb-1">Status: "{{ reservation.status }}"</small>
+                      
+                      <button class="btn btn-sm btn-outline-info" onclick="viewReservation('{{ reservation.id }}')"
+                              data-bs-toggle="tooltip" title="Voir les détails">
+                        <i class="fas fa-eye"></i>
+                      </button>
+                                                                                          {% if reservation.status == 'En attente' %}
+                         {% if current_user.role == 'professeur' %}
+                           <!-- Professeur can approve/reject pending student requests -->
+                           {% if reservation.user_email in student_usernames %}
+                             <button class="btn btn-sm btn-outline-success" onclick="approveReservation('{{ reservation.id }}')"
+                                     data-bs-toggle="tooltip" title="Approuver la demande d'étudiant (1ère étape)">
+                               <i class="fas fa-check"></i>
+                             </button>
+                             <button class="btn btn-sm btn-outline-danger" onclick="rejectReservation('{{ reservation.id }}')"
+                                     data-bs-toggle="tooltip" title="Rejeter la demande d'étudiant">
+                               <i class="fas fa-times"></i>
+                             </button>
+                           {% endif %}
+                         {% elif current_user.role in ['admin', 'technicien laboratoire'] %}
+                           <!-- Technicien/Admin can only approve/reject NON-student requests directly -->
+                           {% if reservation.user_email not in student_usernames %}
+                             <button class="btn btn-sm btn-outline-success" onclick="approveReservation('{{ reservation.id }}')"
+                                     data-bs-toggle="tooltip" title="Approuver directement (admin/technicien)">
+                               <i class="fas fa-check"></i>
+                             </button>
+                             <button class="btn btn-sm btn-outline-danger" onclick="rejectReservation('{{ reservation.id }}')"
+                                     data-bs-toggle="tooltip" title="Rejeter">
+                               <i class="fas fa-times"></i>
+                             </button>
+                           {% else %}
+                             <!-- Student request - must go through professor first -->
+                             <span class="text-muted small">
+                               <i class="fas fa-clock me-1"></i>En attente d'approbation par le professeur
+                             </span>
+                           {% endif %}
+                         {% endif %}
+                       {% elif reservation.status == 'Approuvée par professeur' %}
+                         {% if current_user.role in ['admin', 'technicien laboratoire'] %}
+                           <!-- Only technicien/admin can approve professor-approved requests -->
+                           <button class="btn btn-sm btn-outline-success" onclick="approveReservation('{{ reservation.id }}')"
+                                   data-bs-toggle="tooltip" title="Approuver finalement (2ème étape)">
+                             <i class="fas fa-check"></i>
+                           </button>
+                           <button class="btn btn-sm btn-outline-danger" onclick="rejectReservation('{{ reservation.id }}')"
+                                   data-bs-toggle="tooltip" title="Rejeter">
+                             <i class="fas fa-times"></i>
+                           </button>
+                         {% endif %}
+                       {% endif %}
+                      {% if current_user.role in ['admin', 'technicien laboratoire'] or reservation.user_email == current_user.username %}
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteReservation('{{ reservation.id }}')"
+                                data-bs-toggle="tooltip" title="Supprimer">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      {% endif %}
+                    </div>
+                  </td>
+                </tr>
+                {% else %}
+                <tr>
+                  <td colspan="7" class="text-center text-muted py-5">
+                    <i class="fas fa-calendar-times fa-3x mb-3"></i>
+                    <br>
+                    <h5>Aucune demande trouvée</h5>
+                    <p>Commencez par créer votre première demande d'utilisation.</p>
+                    {% if current_user.role in ['professeur', 'etudiant'] %}
+                    <button class="btn btn-primary" onclick="showNewReservationModal()">
+                      <i class="fas fa-calendar-plus me-2"></i>Créer une demande
+                    </button>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New Reservation Modal -->
+<div class="modal fade" id="newReservationModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fas fa-calendar-plus me-2"></i>Nouvelle demande d'utilisation
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Item Selection Section -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Catégorie</label>
+            <select name="category" class="form-select" required>
+              <option value="">Sélectionnez une catégorie...</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Matériel</label>
+            <select name="item_id" class="form-select" required disabled>
+              <option value="">Sélectionnez d'abord une catégorie</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Quantité</label>
+            <input type="number" name="quantity" class="form-control" value="1" min="1" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">&nbsp;</label>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="addItemToCart()">
+                <i class="fas fa-cart-plus me-1"></i>Ajouter
+              </button>
+              <button type="button" class="btn btn-outline-secondary btn-sm" onclick="clearForm()">
+                <i class="fas fa-eraser me-1"></i>Effacer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Items Display -->
+        <div class="mb-3">
+          <label class="form-label">Articles sélectionnés</label>
+          <div id="cart-items" class="border rounded p-3 bg-light" style="min-height: 100px;">
+            <div id="cart-empty" class="text-center py-3">
+              <i class="fas fa-shopping-cart fa-2x text-muted mb-2"></i>
+              <p class="text-muted mb-0">Aucun article sélectionné</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reservation Details Form -->
+        <form id="newReservationForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Votre nom</label>
+                <input type="text" name="user_name" class="form-control" value="{{ current_user.username }}" readonly>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Date et heure de début <span class="text-danger">*</span></label>
+                <input type="datetime-local" name="start_date" class="form-control" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Date et heure de fin <span class="text-danger">*</span></label>
+                <input type="datetime-local" name="end_date" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">But <span class="text-danger">*</span></label>
+                <textarea name="purpose" class="form-control" rows="3" placeholder="Brève description de l'utilisation du matériel..." required></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>Annuler
+        </button>
+        <button type="button" class="btn btn-primary" onclick="createMultiItemReservation()">
+          <i class="fas fa-save me-2"></i>Créer la demande
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reservation Details Modal -->
+<div class="modal fade" id="reservationDetailsModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fas fa-eye me-2"></i>Détails de la demande</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="row mb-0">
+          <dt class="col-sm-4">Matériel</dt><dd class="col-sm-8" id="r-item"></dd>
+          <dt class="col-sm-4">Catégorie</dt><dd class="col-sm-8" id="r-category"></dd>
+          <dt class="col-sm-4">Demandé par</dt><dd class="col-sm-8" id="r-user"></dd>
+          <dt class="col-sm-4">Email</dt><dd class="col-sm-8" id="r-email"></dd>
+          <dt class="col-sm-4">Quantité</dt><dd class="col-sm-8" id="r-qty"></dd>
+          <dt class="col-sm-4">Date de début</dt><dd class="col-sm-8" id="r-start"></dd>
+          <dt class="col-sm-4">Date de fin</dt><dd class="col-sm-8" id="r-end"></dd>
+          <dt class="col-sm-4">Statut</dt><dd class="col-sm-8" id="r-status"></dd>
+          <dt class="col-sm-4">But</dt><dd class="col-sm-8" id="r-purpose"></dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+
+<script>
+// Shopping cart for multi-item reservations
+let cart = [];
+
+// Load categories then items per chosen category
+function loadCategoriesAndWireItems() {
+  const categorySelect = document.querySelector('#newReservationModal select[name="category"]');
+  const itemSelect = document.querySelector('#newReservationModal select[name="item_id"]');
+  const quantityInput = document.querySelector('#newReservationModal input[name="quantity"]');
+
+  // Reset
+  categorySelect.innerHTML = '<option value="">Sélectionnez une catégorie...</option>';
+  itemSelect.innerHTML = '<option value="">Sélectionnez d\'abord une catégorie</option>';
+  itemSelect.disabled = true;
+
+  fetch('/api/categories')
+    .then(r => r.json())
+    .then(data => {
+      if (!data.success) return;
+      data.categories.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        categorySelect.appendChild(opt);
+      });
+    });
+
+  // When category changes, load items for that category
+  categorySelect.onchange = function() {
+    const cat = this.value;
+    itemSelect.innerHTML = '<option value="">Sélectionnez le matériel...</option>';
+    itemSelect.disabled = !cat;
+    if (!cat) return;
+
+    fetch('/api/available-items?category=' + encodeURIComponent(cat))
+      .then(r => r.json())
+      .then(data => {
+        if (!data.success) return;
+        data.items.forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item.id;
+          opt.textContent = `${item.designation} (${item.quantite_disponible || 1} disponible)`;
+          opt.setAttribute('data-max-quantity', item.quantite_disponible || 1);
+          opt.setAttribute('data-designation', item.designation);
+          itemSelect.appendChild(opt);
+        });
+      });
+  };
+
+  // Update max quantity when item changes
+  itemSelect.onchange = function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const maxQuantity = parseInt(selectedOption?.getAttribute('data-max-quantity') || '1', 10);
+    quantityInput.max = maxQuantity;
+    const current = parseInt(quantityInput.value || '1', 10);
+    quantityInput.value = Math.min(current, maxQuantity);
+  };
+}
+
+function addItemToCart() {
+  const categorySelect = document.querySelector('#newReservationModal select[name="category"]');
+  const itemSelect = document.querySelector('#newReservationModal select[name="item_id"]');
+  const quantityInput = document.querySelector('#newReservationModal input[name="quantity"]');
+  
+  const category = categorySelect.value;
+  const itemId = itemSelect.value;
+  const quantity = parseInt(quantityInput.value);
+  
+  if (!category || !itemId || !quantity) {
+    alert('Veuillez sélectionner une catégorie, un matériel et une quantité');
+    return;
+  }
+  
+  const selectedOption = itemSelect.options[itemSelect.selectedIndex];
+  const designation = selectedOption.getAttribute('data-designation');
+  const maxQuantity = parseInt(selectedOption.getAttribute('data-max-quantity'));
+  
+  // Check if item is already in cart
+  const existingItem = cart.find(item => item.id === itemId);
+  if (existingItem) {
+    const newTotal = existingItem.quantity + quantity;
+    if (newTotal > maxQuantity) {
+      alert(`Quantité maximale dépassée pour ${designation}. Maximum: ${maxQuantity}`);
+      return;
+    }
+    existingItem.quantity = newTotal;
+  } else {
+    cart.push({
+      id: itemId,
+      designation: designation,
+      quantity: quantity,
+      maxQuantity: maxQuantity,
+      category: category
+    });
+  }
+  
+  updateCartDisplay();
+  
+  // Reset form
+  itemSelect.value = '';
+  quantityInput.value = 1;
+  
+  showToast(`${designation} ajouté au panier`, 'success');
+}
+
+function removeFromCart(itemId) {
+  cart = cart.filter(item => item.id !== itemId);
+  updateCartDisplay();
+  showToast('Article retiré du panier', 'info');
+}
+
+function updateQuantity(itemId, newQuantity) {
+  const item = cart.find(item => item.id === itemId);
+  if (item) {
+    if (newQuantity > 0 && newQuantity <= item.maxQuantity) {
+      item.quantity = newQuantity;
+    } else if (newQuantity <= 0) {
+      removeFromCart(itemId);
+      return;
+    }
+    updateCartDisplay();
+  }
+}
+
+function updateCartDisplay() {
+  const cartItems = document.getElementById('cart-items');
+  const cartEmpty = document.getElementById('cart-empty');
+  
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <div id="cart-empty" class="text-center py-3">
+        <i class="fas fa-shopping-cart fa-2x text-muted mb-2"></i>
+        <p class="text-muted mb-0">Aucun article sélectionné</p>
+      </div>
+    `;
+  } else {
+    cartItems.innerHTML = cart.map(item => `
+      <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
+        <div class="flex-grow-1">
+          <h6 class="mb-1">${item.designation}</h6>
+          <small class="text-muted">Catégorie: ${item.category} | Quantité: ${item.quantity} / ${item.maxQuantity}</small>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <div class="input-group input-group-sm" style="width: 120px;">
+            <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+            <input type="number" class="form-control text-center" value="${item.quantity}" 
+                   min="1" max="${item.maxQuantity}" 
+                   onchange="updateQuantity('${item.id}', parseInt(this.value))">
+            <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+          </div>
+          <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart('${item.id}')">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function clearForm() {
+  const categorySelect = document.querySelector('#newReservationModal select[name="category"]');
+  const itemSelect = document.querySelector('#newReservationModal select[name="item_id"]');
+  const quantityInput = document.querySelector('#newReservationModal input[name="quantity"]');
+  
+  categorySelect.value = '';
+  itemSelect.value = '';
+  quantityInput.value = 1;
+  itemSelect.disabled = true;
+  
+  showToast('Formulaire effacé', 'info');
+}
+
+function showNewReservationModal() {
+    // Reset cart
+    cart = [];
+    updateCartDisplay();
+    
+    loadCategoriesAndWireItems();
+    
+    // Set default dates
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    document.querySelector('#newReservationModal input[name="start_date"]').value = 
+        today.toISOString().slice(0, 16);
+    document.querySelector('#newReservationModal input[name="end_date"]').value = 
+        tomorrow.toISOString().slice(0, 16);
+    
+    // Set user name (should already be set by Jinja2, but just in case)
+    const userNameField = document.querySelector('#newReservationModal input[name="user_name"]');
+    if (userNameField && !userNameField.value) {
+        userNameField.value = '{{ current_user.username }}';
+    }
+    
+    const modal = new bootstrap.Modal(document.getElementById('newReservationModal'));
+    modal.show();
+}
+
+function createMultiItemReservation() {
+    if (cart.length === 0) {
+        alert('Veuillez ajouter au moins un article au panier');
+        return;
+    }
+    
+    const form = document.getElementById('newReservationForm');
+    const formData = new FormData(form);
+    
+    const startDate = formData.get('start_date');
+    const endDate = formData.get('end_date');
+    const purpose = formData.get('purpose');
+    const userName = formData.get('user_name');
+    
+    if (!startDate || !endDate || !userName || !purpose) {
+        alert('Veuillez remplir tous les champs obligatoires');
+        return;
+    }
+    
+    if (new Date(startDate) >= new Date(endDate)) {
+        alert('La date de fin doit être postérieure à la date de début');
+        return;
+    }
+    
+    // Create reservation data
+    const reservationData = {
+        items: cart.map(item => ({
+            item_id: item.id,
+            quantity: item.quantity
+        })),
+        start_date: startDate,
+        end_date: endDate,
+        purpose: purpose,
+        user_name: userName
+    };
+    
+    // Submit reservation
+    fetch('/api/create-reservation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservationData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Demande d\'utilisation soumise avec succès!', 'success');
+            // Clear cart
+            cart = [];
+            updateCartDisplay();
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('newReservationModal'));
+            modal.hide();
+            // Redirect to dashboard
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+        } else {
+            showToast(data.message || 'Erreur lors de la soumission', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showToast('Erreur lors de la soumission', 'error');
+    });
+}
+
+// Toast notification function
+function showToast(message, type = 'info') {
+    const toastContainer = document.getElementById('toast-container') || createToastContainer();
+    
+    const toast = document.createElement('div');
+    toast.className = `toast align-items-center text-white bg-${type === 'error' ? 'danger' : type} border-0`;
+    toast.setAttribute('role', 'alert');
+    toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">
+                ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+    
+    toastContainer.appendChild(toast);
+    
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+    
+    // Remove toast after it's hidden
+    toast.addEventListener('hidden.bs.toast', () => {
+        toast.remove();
+    });
+}
+
+function createToastContainer() {
+    const container = document.createElement('div');
+    container.id = 'toast-container';
+    container.className = 'toast-container position-fixed top-0 end-0 p-3';
+    container.style.zIndex = '1055';
+    document.body.appendChild(container);
+    return container;
+}
+
+function approveReservation(reservationId) {
+    // Get the current status to show appropriate message
+    const row = document.querySelector(`tr[data-reservation-id="${reservationId}"]`) || 
+                document.querySelector(`tr:has(button[onclick*="${reservationId}"])`);
+    
+    let confirmMessage = 'Êtes-vous sûr de vouloir approuver cette demande d\'utilisation ?';
+    
+    if (row) {
+        const statusCell = row.querySelector('td:nth-child(6)');
+        if (statusCell && statusCell.textContent.includes('Approuvée par professeur')) {
+            confirmMessage = 'Êtes-vous sûr de vouloir approuver finalement cette demande (2ème étape) ?';
+        } else if (statusCell && statusCell.textContent.includes('En attente')) {
+            confirmMessage = 'Êtes-vous sûr de vouloir approuver cette demande (1ère étape) ?';
+        }
+    }
+    
+    if (confirm(confirmMessage)) {
+        fetch(`/api/reservation/${reservationId}/approve`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast(data.message || 'Demande approuvée avec succès', 'success');
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                showToast(data.message || 'Erreur lors de l\'approbation', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Erreur lors de l\'approbation', 'error');
+        });
+    }
+}
+
+function rejectReservation(reservationId) {
+    if (confirm('Êtes-vous sûr de vouloir rejeter cette demande d\'utilisation ?')) {
+        fetch(`/api/reservation/${reservationId}/reject`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Demande rejetée avec succès', 'success');
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                showToast(data.message || 'Erreur lors du rejet', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Erreur lors du rejet', 'error');
+        });
+    }
+}
+
+function deleteReservation(reservationId) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette demande d\'utilisation ?')) {
+        fetch(`/api/reservation/${reservationId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Demande supprimée avec succès', 'success');
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                showToast(data.message || 'Erreur lors de la suppression', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Erreur lors de la suppression', 'error');
+        });
+    }
+}
+
+function viewReservation(reservationId) {
+    fetch(`/api/reservation/${reservationId}`)
+      .then(r => r.json())
+      .then(data => {
+        if (!data.success) { alert(data.message || 'Erreur'); return; }
+        const r = data.reservation;
+        
+        if (r.is_multi_item) {
+          // Multi-item reservation
+          document.getElementById('r-item').innerHTML = `
+            <strong>${r.total_items} articles</strong><br>
+            <small class="text-muted">Cliquez pour voir la liste</small>
+          `;
+          document.getElementById('r-category').textContent = 'Multi-articles';
+          document.getElementById('r-qty').textContent = r.total_items;
+          
+          // Add click handler to show items list
+          document.getElementById('r-item').style.cursor = 'pointer';
+          document.getElementById('r-item').onclick = () => {
+            const itemsList = r.items.map(item => 
+              `• ${item.designation} (Quantité: ${item.quantity})`
+            ).join('<br>');
+            alert(`Articles dans cette réservation:\n\n${r.items.map(item => 
+              `• ${item.designation} (Quantité: ${item.quantity})`
+            ).join('\n')}`);
+          };
+        } else {
+          // Single item reservation (legacy)
+          document.getElementById('r-item').textContent = r.item_name || '';
+          document.getElementById('r-category').textContent = r.category || '';
+          document.getElementById('r-qty').textContent = r.quantity || 1;
+          document.getElementById('r-item').style.cursor = 'default';
+          document.getElementById('r-item').onclick = null;
+        }
+        
+        document.getElementById('r-user').textContent = r.user_name || '';
+        document.getElementById('r-email').textContent = r.user_email || '';
+        document.getElementById('r-start').textContent = r.start_date || '';
+        document.getElementById('r-end').textContent = r.end_date || '';
+        document.getElementById('r-status').textContent = r.status || '';
+        document.getElementById('r-purpose').textContent = r.purpose || '';
+        
+        const modal = new bootstrap.Modal(document.getElementById('reservationDetailsModal'));
+        modal.show();
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erreur lors du chargement des détails');
+      });
+}
+
+function exportReservations() {
+    const table = document.querySelector('table');
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    
+    let data = [];
+    rows.forEach(row => {
+        const cells = Array.from(row.querySelectorAll('td'));
+        if (cells.length > 0) {
+            data.push({
+                materiel: cells[0].textContent.trim(),
+                nom: cells[1].textContent.trim(),
+                quantite: cells[2].textContent.trim(),
+                date_debut: cells[3].textContent.trim(),
+                date_fin: cells[4].textContent.trim(),
+                statut: cells[5].textContent.trim()
+            });
+        }
+    });
+    
+    const csvContent = [
+        ['Matériel', 'Nom', 'Quantité', 'Date de début', 'Date de fin', 'Statut'].join(','),
+        ...data.map(row => [row.materiel, row.nom, row.quantite, row.date_debut, row.date_fin, row.statut].join(','))
+    ].join('\n');
+    
+    // Create and download file
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'demandes_utilisation.csv';
+    a.click();
+         window.URL.revokeObjectURL(url);
+ }
+
+// Toggle between active reservations and full history
+let showingHistory = false;
+
+function toggleReservationView() {
+    const button = document.querySelector('button[onclick="toggleReservationView()"]');
+    const tableHeader = document.querySelector('.card-header h5');
+    const tableBody = document.querySelector('tbody');
+    
+    if (!showingHistory) {
+        // Switch to history view
+        showingHistory = true;
+        button.innerHTML = '<i class="fas fa-list me-1"></i>Voir les demandes actives';
+        tableHeader.innerHTML = '<i class="fas fa-history me-2"></i>Historique complet';
+        
+        // Fetch all reservations including rejected/completed
+        fetch('/api/reservations/history')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateTableWithReservations(data.reservations);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching history:', error);
+                showToast('Erreur lors du chargement de l\'historique', 'error');
+            });
+    } else {
+        // Switch back to active view
+        showingHistory = false;
+        button.innerHTML = '<i class="fas fa-history me-1"></i>Voir l\'historique';
+        tableHeader.innerHTML = '<i class="fas fa-list me-2"></i>Demandes actives';
+        
+        // Reload page to show active reservations
+        location.reload();
+    }
+}
+
+function updateTableWithReservations(reservations) {
+    const tableBody = document.querySelector('tbody');
+    
+    if (reservations.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="7" class="text-center text-muted py-5">
+                    <i class="fas fa-inbox fa-3x mb-3"></i>
+                    <br>
+                    <h5>Aucune réservation trouvée</h5>
+                    <p>Aucune réservation dans l'historique.</p>
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    tableBody.innerHTML = reservations.map(reservation => `
+        <tr>
+            <td>
+                <i class="fas fa-box me-2"></i>${reservation.item_name}
+            </td>
+            <td>${reservation.user_name}</td>
+            <td>
+                <span class="badge bg-secondary">${reservation.quantity}</span>
+            </td>
+            <td>${reservation.start_date}</td>
+            <td>${reservation.end_date}</td>
+            <td>
+                ${getStatusBadge(reservation.status)}
+            </td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn btn-sm btn-outline-info" onclick="viewReservation('${reservation.id}')"
+                            data-bs-toggle="tooltip" title="Voir les détails">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    ${getActionButtons(reservation)}
+                </div>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function getStatusBadge(status) {
+    switch(status) {
+        case 'En attente':
+            return '<span class="badge bg-warning text-dark">En attente</span>';
+        case 'Approuvée par professeur':
+            return '<span class="badge bg-info">Approuvée par professeur</span>';
+        case 'Approved':
+            return '<span class="badge bg-success">Approuvée finalement</span>';
+        case 'Rejected':
+            return '<span class="badge bg-danger">Rejetée</span>';
+        case 'Completed':
+            return '<span class="badge bg-secondary">Terminée</span>';
+        default:
+            return `<span class="badge bg-info">${status}</span>`;
+    }
+}
+
+function getActionButtons(reservation) {
+    let buttons = '';
+    
+    // Delete button for admin/technicien or own reservations
+    if (['admin', 'technicien laboratoire'].includes('{{ current_user.role }}') || 
+        reservation.user_email === '{{ current_user.username }}') {
+        buttons += `
+            <button class="btn btn-sm btn-outline-danger" onclick="deleteReservation('${reservation.id}')"
+                    data-bs-toggle="tooltip" title="Supprimer">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+    }
+    
+    return buttons;
+}
+</script>
+{% endblock %}

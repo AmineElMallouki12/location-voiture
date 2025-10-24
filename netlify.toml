@@ -1,0 +1,49 @@
+[build]
+  # Build command for Flask app
+  command = "pip install -r requirements.txt"
+  
+  # Directory to publish (for static files)
+  publish = "static"
+  
+  # Functions directory for serverless functions
+  functions = "netlify/functions"
+
+[build.environment]
+  # Python version
+  PYTHON_VERSION = "3.11"
+  
+  # Set Flask environment
+  FLASK_ENV = "production"
+  
+  # MongoDB connection (you'll need to set this in Netlify dashboard)
+  # MONGO_URI = "your_mongodb_atlas_connection_string"
+
+# Redirect rules for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Environment-specific settings
+[context.production]
+  [context.production.environment]
+    FLASK_ENV = "production"
+
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+    FLASK_ENV = "development"

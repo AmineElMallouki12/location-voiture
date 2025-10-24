@@ -1,0 +1,423 @@
+{% extends 'base.html' %}
+{% block title %}Inventory{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold mb-3">
+        <i class="fas fa-list me-2"></i>Gestion de l'inventaire
+      </h2>
+      <p class="text-muted">Gérez tout le matériel de votre système d'inventaire organisé par catégories.</p>
+    </div>
+  </div>
+
+  <!-- Search and Filter Controls -->
+  <div class="row mb-4 align-items-center g-2">
+    <div class="col-md-6 col-12 mb-2 mb-md-0">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="fas fa-search"></i>
+        </span>
+        <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un équipement..." onkeyup="searchItems()">
+      </div>
+    </div>
+    <div class="col-md-3 col-12 mb-2 mb-md-0">
+      <select class="form-select" onchange="filterItems(this.value)">
+        <option value="all">Filtrer par statut...</option>
+        <option value="available">Disponibles uniquement</option>
+        <option value="unavailable">Indisponibles uniquement</option>
+        <option value="broken">Cassés uniquement</option>
+        <option value="repair">En réparation</option>
+        <option value="needs_repair">Nécessite une réparation</option>
+      </select>
+    </div>
+    <div class="col-md-3 col-12 text-md-end d-flex align-items-center justify-content-md-end justify-content-start mt-2 mt-md-0">
+      {% if current_user.role != 'etudiant' %}
+      <a class="btn btn-outline-success" href="{{ url_for('export_inventory_excel') }}">
+        <i class="fas fa-file-excel me-2"></i>Exporter en Excel (.xlsx)
+      </a>
+      {% endif %}
+      {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+      <a href="{{ url_for('add_item') }}" class="btn btn-primary btn-sm ms-2">
+        <i class="fas fa-plus me-2"></i>Ajouter
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+
+
+  <!-- Category Blocks -->
+  <div class="row">
+    <div class="col-12">
+      {% if categorized_items %}
+        {% for category, items in categorized_items.items() %}
+        <div class="card mb-4 category-block" data-category="{{ category.lower() }}">
+          <div class="card-header text-white" style="cursor: pointer; background-color: #2F4F4F;" onclick="toggleCategory('{{ category }}')">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-chevron-down me-3 category-icon" id="icon-{{ category }}"></i>
+                <h5 class="mb-0">{{ category }}</h5>
+                <span class="badge bg-light text-dark ms-3">{{ items|length }} équipements</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="d-flex gap-2">
+                  {% set available_count = items | selectattr('status', 'equalto', 'Disponible') | list | length %}
+                  {% set broken_count = items | selectattr('status', 'equalto', 'Cassée') | list | length %}
+                  {% set repair_count = items | selectattr('status', 'equalto', 'En réparation') | list | length %}
+                  {% set unavailable_count = items | selectattr('status', 'equalto', 'Indisponible') | list | length %}
+                  {% set lost_count = items | selectattr('status', 'equalto', 'Perdue') | list | length %}
+                  
+                  {% if available_count > 0 %}
+                    <span class="badge bg-success">{{ available_count }} Disponible</span>
+                  {% endif %}
+                  {% if broken_count > 0 %}
+                    <span class="badge bg-danger">{{ broken_count }} Cassé</span>
+                  {% endif %}
+                  {% if repair_count > 0 %}
+                    <span class="badge bg-warning text-dark">{{ repair_count }} Réparation</span>
+                  {% endif %}
+                  {% if unavailable_count > 0 %}
+                    <span class="badge bg-secondary">{{ unavailable_count }} Indisponible</span>
+                  {% endif %}
+                  {% if lost_count > 0 %}
+                    <span class="badge bg-dark">{{ lost_count }} Perdu</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body category-content" id="content-{{ category }}" style="display: none;">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Désignation</th>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>N° Série</th>
+                    <th>Ancien CAB</th>
+                    <th>Nouveau CAB</th>
+                    <th>Date d'inventaire</th>
+
+                    <th>Statut</th>
+                    <th>État</th>
+                    <th>Description / Observation</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in items %}
+                  <tr data-item-id="{{ item.id }}" class="equipment-row">
+                    <td>
+                      {% if item.image and item.image != '' %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ item.image) }}?v=1" 
+                             alt="Image de {{ item.designation }}" 
+                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+                      {% else %}
+                        <div style="width: 50px; height: 50px; background-color: #f8f9fa; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6c757d;">
+                          <i class="fas fa-mountain"></i>
+                        </div>
+                      {% endif %}
+                    </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.designation }}</td>
+                    <td>{{ item.marque }}</td>
+                    <td>{{ item.modele }}</td>
+                    <td>{{ item.n_serie }}</td>
+                    <td>{{ item.ancien_cab }}</td>
+                    <td>{{ item.nouveau_cab }}</td>
+                    <td>{{ item.date_inv }}</td>
+
+                    <td style="white-space: normal;">
+                      {% if item.status == 'Disponible' %}
+                        <span class="badge bg-success">Disponible</span>
+                      {% elif item.status == 'Indisponible' %}
+                        <span class="badge bg-danger">Indisponible</span>
+                      {% elif item.status == 'Cassée' %}
+                        <span class="badge bg-danger">Cassée</span>
+                      {% elif item.status == 'En réparation' %}
+                        <span class="badge bg-warning text-dark">En réparation</span>
+                      {% elif item.status == 'Nécessite une réparation' %}
+                        <span class="badge bg-warning text-dark">Nécessite réparation</span>
+                      {% elif item.status == 'Perdue' %}
+                        <span class="badge bg-dark">Perdue</span>
+                      {% else %}
+                        <span class="badge bg-secondary">{{ item.status }}</span>
+                      {% endif %}
+                    </td>
+                    <td style="white-space: normal;">{{ item.condition if item.condition else '' }}</td>
+                    <td style="white-space: normal;">{{ item.description }}</td>
+                    <td>
+                      <div class="d-flex gap-2 action-buttons">
+                        {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+                          <a href="{{ url_for('edit_equipment', item_id=item.id) }}" 
+                             class="btn btn-sm btn-outline-primary" 
+                             data-bs-toggle="tooltip" title="Éditer l'équipement">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                          <a href="{{ url_for('delete_equipment', item_id=item.id) }}" 
+                             class="btn btn-sm btn-outline-danger" 
+                             data-bs-toggle="tooltip" title="Supprimer l'équipement"
+                             onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet équipement ?')">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                        {% endif %}
+                        <a href="{{ url_for('view_equipment', item_id=item.id) }}" 
+                           class="btn btn-sm btn-outline-info" 
+                           data-bs-toggle="tooltip" title="Voir les détails">
+                          <i class="fas fa-eye"></i>
+                        </a>
+                        {% if current_user.role in ['professeur', 'etudiant'] %}
+                        <button class="btn btn-sm btn-outline-success" onclick="reserveItem('{{ item.id }}')"
+                                data-bs-toggle="tooltip" title="Faire une réservation">
+                          <i class="fas fa-calendar-plus"></i>
+                        </button>
+                        {% endif %}
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="card">
+          <div class="card-body text-center text-muted py-5">
+            <i class="fas fa-inbox fa-3x mb-3"></i>
+            <br>
+            <h5>Aucun matériel trouvé</h5>
+            <p>Commencez par ajouter votre premier matériel à l'inventaire.</p>
+            {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
+            <a href="{{ url_for('add_item') }}" class="btn btn-primary">
+              <i class="fas fa-plus me-2"></i>Ajouter un équipement
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Reserve Item Modal -->
+<div class="modal fade" id="reserveItemModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fas fa-calendar-plus me-2"></i>Faire une réservation
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="reserveItemForm">
+          <div class="mb-3">
+            <label class="form-label">Nom de l'objet</label>
+            <input type="text" id="reserveItemName" class="form-control" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Votre nom</label>
+            <input type="text" name="user_name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date et heure de début</label>
+            <input type="datetime-local" name="start_date" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date et heure de fin</label>
+            <input type="datetime-local" name="end_date" class="form-control" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-success" onclick="saveReservation()">
+          <i class="fas fa-calendar-check me-2"></i>Créer la réservation
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// JavaScript for inventory page
+let currentReserveItemId = null;
+
+// Toggle category blocks
+function toggleCategory(category) {
+    const content = document.getElementById('content-' + category);
+    const icon = document.getElementById('icon-' + category);
+    
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.className = 'fas fa-chevron-up me-3 category-icon';
+    } else {
+        content.style.display = 'none';
+        icon.className = 'fas fa-chevron-down me-3 category-icon';
+    }
+}
+
+function reserveItem(itemId) {
+    currentReserveItemId = itemId;
+    
+    // Fetch item data to populate the modal
+    fetch(`/api/item/${itemId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('reserveItemName').value = data.item.designation;
+                
+                // Set default dates (today and tomorrow)
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                
+                document.querySelector('#reserveItemForm input[name="start_date"]').value = 
+                    today.toISOString().slice(0, 16);
+                document.querySelector('#reserveItemForm input[name="end_date"]').value = 
+                    tomorrow.toISOString().slice(0, 16);
+                
+                // Show modal
+                const modal = new bootstrap.Modal(document.getElementById('reserveItemModal'));
+                modal.show();
+            } else {
+                alert('Erreur lors du chargement des données de l\'objet');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Erreur lors du chargement des données de l\'objet');
+        });
+}
+
+function saveReservation() {
+    if (!currentReserveItemId) return;
+    
+    const form = document.getElementById('reserveItemForm');
+    const formData = new FormData(form);
+    formData.append('item_id', currentReserveItemId);
+    
+    fetch('/api/reservation', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Demande de réservation créée avec succès');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('reserveItemModal'));
+            modal.hide();
+            // Redirect to reservations page
+            window.location.href = '/reservations';
+        } else {
+            alert(data.message || 'Erreur lors de la création de la réservation');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Erreur lors de la création de la réservation');
+    });
+}
+
+// Search function
+function searchItems() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('.equipment-row');
+    
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+    });
+
+    // Show/hide and expand/collapse categories based on visible items
+    updateCategoryVisibility();
+}
+
+// Filter function
+function filterItems(filter) {
+    const rows = document.querySelectorAll('.equipment-row');
+    
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        
+        if (cells.length >= 14) {
+            const statusCell = cells[13]; // Status column
+            const statusBadge = statusCell.querySelector('.badge');
+            const status = statusBadge ? statusBadge.textContent.trim().toLowerCase() : statusCell.textContent.trim().toLowerCase();
+            
+            let show = true;
+            
+            if (filter === 'available') {
+                show = status.includes('disponible');
+            } else if (filter === 'unavailable') {
+                show = status.includes('indisponible');
+            } else if (filter === 'repair') {
+                show = status.includes('réparation') || status.includes('nécessite une réparation');
+            } else if (filter === 'all') {
+                show = true;
+            }
+            
+            row.style.display = show ? '' : 'none';
+        }
+    });
+
+    // Show/hide and expand/collapse categories based on visible items
+    updateCategoryVisibility();
+}
+
+// Helper to toggle category visibility and ensure matched categories are expanded
+function updateCategoryVisibility() {
+    const categoryBlocks = document.querySelectorAll('.category-block');
+    categoryBlocks.forEach(block => {
+        const content = block.querySelector('.category-content');
+        const icon = block.querySelector('.category-icon');
+        const hasVisible = Array.from(block.querySelectorAll('.equipment-row'))
+          .some(r => r.style.display !== 'none');
+        if (hasVisible) {
+            block.style.display = '';
+            if (content) content.style.display = 'block';
+            if (icon) icon.className = 'fas fa-chevron-up me-3 category-icon';
+        } else {
+            block.style.display = 'none';
+        }
+    });
+}
+// Export function
+function exportData(format) {
+    // Implementation for export functionality
+    alert('Fonctionnalité d\'export à implémenter');
+}
+
+// Initialize tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+
+});
+</script>
+
+<style>
+.category-block .card-header:hover {
+    background-color: #3F5F5F !important;
+    transition: background-color 0.3s ease;
+}
+
+.category-icon {
+    transition: transform 0.3s ease;
+}
+
+.equipment-row:hover {
+    background-color: #f8f9fa;
+}
+</style>
+{% endblock %}

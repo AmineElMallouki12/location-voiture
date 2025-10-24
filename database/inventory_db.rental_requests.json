@@ -1,0 +1,213 @@
+[{
+  "_id": {
+    "$oid": "689505972b022c1f31915230"
+  },
+  "item_id": "ITEM_0041",
+  "user_name": "amine",
+  "user_email": "prof",
+  "quantity": 1,
+  "start_date": {
+    "$date": "2025-08-07T19:59:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-08T19:59:00.000Z"
+  },
+  "purpose": "zdfbadf",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-07T20:59:19.841Z"
+  },
+  "returned_at": {
+    "$date": "2025-08-11T18:05:36.825Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "689a2443409c9de5fa8e7e59"
+  },
+  "user_name": "prof",
+  "user_email": "prof",
+  "start_date": {
+    "$date": "2025-08-11T17:11:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-12T17:11:00.000Z"
+  },
+  "purpose": "testestt",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-11T18:11:31.945Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    },
+    {
+      "item_id": "ITEM_0038",
+      "designation": "CARNET DE TERRAIN HV",
+      "quantity": 1
+    }
+  ],
+  "returned_at": {
+    "$date": "2025-08-11T18:12:12.998Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "689a25e3409c9de5fa8e7e5a"
+  },
+  "user_name": "prof",
+  "user_email": "prof",
+  "start_date": {
+    "$date": "2025-08-11T17:18:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-12T17:18:00.000Z"
+  },
+  "purpose": "test",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-11T18:18:27.482Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    },
+    {
+      "item_id": "ITEM_0212",
+      "designation": "ECRAN ",
+      "quantity": 1
+    }
+  ],
+  "returned_at": {
+    "$date": "2025-08-11T18:18:53.946Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "689a26cd800d85894b329423"
+  },
+  "user_name": "prof",
+  "user_email": "prof",
+  "start_date": {
+    "$date": "2025-08-11T17:22:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-12T17:22:00.000Z"
+  },
+  "purpose": "testsettset",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-11T18:22:21.518Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    },
+    {
+      "item_id": "ITEM_0212",
+      "designation": "ECRAN ",
+      "quantity": 1
+    }
+  ],
+  "returned_at": {
+    "$date": "2025-08-11T18:22:46.873Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "689a2717800d85894b329424"
+  },
+  "user_name": "etu",
+  "user_email": "etu",
+  "start_date": {
+    "$date": "2025-08-11T17:23:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-12T17:23:00.000Z"
+  },
+  "purpose": "testsettset",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-11T18:23:35.815Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    }
+  ],
+  "returned_at": {
+    "$date": "2025-08-11T18:48:55.993Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "689a2d22a8adbf9a561af744"
+  },
+  "user_name": "etu",
+  "user_email": "etu",
+  "start_date": {
+    "$date": "2025-08-11T17:49:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-12T17:49:00.000Z"
+  },
+  "purpose": "wlkjgetjwhvbrg",
+  "status": "Rejected",
+  "created_at": {
+    "$date": "2025-08-11T18:49:22.220Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    },
+    {
+      "item_id": "ITEM_0212",
+      "designation": "ECRAN ",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "689b7832900f8fdd78204394"
+  },
+  "user_name": "prof",
+  "user_email": "prof",
+  "start_date": {
+    "$date": "2025-08-12T17:21:00.000Z"
+  },
+  "end_date": {
+    "$date": "2025-08-13T17:21:00.000Z"
+  },
+  "purpose": "khgvi",
+  "status": "Completed",
+  "created_at": {
+    "$date": "2025-08-12T18:21:54.273Z"
+  },
+  "items": [
+    {
+      "item_id": "ITEM_0081",
+      "designation": "Drone à voilure fixe ",
+      "quantity": 1
+    },
+    {
+      "item_id": "ITEM_0038",
+      "designation": "CARNET DE TERRAIN HV",
+      "quantity": 1
+    }
+  ],
+  "returned_at": {
+    "$date": "2025-08-12T18:22:53.098Z"
+  }
+}]

@@ -1,0 +1,14 @@
+# Netlify redirects file for SPA routing
+# This ensures all routes are handled by your Flask app
+
+# API routes - redirect to Flask backend
+/api/* https://your-app-name.netlify.app/api/:splat 200
+
+# Admin routes
+/admin/* https://your-app-name.netlify.app/admin/:splat 200
+
+# Staff routes  
+/staff/* https://your-app-name.netlify.app/staff/:splat 200
+
+# All other routes go to index.html for client-side routing
+/* /index.html 200

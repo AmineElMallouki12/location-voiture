@@ -1,0 +1,32 @@
+# Flask Web Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Database
+Flask-PyMongo==2.3.2
+PyMongo==4.5.0
+
+# Authentication & Security
+Flask-Login==0.6.3
+Flask-Bcrypt==1.0.1
+
+# File Processing & Uploads
+Pillow==10.0.1
+
+# Excel Export
+openpyxl==3.1.2
+
+# PDF Export
+reportlab==4.0.4
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Date/Time Handling
+python-dateutil==2.8.2
+
+# Additional Utilities
+click==8.1.7
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.3 
