@@ -669,7 +669,8 @@ def create_cart_reservation():
                 return jsonify({'success': False, 'message': f'Article {item_id} non trouvé'}), 400
             
             if item.get('quantite_disponible', 0) < quantity:
-                return jsonify({'success': False, 'message': f'Quantité insuffisante pour {item.get("designation", "l\'article")}'}), 400
+                article_name = item.get("designation", "l'article")
+                return jsonify({'success': False, 'message': f'Quantité insuffisante pour {article_name}'}), 400
         
         # Create ONE reservation with multiple items
         reservation_data = {
