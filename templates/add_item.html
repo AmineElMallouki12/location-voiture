@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}Add Equipment{% endblock %}
+{% block title %}Add Car{% endblock %}
 {% block content %}
 <div class="container-fluid">
   <div class="row mb-4">
     <div class="col-12">
       <h2 class="fw-bold mb-3">
-        <i class="fas fa-plus me-2"></i>Ajouter un équipement
+        <i class="fas fa-car me-2"></i>Ajouter une voiture
       </h2>
-      <p class="text-muted">Add a new piece of equipment to your inventory system.</p>
+      <p class="text-muted">Add a new car to your rental system.</p>
     </div>
   </div>
 
@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-header">
           <h5 class="mb-0">
-            <i class="fas fa-box me-2"></i>Equipment Details
+            <i class="fas fa-car me-2"></i>Car Details
           </h5>
         </div>
         <div class="card-body">
@@ -24,6 +24,30 @@
             <div class="mb-3">
               <label class="form-label">ID</label>
               <input type="text" name="id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Quantité</label>
+              <input type="number" name="quantity" class="form-control" value="1" min="1" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Prix journalier (€)</label>
+              <input type="number" name="prix_journalier" class="form-control" step="0.01" min="0" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Carburant</label>
+              <select name="carburant" class="form-select" required>
+                <option value="Essence">Essence</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybride">Hybride</option>
+                <option value="Électrique">Électrique</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Transmission</label>
+              <select name="transmission" class="form-select" required>
+                <option value="Manuelle">Manuelle</option>
+                <option value="Automatique">Automatique</option>
+              </select>
             </div>
             <div class="mb-3">
               <label class="form-label">Désignation</label>

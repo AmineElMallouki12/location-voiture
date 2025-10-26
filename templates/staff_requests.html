@@ -22,8 +22,8 @@
             <span class="badge bg-primary ms-2">{{ requests|length }}</span>
           </h5>
           <div>
-            <a href="{{ url_for('staff_equipment_used') }}" class="btn btn-outline-info btn-sm me-2">
-              <i class="fas fa-box-open me-2"></i>Matériel utilisé
+            <a href="{{ url_for('staff_cars_used') }}" class="btn btn-outline-info btn-sm me-2">
+              <i class="fas fa-car me-2"></i>Voitures utilisées
             </a>
             <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm">
               <i class="fas fa-arrow-left me-2"></i>Retour au tableau de bord
@@ -36,7 +36,7 @@
               <thead>
                 <tr>
                   <th>Nom</th>
-                  <th>Matériel</th>
+                  <th>Voiture</th>
                   <th>Quantité</th>
                   <th>Date de début</th>
                   <th>Date de fin</th>
@@ -52,7 +52,7 @@
                     <strong>{{ reservation.user_name }}</strong>
                   </td>
                   <td>
-                    <strong>{{ reservation.equipment_name }}</strong>
+                    <strong>{{ reservation.car_name }}</strong>
                   </td>
                   <td>
                     {% if reservation.quantity %}
@@ -64,8 +64,8 @@
                   <td>{{ reservation.start_date }}</td>
                   <td>{{ reservation.end_date }}</td>
                   <td>
-                    {% if reservation.status == 'En attente' %}
-                      <span class="badge bg-warning text-dark">En attente</span>
+                    {% if reservation.status == 'Pending' %}
+                      <span class="badge bg-warning text-dark">Pending</span>
                     {% elif reservation.status == 'Approved' %}
                       <span class="badge bg-success">Approuvée</span>
                     {% elif reservation.status == 'Rejected' %}
@@ -75,8 +75,8 @@
                     {% endif %}
                   </td>
                   <td>
-                    {% if reservation.status == 'En attente' %}
-                      {% if current_user.role in ['admin', 'technicien laboratoire'] %}
+                    {% if reservation.status == 'Pending' %}
+                      {% if current_user.role in ['admin', 'manager'] %}
                         <div class="btn-group" role="group">
                           <a href="{{ url_for('approve_request', req_id=reservation.id) }}" 
                              class="btn btn-sm btn-outline-success" 
@@ -89,9 +89,9 @@
                             <i class="fas fa-times"></i> Rejeter
                           </a>
                         </div>
-                      {% elif current_user.role == 'professeur' %}
+                      {% elif current_user.role == 'manager' %}
                         {% set requester = users|selectattr('username', 'equalto', reservation.user_name)|first %}
-                        {% if requester and requester.role == 'etudiant' %}
+                        {% if requester and requester.role == 'utilisateur' %}
                           <div class="btn-group" role="group">
                             <a href="{{ url_for('approve_request', req_id=reservation.id) }}" 
                                class="btn btn-sm btn-outline-success" 

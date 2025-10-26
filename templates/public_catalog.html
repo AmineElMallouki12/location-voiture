@@ -3,17 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue Public - Système d'Inventaire</title>
+    <title>Catalogue Public - Location de Voitures</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='CSS/style.css') }}" rel="stylesheet">
+    <style>
+        /* Car Slideshow Styles */
+        .car-slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+
+        .car-slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            transform: translateX(100%);
+            cursor: pointer;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            image-rendering: auto;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            -ms-interpolation-mode: bicubic;
+            filter: brightness(1.05) contrast(1.05) saturate(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .slide:hover .slide-image {
+            transform: scale(1.02);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .slide-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #28a745;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .slide-click-hint {
+            font-size: 1rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .slide-nav:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .slide-nav.prev {
+            left: 20px;
+        }
+
+        .slide-nav.next {
+            right: 20px;
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+        }
+
+        .indicator:hover {
+            background: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .car-slideshow-container {
+                height: 300px;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .slide-price {
+                font-size: 1.4rem;
+            }
+            
+            .slide-nav {
+                padding: 10px 15px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body class="catalog-page">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <i class="fas fa-boxes me-2"></i>Système d'Inventaire
+                <i class="fas fa-car me-2"></i>Location de Voitures
             </a>
             {% if current_user.is_authenticated %}
             <div class="navbar-nav ms-auto">
@@ -38,11 +227,70 @@
     </nav>
 
     <div class="container-fluid mt-4">
+        <!-- Page Title -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="text-center mb-0">
+                            <i class="fas fa-car me-3"></i>Catalogue Public
+                        </h1>
+                        <p class="text-center text-muted mt-2">Découvrez notre flotte de véhicules disponibles à la location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Car Slideshow Hero Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="car-slideshow-container">
+                    <div class="car-slideshow" id="carSlideshow">
+                        {% for item in items[:5] %}
+                        {% if item.image %}
+                        <div class="slide {% if loop.first %}active{% endif %}" onclick="openCarDetails('{{ item.id }}')">
+                            <img src="{{ url_for('static', filename='uploads/' + item.image) }}" 
+                                 alt="{{ item.designation }}" class="slide-image">
+                            <div class="slide-overlay">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">{{ item.designation }}</h3>
+                                    <p class="slide-subtitle">{{ item.marque }} {{ item.modele }}</p>
+                                    <p class="slide-price">À partir de {{ item.prix_journalier or '50' }}€/jour</p>
+                                    <div class="slide-click-hint">
+                                        <i class="fas fa-mouse-pointer me-2"></i>Cliquez pour voir les détails
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="slide-nav prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slide-nav next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Slide indicators -->
+                    <div class="slide-indicators">
+                        {% for item in items[:5] %}
+                        {% if item.image %}
+                        <span class="indicator {% if loop.first %}active{% endif %}" onclick="currentSlide({{ loop.index }})"></span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content -->
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2><i class="fas fa-boxes me-2"></i>Catalogue Public</h2>
+                    <h2><i class="fas fa-list me-2"></i>Nos Véhicules</h2>
                     {% if current_user.is_authenticated %}
                     <div class="d-flex gap-2">
                         <button class="btn btn-success" onclick="exportToExcel()">
@@ -57,7 +305,7 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher un article...">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher une voiture...">
                         </div>
                     </div>
                 </div>
@@ -65,6 +313,7 @@
                 <div class="row" id="equipmentGrid">
                     {% for item in items %}
                     <div class="col-md-6 col-lg-4 mb-4 equipment-item" 
+                         data-id="{{ item.id }}"
                          data-designation="{{ item.designation|lower }}"
                          data-status="{{ item.status|lower }}"
                          data-category="{{ item.category|default('', true)|lower }}">
@@ -147,12 +396,92 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Search functionality only
+        // Slideshow functionality
+        let currentSlideIndex = 0;
+        let slides = [];
+        let indicators = [];
+        let slideInterval;
+
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('searchInput').focus();
             
-            // Search functionality only
+            // Initialize slideshow
+            initializeSlideshow();
+            
+            // Search functionality
             document.getElementById('searchInput').addEventListener('input', filterEquipment);
+            
+            // Start auto-slide
+            startAutoSlide();
+        });
+
+        function initializeSlideshow() {
+            slides = document.querySelectorAll('.slide');
+            indicators = document.querySelectorAll('.indicator');
+            
+            if (slides.length === 0) return;
+            
+            // Set initial slide
+            showSlide(0);
+        }
+
+        function showSlide(index) {
+            if (slides.length === 0) return;
+            
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Add active class to current slide and indicator
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+            }
+            
+            currentSlideIndex = index;
+        }
+
+        function changeSlide(direction) {
+            if (slides.length === 0) return;
+            
+            let newIndex = currentSlideIndex + direction;
+            
+            if (newIndex >= slides.length) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slides.length - 1;
+            }
+            
+            showSlide(newIndex);
+        }
+
+        function currentSlide(index) {
+            showSlide(index - 1);
+        }
+
+        function startAutoSlide() {
+            if (slides.length <= 1) return;
+            
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+        }
+
+        // Pause auto-slide on hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideshow = document.querySelector('.car-slideshow-container');
+            if (slideshow) {
+                slideshow.addEventListener('mouseenter', stopAutoSlide);
+                slideshow.addEventListener('mouseleave', startAutoSlide);
+            }
         });
 
         function filterEquipment() {
@@ -196,6 +525,64 @@
 
         function exportToExcel() {
             window.location.href = '/export/inventory-excel';
+        }
+
+        // Function to open car details from slideshow
+        function openCarDetails(carId) {
+            // Find the button element with the car data
+            const carButton = document.querySelector(`button[data-id="${carId}"]`);
+            if (carButton) {
+                // Trigger the existing openItemDetails function
+                openItemDetails(carButton);
+            } else {
+                // If not found in grid, try to find it in the items array and create modal content
+                const items = {{ items | tojson }};
+                const car = items.find(item => item.id === carId);
+                if (car) {
+                    showCarDetailsModal(car);
+                } else {
+                    alert('Détails de la voiture non disponibles');
+                }
+            }
+        }
+
+        // Function to show car details modal directly
+        function showCarDetailsModal(car) {
+            const modal = document.getElementById('itemDetailsModal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalBody = modal.querySelector('.modal-body');
+            
+            modalTitle.textContent = car.designation || 'Détails de la voiture';
+            
+            modalBody.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        ${car.image ? 
+                            `<img src="/static/uploads/${car.image}" class="img-fluid rounded mb-3" alt="${car.designation}">` : 
+                            '<div class="bg-light p-5 text-center rounded mb-3"><i class="fas fa-car fa-3x text-muted"></i></div>'
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Informations générales</h5>
+                        <table class="table table-sm">
+                            <tr><td><strong>ID:</strong></td><td>${car.id || 'N/A'}</td></tr>
+                            <tr><td><strong>Désignation:</strong></td><td>${car.designation || 'N/A'}</td></tr>
+                            <tr><td><strong>Marque:</strong></td><td>${car.marque || 'N/A'}</td></tr>
+                            <tr><td><strong>Modèle:</strong></td><td>${car.modele || 'N/A'}</td></tr>
+                            <tr><td><strong>N° Série:</strong></td><td>${car.n_serie || 'N/A'}</td></tr>
+                            <tr><td><strong>Disponible:</strong></td><td>${car.quantite_disponible || car.quantity || 'N/A'}</td></tr>
+                            <tr><td><strong>Statut:</strong></td><td><span class="badge bg-${car.status === 'Disponible' ? 'success' : 'warning'}">${car.status || 'N/A'}</span></td></tr>
+                            <tr><td><strong>Prix journalier:</strong></td><td>${car.prix_journalier ? car.prix_journalier + '€' : 'N/A'}</td></tr>
+                            <tr><td><strong>Carburant:</strong></td><td>${car.carburant || 'N/A'}</td></tr>
+                            <tr><td><strong>Transmission:</strong></td><td>${car.transmission || 'N/A'}</td></tr>
+                        </table>
+                        ${car.description ? `<h6>Description:</h6><p>${car.description}</p>` : ''}
+                    </div>
+                </div>
+            `;
+            
+            const bootstrapModal = new bootstrap.Modal(modal);
+            bootstrapModal.show();
         }
     </script>
 </body>

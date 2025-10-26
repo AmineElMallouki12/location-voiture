@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key'
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb://localhost:27017/inventory_db"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/voiture_de_location"
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
@@ -49,7 +49,7 @@ def load_user(user_id):
 
 # Helper function to get database cursor
 def get_cursor():
-    return mongo.db.equipment.find()
+    return mongo.db.cars.find()
 
 # Helper function to format datetime
 def format_datetime(dt):
@@ -108,15 +108,15 @@ def profile():
 @login_required
 def dashboard():
     # Get statistics
-    available = mongo.db.equipment.count_documents({'status': 'Disponible'})
-    unavailable = mongo.db.equipment.count_documents({'status': 'Indisponible'})
-    repair = mongo.db.equipment.count_documents({'status': 'Nécessite une réparation'})
-    total = mongo.db.equipment.count_documents({})
+    available = mongo.db.cars.count_documents({'status': 'Disponible'})
+    unavailable = mongo.db.cars.count_documents({'status': 'Indisponible'})
+    repair = mongo.db.cars.count_documents({'status': 'Nécessite une réparation'})
+    total = mongo.db.cars.count_documents({})
     # Get recent items
-    recent_items = list(mongo.db.equipment.find().sort([('updated_at', -1), ('created_at', -1)]).limit(10))
+    recent_items = list(mongo.db.cars.find().sort([('updated_at', -1), ('created_at', -1)]).limit(10))
     for item in recent_items:
         # Don't overwrite the actual 'id' field with MongoDB _id
-        # The 'id' field should remain as the equipment's custom ID
+        # The 'id' field should remain as the car's custom ID
         item['created_at'] = item.get('created_at', '').strftime('%Y-%m-%d %H:%M') if item.get('created_at') else ''
         item['updated_at'] = item.get('updated_at', '').strftime('%Y-%m-%d %H:%M') if item.get('updated_at') else ''
     stats = {
@@ -131,8 +131,8 @@ def dashboard():
 @app.route('/inventory')
 @login_required
 def inventory():
-    # Get all equipment and group by category
-    items = list(mongo.db.equipment.find().sort('designation', 1))
+    # Get all cars and group by category
+    items = list(mongo.db.cars.find().sort('designation', 1))
     
     # Group items by category
     categorized_items = {}
@@ -140,7 +140,7 @@ def inventory():
     
     for item in items:
         # Don't overwrite the actual 'id' field with MongoDB _id
-        # The 'id' field should remain as the equipment's custom ID
+        # The 'id' field should remain as the car's custom ID
         item['designation'] = item.get('designation', '')
         item['created_at'] = item.get('created_at', '').strftime('%Y-%m-%d %H:%M') if item.get('created_at') else ''
         item['updated_at'] = item.get('updated_at', '').strftime('%Y-%m-%d %H:%M') if item.get('updated_at') else ''
@@ -165,11 +165,15 @@ def inventory():
 @app.route('/add-item', methods=['GET', 'POST'])
 @login_required
 def add_item():
-    if not (current_user.role == 'admin' or is_technicien() or is_manager()):
-        flash('Accès refusé. Réservé au technicien, manager laboratoire ou admin.', 'error')
+    if not (current_user.role == 'admin' or is_manager()):
+        flash('Accès refusé. Réservé au manager ou admin.', 'error')
         return redirect(url_for('dashboard'))
     if request.method == 'POST':
         item_id = request.form['id']
+        quantity = int(request.form.get('quantity', 1))
+        prix_journalier = float(request.form.get('prix_journalier', 0)) if request.form.get('prix_journalier') else 0
+        carburant = request.form.get('carburant', 'Essence')
+        transmission = request.form.get('transmission', 'Manuelle')
         designation = request.form['designation']
         category = request.form['category']
         marque = request.form['marque']
@@ -198,8 +202,12 @@ def add_item():
             image_file.save(image_path)
             image_filename = filename
         now = datetime.now()
-        mongo.db.equipment.insert_one({
+        mongo.db.cars.insert_one({
             'id': item_id,
+            'quantity': quantity,
+            'prix_journalier': prix_journalier,
+            'carburant': carburant,
+            'transmission': transmission,
             'designation': designation,
             'category': category,
             'marque': marque,
@@ -210,15 +218,15 @@ def add_item():
             'status': status,
             'date_inv': date_inv,
             'description': description,
-            'quantite_totale': 1,
+            'quantite_totale': quantity,
             'quantite_cassée': 0,
             'quantite_en_réparation': 0,
-            'quantite_disponible': 1,
+            'quantite_disponible': quantity,
             'image': image_filename,
             'created_at': now,
             'updated_at': now
         })
-        flash('Matériel ajouté avec succès!', 'success')
+        flash('Voiture ajoutée avec succès!', 'success')
         return redirect(url_for('dashboard'))
     return render_template('add_item.html')
 
@@ -226,7 +234,7 @@ def add_item():
 @app.route('/api/item/<string:item_id>', methods=['GET'])
 @login_required
 def get_item(item_id):
-    item = mongo.db.equipment.find_one({'id': item_id})
+    item = mongo.db.cars.find_one({'id': item_id})
     if item:
         return jsonify({
             'success': True,
@@ -300,20 +308,20 @@ def update_item(item_id):
     }
     if image_filename:
         update_fields['image'] = image_filename
-    mongo.db.equipment.update_one({'id': item_id}, {'$set': update_fields})
+    mongo.db.cars.update_one({'id': item_id}, {'$set': update_fields})
     return jsonify({'success': True, 'message': 'Matériel mis à jour avec succès'})
 
 @app.route('/api/item/<string:item_id>', methods=['DELETE'])
 @login_required
 def delete_item(item_id):
-    mongo.db.equipment.delete_one({'id': item_id})
+    mongo.db.cars.delete_one({'id': item_id})
     return jsonify({'success': True, 'message': 'Item deleted successfully'})
 
 # Categories API
 @app.route('/api/categories')
 @login_required
 def get_categories():
-    raw_categories = mongo.db.equipment.distinct('category')
+    raw_categories = mongo.db.cars.distinct('category')
     categories = [c for c in raw_categories if c and str(c).strip()]
     categories.sort(key=lambda x: str(x).lower())
     return jsonify({'success': True, 'categories': categories})
@@ -332,7 +340,7 @@ def get_available_items():
         query['category'] = selected_category
 
     available_items = list(
-        mongo.db.equipment.find(query).sort('designation', 1)
+        mongo.db.cars.find(query).sort('designation', 1)
     )
 
     items = []
@@ -350,9 +358,9 @@ def get_available_items():
 @app.route('/api/reservation', methods=['POST'])
 @login_required
 def create_reservation():
-    # Only professeur and étudiant can create reservations
-    if not (is_professeur() or is_etudiant()):
-        return jsonify({'success': False, 'message': 'Accès refusé. Réservé aux professeurs et étudiants.'})
+    # Only utilisateur and manager can create reservations
+    if not (is_utilisateur() or is_manager()):
+        return jsonify({'success': False, 'message': 'Accès refusé. Réservé aux utilisateurs et managers.'})
     
     item_id = request.form.get('item_id')
     user_name = request.form.get('user_name')
@@ -365,7 +373,7 @@ def create_reservation():
         return jsonify({'success': False, 'message': 'Tous les champs requis doivent être fournis'})
     
     # Check if item exists and is available
-    item = mongo.db.equipment.find_one({'id': item_id})
+    item = mongo.db.cars.find_one({'id': item_id})
     if not item:
         return jsonify({'success': False, 'message': 'Équipement non trouvé'})
     
@@ -397,9 +405,9 @@ def create_reservation():
 @app.route('/api/reservation/<string:reservation_id>/approve', methods=['PUT'])
 @login_required
 def approve_reservation(reservation_id):
-    # Check if user is professeur, technicien laboratoire, or admin
-    if not (is_professeur() or is_technicien() or current_user.role == 'admin'):
-        return jsonify({'success': False, 'message': 'Accès refusé. Réservé au professeur, technicien laboratoire ou admin.'}), 403
+    # Check if user is manager or admin
+    if not (is_manager() or current_user.role == 'admin'):
+        return jsonify({'success': False, 'message': 'Accès refusé. Réservé au manager ou admin.'}), 403
     
     try:
         # Validate ObjectId format
@@ -413,35 +421,23 @@ def approve_reservation(reservation_id):
         if not reservation:
             return jsonify({'success': False, 'message': 'Réservation non trouvée'}), 404
         
-        # Check if reservation is pending or professor approved
+        # Check if reservation is pending
         current_status = reservation.get('status')
-        if current_status not in ['En attente', 'Approuvée par professeur']:
-            return jsonify({'success': False, 'message': 'Seules les réservations en attente ou approuvées par le professeur peuvent être approuvées'}), 400
-        
-        # Determine the new status based on who is approving
-        if is_professeur() and current_status == 'En attente':
-            # Professor is approving a pending reservation
-            new_status = 'Approuvée par professeur'
-            approved_by = f'professeur:{current_user.username}'
-        elif (is_technicien() or current_user.role == 'admin') and current_status == 'Approuvée par professeur':
-            # Technicien or admin is approving a professor-approved reservation
-            new_status = 'Approved'
-            approved_by = f'technicien:{current_user.username}'
-        else:
-            return jsonify({'success': False, 'message': 'Action non autorisée pour ce statut de réservation'}), 400
+        if current_status != 'En attente':
+            return jsonify({'success': False, 'message': 'Seules les réservations en attente peuvent être approuvées'}), 400
         
         # Update reservation status
         mongo.db.rental_requests.update_one(
             {'_id': object_id},
             {'$set': {
-                'status': new_status, 
-                'approved_by': approved_by, 
+                'status': 'Approved', 
+                'approved_by': f'{current_user.role}:{current_user.username}', 
                 'approved_at': datetime.now()
             }}
         )
         
-        flash(f'Réservation {new_status.lower()} avec succès!', 'success')
-        return jsonify({'success': True, 'message': f'Réservation {new_status.lower()} avec succès'})
+        flash(f'Réservation approuvée avec succès!', 'success')
+        return jsonify({'success': True, 'message': f'Réservation approuvée avec succès'})
         
     except Exception as e:
         print(f"Error approving reservation: {e}")
@@ -450,9 +446,9 @@ def approve_reservation(reservation_id):
 @app.route('/api/reservation/<string:reservation_id>/reject', methods=['PUT'])
 @login_required
 def reject_reservation(reservation_id):
-    # Check if user is professeur, technicien laboratoire, or admin
-    if not (is_professeur() or is_technicien() or current_user.role == 'admin'):
-        return jsonify({'success': False, 'message': 'Accès refusé. Réservé au professeur, technicien laboratoire ou admin.'}), 403
+    # Check if user is manager or admin
+    if not (is_manager() or current_user.role == 'admin'):
+        return jsonify({'success': False, 'message': 'Accès refusé. Réservé au manager ou admin.'}), 403
     
     try:
         # Validate ObjectId format
@@ -468,8 +464,8 @@ def reject_reservation(reservation_id):
         
         # Check if reservation can be rejected
         current_status = reservation.get('status')
-        if current_status not in ['En attente', 'Approuvée par professeur']:
-            return jsonify({'success': False, 'message': 'Seules les réservations en attente ou approuvées par le professeur peuvent être rejetées'}), 400
+        if current_status != 'En attente':
+            return jsonify({'success': False, 'message': 'Seules les réservations en attente peuvent être rejetées'}), 400
         
         # Update status to rejected
         mongo.db.rental_requests.update_one(
@@ -489,7 +485,7 @@ def reject_reservation(reservation_id):
                 quantity = item_data.get('quantity', 1)
                 
                 # Restore the quantity
-                mongo.db.equipment.update_one(
+                mongo.db.cars.update_one(
                     {'id': item_id},
                     {
                         '$inc': {'quantite_disponible': quantity},
@@ -505,7 +501,7 @@ def reject_reservation(reservation_id):
             quantity = reservation.get('quantity', 1)
             
             if item_id:
-                mongo.db.equipment.update_one(
+                mongo.db.cars.update_one(
                     {'id': item_id},
                     {
                         '$inc': {'quantite_disponible': quantity},
@@ -533,7 +529,7 @@ def delete_reservation(reservation_id):
             return jsonify({'success': False, 'message': 'Réservation non trouvée'}), 404
         
         # Check if user can delete this reservation
-        if not (is_technicien() or current_user.role == 'admin' or reservation.get('user_email') == current_user.username):
+        if not (is_manager() or current_user.role == 'admin' or reservation.get('user_email') == current_user.username):
             return jsonify({'success': False, 'message': 'Permission refusée'}), 403
         
         # If reservation is pending, restore quantities
@@ -543,7 +539,7 @@ def delete_reservation(reservation_id):
                 for item_data in reservation['items']:
                     item_id = item_data.get('item_id')
                     quantity = item_data.get('quantity', 1)
-                    mongo.db.equipment.update_one(
+                    mongo.db.cars.update_one(
                         {'id': item_id},
                         {'$inc': {'quantite_disponible': quantity}, '$set': {'status': 'Disponible', 'updated_at': datetime.now()}}
                     )
@@ -552,7 +548,7 @@ def delete_reservation(reservation_id):
                 item_id = reservation.get('item_id')
                 quantity = reservation.get('quantity', 1)
                 if item_id:
-                    mongo.db.equipment.update_one(
+                    mongo.db.cars.update_one(
                         {'id': item_id},
                         {'$inc': {'quantite_disponible': quantity}, '$set': {'status': 'Disponible', 'updated_at': datetime.now()}}
                     )
@@ -569,7 +565,7 @@ def delete_reservation(reservation_id):
 @app.route('/api/reservation/<string:reservation_id>', methods=['GET'])
 @login_required
 def get_reservation_details(reservation_id):
-    """Return detailed information about a reservation, including equipment name and category."""
+    """Return detailed information about a reservation, including car name and category."""
     try:
         reservation = mongo.db.rental_requests.find_one({'_id': ObjectId(reservation_id)})
     except Exception:
@@ -577,9 +573,9 @@ def get_reservation_details(reservation_id):
     if not reservation:
         return jsonify({'success': False, 'message': 'Réservation non trouvée'}), 404
 
-    # Authorization: allow admin/technicien, the owner, or professeur (who may oversee students)
+    # Authorization: allow admin/manager, the owner
     is_owner = reservation.get('user_email') == current_user.username
-    can_view = is_owner or is_technicien() or current_user.role == 'admin' or is_professeur()
+    can_view = is_owner or is_manager() or current_user.role == 'admin'
     if not can_view:
         return jsonify({'success': False, 'message': 'Accès refusé'}), 403
 
@@ -592,11 +588,11 @@ def get_reservation_details(reservation_id):
             quantity = item_data.get('quantity', 1)
             designation = item_data.get('designation', '')
             
-            equipment = mongo.db.equipment.find_one({'id': item_id}) or {}
+            car = mongo.db.cars.find_one({'id': item_id}) or {}
             items_data.append({
                 'item_id': item_id,
-                'designation': designation or equipment.get('designation', ''),
-                'category': equipment.get('category', ''),
+                'designation': designation or car.get('designation', ''),
+                'category': car.get('category', ''),
                 'quantity': quantity
             })
         
@@ -614,12 +610,12 @@ def get_reservation_details(reservation_id):
         }
     else:
         # Single item reservation (legacy)
-        equipment = mongo.db.equipment.find_one({'id': reservation.get('item_id')}) or {}
+        car = mongo.db.cars.find_one({'id': reservation.get('item_id')}) or {}
         data = {
             'id': str(reservation.get('_id')),
             'item_id': reservation.get('item_id', ''),
-            'item_name': equipment.get('designation', ''),
-            'category': equipment.get('category', ''),
+            'item_name': car.get('designation', ''),
+            'category': car.get('category', ''),
             'user_name': reservation.get('user_name', ''),
             'user_email': reservation.get('user_email', ''),
             'quantity': reservation.get('quantity', 1),
@@ -668,7 +664,7 @@ def create_cart_reservation():
                 return jsonify({'success': False, 'message': 'Données d\'article invalides'}), 400
             
             # Check if item exists and has enough quantity
-            item = mongo.db.equipment.find_one({'id': item_id})
+            item = mongo.db.cars.find_one({'id': item_id})
             if not item:
                 return jsonify({'success': False, 'message': f'Article {item_id} non trouvé'}), 400
             
@@ -692,7 +688,7 @@ def create_cart_reservation():
             item_id = item_data.get('item_id')
             quantity = item_data.get('quantity', 1)
             
-            item = mongo.db.equipment.find_one({'id': item_id})
+            item = mongo.db.cars.find_one({'id': item_id})
             
             # Add item to reservation
             reservation_data['items'].append({
@@ -710,7 +706,7 @@ def create_cart_reservation():
             else:
                 new_status = "Disponible"
             
-            mongo.db.equipment.update_one(
+            mongo.db.cars.update_one(
                 {'id': item_id},
                 {
                     '$set': {
@@ -741,32 +737,24 @@ def reservations():
     # Get reservations based on user role, excluding rejected and completed ones
     base_filter = {'status': {'$nin': ['Rejected', 'Completed']}}
     
-    if is_technicien() or current_user.role == 'admin':
-        # Technicien and admin see all active reservations (not rejected/completed)
+    if is_manager() or current_user.role == 'admin':
+        # Manager and admin see all active reservations (not rejected/completed)
         reservations = list(mongo.db.rental_requests.find(base_filter).sort('created_at', -1))
-    elif is_professeur():
-        # Professeur sees their own reservations and student reservations (not rejected/completed)
+    elif is_utilisateur():
+        # Utilisateur sees only their own reservations (not rejected/completed)
         reservations = list(mongo.db.rental_requests.find({
             '$and': [
                 base_filter,
-                {
-                    '$or': [
-                        {'user_email': current_user.username},
-                        {'user_email': {'$in': [user['username'] for user in mongo.db.users.find({'role': 'etudiant'}, {'username': 1})]}}
-                    ]
-                }
+                {'user_email': current_user.username}
             ]
         }).sort('created_at', -1))
     else:
-        # Étudiant sees only their own reservations (not rejected/completed)
+        # Default: user sees only their own reservations (not rejected/completed)
         user_filter = {'$and': [base_filter, {'user_email': current_user.username}]}
         reservations = list(mongo.db.rental_requests.find(user_filter).sort('created_at', -1))
     
-    # Build a lookup for equipment names keyed by custom 'id'
-    equipment_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.equipment.find()}
-    
-    # Get student usernames for professeur role checking
-    student_usernames = [user['username'] for user in mongo.db.users.find({'role': 'etudiant'}, {'username': 1})]
+    # Build a lookup for car names keyed by custom 'id'
+    cars_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.cars.find()}
     
     # Format reservations for template
     formatted_reservations = []
@@ -778,7 +766,7 @@ def reservations():
             for item_data in r['items']:
                 item_id = item_data.get('item_id', '')
                 quantity = item_data.get('quantity', 1)
-                designation = item_data.get('designation', '') or equipment_map.get(item_id, '')
+                designation = item_data.get('designation', '') or cars_map.get(item_id, '')
                 item_names.append(f"{designation} (x{quantity})")
                 total_quantity += quantity
             
@@ -801,7 +789,7 @@ def reservations():
             formatted_reservations.append({
                 'id': str(r.get('_id')),
                 'item_id': str(r.get('item_id')),
-                'item_name': equipment_map.get(str(r.get('item_id')), ''),
+                'item_name': cars_map.get(str(r.get('item_id')), ''),
                 'user_name': r.get('user_name', ''),
                 'user_email': r.get('user_email', ''),
                 'quantity': r.get('quantity', 1),
@@ -813,7 +801,7 @@ def reservations():
                 'is_multi_item': False
             })
     
-    return render_template('reservation.html', reservations=formatted_reservations, student_usernames=student_usernames)
+    return render_template('reservation.html', reservations=formatted_reservations)
 
 # API route to get full reservation history (including rejected/completed)
 @app.route('/api/reservations/history')
@@ -822,23 +810,15 @@ def get_reservation_history():
     """Get all reservations including rejected and completed ones for history view"""
     try:
         # Get reservations based on user role
-        if is_technicien() or current_user.role == 'admin':
-            # Technicien and admin see all reservations
+        if is_manager() or current_user.role == 'admin':
+            # Manager and admin see all reservations
             reservations = list(mongo.db.rental_requests.find().sort('created_at', -1))
-        elif is_professeur():
-            # Professeur sees their own reservations and student reservations
-            reservations = list(mongo.db.rental_requests.find({
-                '$or': [
-                    {'user_email': current_user.username},
-                    {'user_email': {'$in': [user['username'] for user in mongo.db.users.find({'role': 'etudiant'}, {'username': 1})]}}
-                ]
-            }).sort('created_at', -1))
         else:
-            # Étudiant sees only their own reservations
+            # Utilisateur sees only their own reservations
             reservations = list(mongo.db.rental_requests.find({'user_email': current_user.username}).sort('created_at', -1))
         
-        # Build a lookup for equipment names keyed by custom 'id'
-        equipment_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.equipment.find()}
+        # Build a lookup for car names keyed by custom 'id'
+        cars_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.cars.find()}
         
         # Format reservations for API response
         formatted_reservations = []
@@ -850,7 +830,7 @@ def get_reservation_history():
                 for item_data in r['items']:
                     item_id = item_data.get('item_id', '')
                     quantity = item_data.get('quantity', 1)
-                    designation = item_data.get('designation', '') or equipment_map.get(item_id, '')
+                    designation = item_data.get('designation', '') or cars_map.get(item_id, '')
                     item_names.append(f"{designation} (x{quantity})")
                     total_quantity += quantity
                 
@@ -873,7 +853,7 @@ def get_reservation_history():
                 formatted_reservations.append({
                     'id': str(r.get('_id')),
                     'item_id': str(r.get('item_id')),
-                    'item_name': equipment_map.get(str(r.get('item_id')), ''),
+                    'item_name': cars_map.get(str(r.get('item_id')), ''),
                     'user_name': r.get('user_name', ''),
                     'user_email': r.get('user_email', ''),
                     'quantity': r.get('quantity', 1),
@@ -910,7 +890,7 @@ def generate_report():
 
         if report_type == 'inventory':
             items = []
-            for item in mongo.db.equipment.find().sort('designation', 1):
+            for item in mongo.db.cars.find().sort('designation', 1):
                 items.append({
                     'id': item.get('id', ''),
                     'designation': item.get('designation', ''),
@@ -926,14 +906,14 @@ def generate_report():
             return render_template('report.html', items=items, report_type='inventory')
 
         elif report_type == 'statistics':
-            available = mongo.db.equipment.count_documents({'status': 'Disponible'})
-            unavailable = mongo.db.equipment.count_documents({'status': 'Indisponible'})
-            repair = mongo.db.equipment.count_documents({'status': 'Nécessite une réparation'})
-            total = mongo.db.equipment.count_documents({})
+            available = mongo.db.cars.count_documents({'status': 'Disponible'})
+            unavailable = mongo.db.cars.count_documents({'status': 'Indisponible'})
+            repair = mongo.db.cars.count_documents({'status': 'Nécessite une réparation'})
+            total = mongo.db.cars.count_documents({})
             # Condition repartition
-            bon_etat = mongo.db.equipment.count_documents({'condition': 'Bon état'})
-            mauvais_etat = mongo.db.equipment.count_documents({'condition': 'Mauvais état'})
-            condition_repair = mongo.db.equipment.count_documents({'condition': 'Nécessite une réparation'})
+            bon_etat = mongo.db.cars.count_documents({'condition': 'Bon état'})
+            mauvais_etat = mongo.db.cars.count_documents({'condition': 'Mauvais état'})
+            condition_repair = mongo.db.cars.count_documents({'condition': 'Nécessite une réparation'})
             autre = total - (bon_etat + mauvais_etat + condition_repair)
             stats = {
                 'available': available,
@@ -975,7 +955,7 @@ def export_report_pdf():
     c.setFont('Helvetica', 12)
     y -= 40
     if report_type == 'inventory':
-        items = list(mongo.db.equipment.find().sort('designation', 1))
+        items = list(mongo.db.cars.find().sort('designation', 1))
         headers = [
             'ID', 'Désignation', 'Catégorie', 'Marque', 'Modèle', 'N° Série',
             'Ancien CAB', 'Nouveau CAB', 'Statut', "Date d'inventaire",
@@ -1016,14 +996,14 @@ def export_report_pdf():
                 y -= 18
                 c.setFont('Helvetica', 9)
     elif report_type == 'statistics':
-        available = mongo.db.equipment.count_documents({'status': 'Disponible'})
-        unavailable = mongo.db.equipment.count_documents({'status': 'Indisponible'})
-        repair = mongo.db.equipment.count_documents({'status': 'Nécessite une réparation'})
-        total = mongo.db.equipment.count_documents({})
+        available = mongo.db.cars.count_documents({'status': 'Disponible'})
+        unavailable = mongo.db.cars.count_documents({'status': 'Indisponible'})
+        repair = mongo.db.cars.count_documents({'status': 'Nécessite une réparation'})
+        total = mongo.db.cars.count_documents({})
         # Répartition par condition si existante
-        bon_etat = mongo.db.equipment.count_documents({'condition': 'Bon état'})
-        mauvais_etat = mongo.db.equipment.count_documents({'condition': 'Mauvais état'})
-        condition_repair = mongo.db.equipment.count_documents({'condition': 'Nécessite une réparation'})
+        bon_etat = mongo.db.cars.count_documents({'condition': 'Bon état'})
+        mauvais_etat = mongo.db.cars.count_documents({'condition': 'Mauvais état'})
+        condition_repair = mongo.db.cars.count_documents({'condition': 'Nécessite une réparation'})
         autre = total - (bon_etat + mauvais_etat + condition_repair)
         stats = [
             ('Disponible', available),
@@ -1039,7 +1019,7 @@ def export_report_pdf():
             y -= 24
     elif report_type == 'reservations':
         reservations = list(mongo.db.rental_requests.find().sort('start_date', -1))
-        equipment_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.equipment.find()}
+        car_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.cars.find()}
         headers = ['Article', 'Catégorie', 'Réservé par', 'Email', 'Qté', 'Début', 'Fin', 'Statut', 'But']
         c.drawString(40, y, ' | '.join(headers))
         y -= 20
@@ -1047,9 +1027,9 @@ def export_report_pdf():
             if 'items' in r:
                 # Multi-item request - create a row for each item
                 for item_data in r.get('items', []):
-                    equip = mongo.db.equipment.find_one({'id': item_data.get('item_id')}) or {}
+                    equip = mongo.db.cars.find_one({'id': item_data.get('item_id')}) or {}
                     row = [
-                        equipment_map.get(item_data.get('item_id', ''), ''),
+                        car_map.get(item_data.get('item_id', ''), ''),
                         str(equip.get('category', '')),
                         r.get('user_name', ''),
                         r.get('user_email', ''),
@@ -1067,9 +1047,9 @@ def export_report_pdf():
                         y = height - 40
             else:
                 # Single-item request (legacy)
-                equip = mongo.db.equipment.find_one({'id': r.get('item_id')}) or {}
+                equip = mongo.db.cars.find_one({'id': r.get('item_id')}) or {}
                 row = [
-                    equipment_map.get(r.get('item_id', ''), ''),
+                    car_map.get(r.get('item_id', ''), ''),
                     str(equip.get('category', '')),
                     r.get('user_name', ''),
                     r.get('user_email', ''),
@@ -1107,7 +1087,7 @@ def export_report_excel():
     ws = wb.active
     ws.title = 'Rapport'
     if report_type == 'inventory':
-        items = list(mongo.db.equipment.find().sort('designation', 1))
+        items = list(mongo.db.cars.find().sort('designation', 1))
         headers = [
             'ID', 'Désignation', 'Catégorie', 'Marque', 'Modèle', 'N° Série',
             'Ancien CAB', 'Nouveau CAB', 'Statut', "Date d'inventaire",
@@ -1134,19 +1114,19 @@ def export_report_excel():
             ]
             ws.append(row)
     elif report_type == 'statistics':
-        available = mongo.db.equipment.count_documents({'status': 'Disponible'})
-        unavailable = mongo.db.equipment.count_documents({'status': 'Indisponible'})
-        repair = mongo.db.equipment.count_documents({'status': 'Nécessite une réparation'})
-        total = mongo.db.equipment.count_documents({})
+        available = mongo.db.cars.count_documents({'status': 'Disponible'})
+        unavailable = mongo.db.cars.count_documents({'status': 'Indisponible'})
+        repair = mongo.db.cars.count_documents({'status': 'Nécessite une réparation'})
+        total = mongo.db.cars.count_documents({})
         ws.append(['Libellé', 'Valeur'])
         ws.append(['Disponible', available])
         ws.append(['Indisponible', unavailable])
         ws.append(['Nécessite une réparation', repair])
         ws.append(['Total', total])
         # Répartition par condition (si disponible)
-        bon_etat = mongo.db.equipment.count_documents({'condition': 'Bon état'})
-        mauvais_etat = mongo.db.equipment.count_documents({'condition': 'Mauvais état'})
-        condition_repair = mongo.db.equipment.count_documents({'condition': 'Nécessite une réparation'})
+        bon_etat = mongo.db.cars.count_documents({'condition': 'Bon état'})
+        mauvais_etat = mongo.db.cars.count_documents({'condition': 'Mauvais état'})
+        condition_repair = mongo.db.cars.count_documents({'condition': 'Nécessite une réparation'})
         autre = total - (bon_etat + mauvais_etat + condition_repair)
         ws.append([])
         ws.append(['Condition', 'Valeur'])
@@ -1156,16 +1136,16 @@ def export_report_excel():
         ws.append(['Autre', autre])
     elif report_type == 'reservations':
         reservations = list(mongo.db.rental_requests.find().sort('start_date', -1))
-        equipment_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.equipment.find()}
+        car_map = {e.get('id', ''): e.get('designation', '') for e in mongo.db.cars.find()}
         headers = ['Article', 'Catégorie', 'Réservé par', 'Email', 'Quantité', 'Date début', 'Date fin', 'Statut', 'But']
         ws.append(headers)
         for r in reservations:
             if 'items' in r:
                 # Multi-item request - create a row for each item
                 for item_data in r.get('items', []):
-                    equip = mongo.db.equipment.find_one({'id': item_data.get('item_id')}) or {}
+                    equip = mongo.db.cars.find_one({'id': item_data.get('item_id')}) or {}
                     row = [
-                        equipment_map.get(item_data.get('item_id', ''), ''),
+                        car_map.get(item_data.get('item_id', ''), ''),
                         equip.get('category', ''),
                         r.get('user_name', ''),
                         r.get('user_email', ''),
@@ -1178,9 +1158,9 @@ def export_report_excel():
                     ws.append(row)
             else:
                 # Single-item request (legacy)
-                equip = mongo.db.equipment.find_one({'id': r.get('item_id')}) or {}
+                equip = mongo.db.cars.find_one({'id': r.get('item_id')}) or {}
                 row = [
-                    equipment_map.get(r.get('item_id', ''), ''),
+                    car_map.get(r.get('item_id', ''), ''),
                     equip.get('category', ''),
                     r.get('user_name', ''),
                     r.get('user_email', ''),
@@ -1221,7 +1201,7 @@ def export_inventory_excel():
     ws.append(headers)
 
     # Query items grouped by category then designation
-    items = list(mongo.db.equipment.find().sort([('category', 1), ('designation', 1)]))
+    items = list(mongo.db.cars.find().sort([('category', 1), ('designation', 1)]))
     for it in items:
         row = [
             it.get('category', ''),
@@ -1278,9 +1258,9 @@ def create_default_users():
 
 @app.route('/')
 def index():
-    # Public equipment catalog - no login required
-    # Only show available equipment with available quantity > 0
-    items = list(mongo.db.equipment.find({
+    # Public car catalog - no login required
+    # Only show available car with available quantity > 0
+    items = list(mongo.db.cars.find({
         '$or': [
             {'status': 'Disponible'},
             {'status': 'Available'}
@@ -1293,7 +1273,7 @@ def index():
         quantite_disponible = item.get('quantite_disponible', item.get('quantite_totale', 1))
         if quantite_disponible > 0:
             # Don't overwrite the actual 'id' field with MongoDB _id
-            # The 'id' field should remain as the equipment's custom ID
+            # The 'id' field should remain as the car's custom ID
             item['created_at'] = item.get('created_at', '').strftime('%Y-%m-%d %H:%M') if item.get('created_at') else ''
             item['updated_at'] = item.get('updated_at', '').strftime('%Y-%m-%d %H:%M') if item.get('updated_at') else ''
             item['quantite_disponible'] = quantite_disponible
@@ -1303,25 +1283,19 @@ def index():
 
 # Helper functions for role checks
 
-def is_technicien():
-    return current_user.role == 'technicien laboratoire'
-
 def is_manager():
-    return current_user.role == 'manager laboratoire'
+    return current_user.role == 'manager'
 
-def is_professeur():
-    return current_user.role == 'professeur'
+def is_utilisateur():
+    return current_user.role == 'utilisateur'
 
-def is_etudiant():
-    return current_user.role == 'etudiant'
-
-# Reservation request route for students and professeurs
+# Reservation request route for utilisateurs and managers
 @app.route('/request-rental/<string:item_id>', methods=['GET', 'POST'])
 @login_required
 def request_rental(item_id):
-    # Only étudiant and professeur can request
-    if not (is_etudiant() or is_professeur()):
-        flash('Accès refusé. Réservé aux étudiants et professeurs.', 'error')
+    # Only utilisateur and manager can request
+    if not (is_utilisateur() or is_manager()):
+        flash('Accès refusé. Réservé aux utilisateurs et managers.', 'error')
         return redirect(url_for('index'))
     
     if request.method == 'POST':
@@ -1337,9 +1311,9 @@ def request_rental(item_id):
             return redirect(url_for('request_rental', item_id=item_id))
         
         # Check if requested quantity is available
-        item = mongo.db.equipment.find_one({'id': item_id})
+        item = mongo.db.cars.find_one({'id': item_id})
         if not item:
-            flash('Équipement non trouvé', 'error')
+            flash('Voiture non trouvée', 'error')
             return redirect(url_for('index'))
         
         available_quantity = item.get('quantite_disponible', item.get('quantite_totale', 1))
@@ -1364,9 +1338,9 @@ def request_rental(item_id):
         return redirect(url_for('index'))
     
     # GET request - show rental form
-    item = mongo.db.equipment.find_one({'id': item_id})
+    item = mongo.db.cars.find_one({'id': item_id})
     if not item:
-        flash('Equipment not found', 'error')
+        flash('Voiture non trouvée', 'error')
         return redirect(url_for('index'))
     
     # Ensure the id field is properly set for the template
@@ -1378,19 +1352,13 @@ def request_rental(item_id):
 @app.route('/staff/requests')
 @login_required
 def staff_requests():
-    # Only technicien laboratoire, admin, and professeur can access
-    if not (is_technicien() or is_professeur() or current_user.role == 'admin'):
-        flash('Accès refusé. Réservé au technicien laboratoire, professeur et admin.', 'error')
+    # Only manager and admin can access
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager et admin.', 'error')
         return redirect(url_for('index'))
     
     # Get all rental requests
-    if is_professeur():
-        # Professeur can only see student requests
-        student_users = [user['username'] for user in mongo.db.users.find({'role': 'etudiant'}, {'username': 1})]
-        requests = list(mongo.db.rental_requests.find({'user_name': {'$in': student_users}}).sort('created_at', -1))
-    else:
-        # Admin and technicien can see all requests
-        requests = list(mongo.db.rental_requests.find().sort('created_at', -1))
+    requests = list(mongo.db.rental_requests.find().sort('created_at', -1))
     
     for reservation in requests:
         reservation['id'] = str(reservation['_id'])
@@ -1413,7 +1381,7 @@ def staff_requests():
         else:
             reservation['end_date'] = 'N/A'
         
-        # Handle equipment name and quantity
+        # Handle car name and quantity
         if 'items' in reservation and reservation['items'] and isinstance(reservation['items'], list):
             # Multi-item request
             print(f"DEBUG: Multi-item reservation: {reservation['items']}")
@@ -1421,24 +1389,24 @@ def staff_requests():
             total_quantity = 0
             for item_data in reservation['items']:
                 if isinstance(item_data, dict):
-                    equipment = mongo.db.equipment.find_one({'id': item_data.get('item_id')})
-                    if equipment:
-                        item_names.append(f"{equipment.get('designation', 'Unknown')} (x{item_data.get('quantity', 1)})")
+                    car = mongo.db.cars.find_one({'id': item_data.get('item_id')})
+                    if car:
+                        item_names.append(f"{car.get('designation', 'Unknown')} (x{item_data.get('quantity', 1)})")
                         total_quantity += item_data.get('quantity', 1)
                     else:
                         item_names.append(f"Unknown (x{item_data.get('quantity', 1)})")
                         total_quantity += item_data.get('quantity', 1)
             
-            reservation['equipment_name'] = ' + '.join(item_names) if item_names else 'Unknown'
+            reservation['car_name'] = ' + '.join(item_names) if item_names else 'Unknown'
             reservation['quantity'] = total_quantity
         else:
             # Single-item request (legacy)
             print(f"DEBUG: Single-item reservation: {reservation.get('item_id')}")
-            equipment = mongo.db.equipment.find_one({'id': reservation.get('item_id')})
-            reservation['equipment_name'] = equipment['designation'] if equipment else 'Unknown'
+            car = mongo.db.cars.find_one({'id': reservation.get('item_id')})
+            reservation['car_name'] = car['designation'] if car else 'Unknown'
             reservation['quantity'] = reservation.get('quantity', 1)
     
-    # Get all users for role checking (for professeur to see student requests)
+    # Get all users for role checking
     users = list(mongo.db.users.find({}, {'username': 1, 'role': 1}))
     
     return render_template('staff_requests.html', requests=requests, users=users)
@@ -1447,17 +1415,13 @@ def staff_requests():
 @app.route('/staff/approve-request/<string:req_id>')
 @login_required
 def approve_request(req_id):
-    # Technicien laboratoire can approve any, professeur can only approve student requests
-    if not (is_technicien() or is_professeur() or current_user.role == 'admin'):
+    # Manager and admin can approve requests
+    if not (is_manager() or current_user.role == 'admin'):
         flash('Accès refusé.', 'error')
         return redirect(url_for('index'))
     
     request_obj = mongo.db.rental_requests.find_one({'_id': ObjectId(req_id)})
     if request_obj:
-        requester = mongo.db.users.find_one({'username': request_obj.get('user_name')})
-        if is_professeur() and (not requester or requester.get('role') != 'etudiant'):
-            flash('Les professeurs ne peuvent approuver que les demandes des étudiants.', 'error')
-            return redirect(url_for('staff_requests'))
         # Handle both single-item and multi-item requests
         if 'items' in request_obj:
             # Multi-item request - quantities were already deducted when created
@@ -1469,13 +1433,13 @@ def approve_request(req_id):
             flash('Multi-item request approved successfully!', 'success')
         else:
             # Single-item request (legacy)
-            equipment = mongo.db.equipment.find_one({'id': request_obj.get('item_id')})
-            if not equipment:
-                flash('Equipment not found', 'error')
+            car = mongo.db.cars.find_one({'id': request_obj.get('item_id')})
+            if not car:
+                flash('Voiture non trouvée', 'error')
                 return redirect(url_for('staff_requests'))
             
             requested_quantity = request_obj.get('quantity', 1)
-            current_available = equipment.get('quantite_disponible', equipment.get('quantite_totale', 1))
+            current_available = car.get('quantite_disponible', car.get('quantite_totale', 1))
             
             # Check if enough quantity is available
             if requested_quantity > current_available:
@@ -1491,7 +1455,7 @@ def approve_request(req_id):
                 {'$set': {'status': 'Approved'}}
             )
             
-            # Update equipment quantity and status
+            # Update car quantity and status
             update_fields = {
                 'quantite_disponible': new_available,
                 'updated_at': datetime.now()
@@ -1501,7 +1465,7 @@ def approve_request(req_id):
             if new_available <= 0:
                 update_fields['status'] = 'Indisponible'
             
-            mongo.db.equipment.update_one(
+            mongo.db.cars.update_one(
                 {'id': request_obj.get('item_id')},
                 {'$set': update_fields}
             )
@@ -1516,30 +1480,26 @@ def approve_request(req_id):
 @app.route('/staff/reject-request/<string:req_id>')
 @login_required
 def reject_request(req_id):
-    # Technicien laboratoire can reject any, professeur can only reject student requests
-    if not (is_technicien() or is_professeur() or current_user.role == 'admin'):
+    # Manager and admin can reject requests
+    if not (is_manager() or current_user.role == 'admin'):
         flash('Accès refusé.', 'error')
         return redirect(url_for('index'))
     
     request_obj = mongo.db.rental_requests.find_one({'_id': ObjectId(req_id)})
     if request_obj:
-        requester = mongo.db.users.find_one({'username': request_obj.get('user_name')})
-        if is_professeur() and (not requester or requester.get('role') != 'etudiant'):
-            flash('Les professeurs ne peuvent rejeter que les demandes des étudiants.', 'error')
-            return redirect(url_for('staff_requests'))
         
         # Handle both single-item and multi-item requests
         if 'items' in request_obj:
             # Multi-item request - restore quantities for each item
             for item_data in request_obj['items']:
-                equipment = mongo.db.equipment.find_one({'id': item_data.get('item_id')})
-                if equipment:
-                    current_available = equipment.get('quantite_disponible', 0)
+                car = mongo.db.cars.find_one({'id': item_data.get('item_id')})
+                if car:
+                    current_available = car.get('quantite_disponible', 0)
                     requested_quantity = item_data.get('quantity', 1)
                     new_available = current_available + requested_quantity
                     
-                    # Update equipment quantity
-                    mongo.db.equipment.update_one(
+                    # Update car quantity
+                    mongo.db.cars.update_one(
                         {'id': item_data.get('item_id')},
                         {'$set': {
                             'quantite_disponible': new_available,
@@ -1549,14 +1509,14 @@ def reject_request(req_id):
                     )
         else:
             # Single-item request - restore quantity
-            equipment = mongo.db.equipment.find_one({'id': request_obj.get('item_id')})
-            if equipment:
-                current_available = equipment.get('quantite_disponible', 0)
+            car = mongo.db.cars.find_one({'id': request_obj.get('item_id')})
+            if car:
+                current_available = car.get('quantite_disponible', 0)
                 requested_quantity = request_obj.get('quantity', 1)
                 new_available = current_available + requested_quantity
                 
-                # Update equipment quantity
-                mongo.db.equipment.update_one(
+                # Update car quantity
+                mongo.db.cars.update_one(
                     {'id': request_obj.get('item_id')},
                     {'$set': {
                         'quantite_disponible': new_available,
@@ -1576,8 +1536,8 @@ def reject_request(req_id):
 @app.route('/staff/reset-request-status/<string:req_id>')
 @login_required
 def reset_request_status(req_id):
-    # Only technicien laboratoire and admin can reset status
-    if not (is_technicien() or current_user.role == 'admin'):
+    # Only manager and admin can reset status
+    if not (is_manager() or current_user.role == 'admin'):
         flash('Accès refusé.', 'error')
         return redirect(url_for('index'))
     
@@ -1588,13 +1548,13 @@ def reset_request_status(req_id):
     flash('Request status reset to pending', 'success')
     return redirect(url_for('staff_requests'))
 
-@app.route('/staff/equipment-used')
+@app.route('/staff/cars-used')
 @login_required
-def staff_equipment_used():
-    """Staff view of currently rented equipment"""
-    print(f"DEBUG: staff_equipment_used called by user: {current_user.username}, role: {current_user.role}")
+def staff_cars_used():
+    """Staff view of currently rented cars"""
+    print(f"DEBUG: staff_cars_used called by user: {current_user.username}, role: {current_user.role}")
     
-    if not (is_technicien() or current_user.role == 'admin'):
+    if not (is_manager() or current_user.role == 'admin'):
         print(f"DEBUG: Access denied for user {current_user.username} with role {current_user.role}")
         flash('Accès refusé', 'error')
         return redirect(url_for('dashboard'))
@@ -1633,10 +1593,10 @@ def staff_equipment_used():
             })
         else:
             # Single item reservation (legacy)
-            equipment = mongo.db.equipment.find_one({'id': r.get('item_id')}) or {}
+            car = mongo.db.cars.find_one({'id': r.get('item_id')}) or {}
             formatted_reservations.append({
                 'id': str(r.get('_id')),
-                'item_name': equipment.get('designation', ''),
+                'item_name': car.get('designation', ''),
                 'user_name': r.get('user_name', ''),
                 'user_email': r.get('user_email', ''),
                 'quantity': r.get('quantity', 1),
@@ -1646,13 +1606,13 @@ def staff_equipment_used():
                 'is_multi_item': False
             })
     
-    return render_template('staff_rented_equipment.html', reservations=formatted_reservations)
+    return render_template('staff_rented_cars.html', reservations=formatted_reservations)
 
-@app.route('/staff/return-equipment/<string:item_id>', methods=['GET', 'POST'])
+@app.route('/staff/return-car/<string:item_id>', methods=['GET', 'POST'])
 @login_required
-def return_equipment(item_id):
-    if not (is_technicien() or current_user.role == 'admin'):
-        flash('Accès refusé. Réservé au technicien laboratoire ou admin.', 'error')
+def return_car(item_id):
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager ou admin.', 'error')
         return redirect(url_for('index'))
     
     # Get the rental request to know how many units were rented
@@ -1666,13 +1626,13 @@ def return_equipment(item_id):
     
     if not rental_request:
         flash('Aucune utilisation active trouvée pour cet équipement', 'error')
-        return redirect(url_for('staff_equipment_used'))
+        return redirect(url_for('staff_cars_used'))
     
-    # Get current equipment
-    equipment = mongo.db.equipment.find_one({'id': item_id})
-    if not equipment:
+    # Get current car
+    car = mongo.db.cars.find_one({'id': item_id})
+    if not car:
         flash('Équipement non trouvé', 'error')
-        return redirect(url_for('staff_equipment_used'))
+        return redirect(url_for('staff_cars_used'))
     
     # Determine rented quantity based on request type
     if 'items' in rental_request:
@@ -1682,12 +1642,12 @@ def return_equipment(item_id):
     else:
         # Single-item request
         rented_quantity = rental_request.get('quantity', 1)
-    current_available = equipment.get('quantite_disponible', equipment.get('quantite_totale', 1))
+    current_available = car.get('quantite_disponible', car.get('quantite_totale', 1))
     
     if request.method == 'GET':
         # Show the return form
-        return render_template('return_equipment.html', 
-                             equipment=equipment, 
+        return render_template('return_car.html', 
+                             car=car, 
                              rental_request=rental_request,
                              rented_quantity=rented_quantity,
                              current_available=current_available)
@@ -1699,12 +1659,12 @@ def return_equipment(item_id):
         
         if not new_status:
             flash('Veuillez sélectionner un statut', 'error')
-            return redirect(url_for('return_equipment', item_id=item_id))
+            return redirect(url_for('return_car', item_id=item_id))
         
         # Calculate new quantities based on status
         quantite_disponible = current_available + rented_quantity
-        quantite_cassee = equipment.get('quantite_cassée', 0)
-        quantite_en_reparation = equipment.get('quantite_en_réparation', 0)
+        quantite_cassee = car.get('quantite_cassée', 0)
+        quantite_en_reparation = car.get('quantite_en_réparation', 0)
         
         # Adjust quantities based on selected status
         if new_status == 'Cassée':
@@ -1715,7 +1675,7 @@ def return_equipment(item_id):
             quantite_disponible -= rented_quantity
         # For 'Disponible' and 'Indisponible', quantities stay as calculated above
         
-        # Update equipment
+        # Update car
         update_fields = {
             'quantite_disponible': quantite_disponible,
             'quantite_cassée': quantite_cassee,
@@ -1727,7 +1687,7 @@ def return_equipment(item_id):
         if notes:
             update_fields['notes'] = notes
         
-        mongo.db.equipment.update_one(
+        mongo.db.cars.update_one(
             {'id': item_id},
             {'$set': update_fields}
         )
@@ -1748,17 +1708,21 @@ def return_equipment(item_id):
             )
         
         flash(f'Équipement retourné avec succès! {rented_quantity} unités marquées comme "{new_status}".', 'success')
-        return redirect(url_for('staff_equipment_used'))
+        return redirect(url_for('staff_cars_used'))
 
-@app.route('/staff/edit-equipment/<string:item_id>', methods=['GET', 'POST'])
+@app.route('/staff/edit-car/<string:item_id>', methods=['GET', 'POST'])
 @login_required
-def edit_equipment(item_id):
-    if not (is_technicien() or is_manager() or current_user.role == 'admin'):
-        flash('Accès refusé. Réservé au technicien, manager laboratoire ou admin.', 'error')
+def edit_car(item_id):
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager ou admin.', 'error')
         return redirect(url_for('index'))
     
     if request.method == 'POST':
-        id_equipment = request.form.get('id')
+        id_car = request.form.get('id')
+        quantity = int(request.form.get('quantity', 1))
+        prix_journalier = float(request.form.get('prix_journalier', 0)) if request.form.get('prix_journalier') else 0
+        carburant = request.form.get('carburant', 'Essence')
+        transmission = request.form.get('transmission', 'Manuelle')
         designation = request.form.get('designation')
         marque = request.form.get('marque')
         modele = request.form.get('modele')
@@ -1769,7 +1733,7 @@ def edit_equipment(item_id):
         date_inv = request.form.get('date_inv')
         description = request.form.get('description')
         # Keep existing quantity values from database
-        existing_item = mongo.db.equipment.find_one({'id': item_id})
+        existing_item = mongo.db.cars.find_one({'id': item_id})
         quantite_totale = existing_item.get('quantite_totale', 1)
         quantite_cassee = existing_item.get('quantite_cassée', 0)
         quantite_en_reparation = existing_item.get('quantite_en_réparation', 0)
@@ -1791,7 +1755,11 @@ def edit_equipment(item_id):
             image_filename = filename
         
         update_fields = {
-            'id': id_equipment,
+            'id': id_car,
+            'quantity': quantity,
+            'prix_journalier': prix_journalier,
+            'carburant': carburant,
+            'transmission': transmission,
             'designation': designation,
             'marque': marque,
             'modele': modele,
@@ -1811,37 +1779,37 @@ def edit_equipment(item_id):
         if image_filename:
             update_fields['image'] = image_filename
         
-        mongo.db.equipment.update_one(
+        mongo.db.cars.update_one(
             {'id': item_id},
             {'$set': update_fields}
         )
         
-        flash('Équipement mis à jour avec succès!', 'success')
+        flash('Voiture mise à jour avec succès!', 'success')
         return redirect(url_for('inventory'))
     
     # GET request - show edit form
-    item = mongo.db.equipment.find_one({'id': item_id})
+    item = mongo.db.cars.find_one({'id': item_id})
     if not item:
-        flash('Equipment not found', 'error')
+        flash('Voiture non trouvée', 'error')
         return redirect(url_for('inventory'))
     
     # Don't overwrite the actual 'id' field with MongoDB _id
-    # The 'id' field should remain as the equipment's custom ID
-    return render_template('edit_equipment.html', item=item)
+    # The 'id' field should remain as the car's custom ID
+    return render_template('edit_car.html', item=item)
 
-@app.route('/view-equipment/<string:item_id>')
+@app.route('/view-car/<string:item_id>')
 @login_required
-def view_equipment(item_id):
-    item = mongo.db.equipment.find_one({'id': item_id})
+def view_car(item_id):
+    item = mongo.db.cars.find_one({'id': item_id})
     if not item:
-        flash('Equipment not found', 'error')
+        flash('Voiture non trouvée', 'error')
         return redirect(url_for('inventory'))
     
     # Don't overwrite the actual 'id' field with MongoDB _id
     item['created_at'] = item.get('created_at', '').strftime('%Y-%m-%d %H:%M') if item.get('created_at') else ''
     item['updated_at'] = item.get('updated_at', '').strftime('%Y-%m-%d %H:%M') if item.get('updated_at') else ''
     
-    # Get rental history for this equipment
+    # Get rental history for this car
     # Search for both single-item and multi-item requests
     single_item_rentals = list(mongo.db.rental_requests.find({'item_id': item_id}).sort('created_at', -1))
     multi_item_rentals = list(mongo.db.rental_requests.find({'items.item_id': item_id}).sort('created_at', -1))
@@ -1874,23 +1842,23 @@ def view_equipment(item_id):
     # Sort by creation date
     rental_history.sort(key=lambda x: x.get('created_at', ''), reverse=True)
     
-    return render_template('view_equipment.html', item=item, rental_history=rental_history)
+    return render_template('view_car.html', item=item, rental_history=rental_history)
 
-@app.route('/staff/delete-equipment/<string:item_id>')
+@app.route('/staff/delete-car/<string:item_id>')
 @login_required
-def delete_equipment(item_id):
-    if not (is_technicien() or is_manager() or current_user.role == 'admin'):
-        flash('Accès refusé. Réservé au technicien, manager laboratoire ou admin.', 'error')
+def delete_car(item_id):
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager ou admin.', 'error')
         return redirect(url_for('index'))
     
-    # Check if equipment is currently rented
-    item = mongo.db.equipment.find_one({'id': item_id})
+    # Check if car is currently rented
+    item = mongo.db.cars.find_one({'id': item_id})
     if item and item.get('status') == 'Indisponible':
-        flash('Impossible de supprimer un équipement actuellement loué.', 'error')
+        flash('Impossible de supprimer une voiture actuellement louée.', 'error')
         return redirect(url_for('inventory'))
     
-    # Delete the equipment
-    mongo.db.equipment.delete_one({'id': item_id})
+    # Delete the car
+    mongo.db.cars.delete_one({'id': item_id})
     
     # Also delete any related rental requests
     # Delete single-item requests
@@ -1898,7 +1866,7 @@ def delete_equipment(item_id):
     # Delete multi-item requests that contain this item
     mongo.db.rental_requests.delete_many({'items.item_id': item_id})
     
-    flash('Equipment deleted successfully!', 'success')
+    flash('Voiture supprimée avec succès!', 'success')
     return redirect(url_for('inventory'))
 
 # Staff Management Routes (Admin Only)
@@ -2035,18 +2003,12 @@ def delete_staff(staff_id):
 @app.route('/api/staff/requests')
 @login_required
 def api_staff_requests():
-    # Only technicien laboratoire, admin, and professeur can access
-    if not (is_technicien() or is_professeur() or current_user.role == 'admin'):
+    # Only manager and admin can access
+    if not (is_manager() or current_user.role == 'admin'):
         return jsonify({'error': 'Accès refusé'}), 403
     
     # Get all rental requests
-    if is_professeur():
-        # Professeur can only see student requests
-        student_users = [user['username'] for user in mongo.db.users.find({'role': 'etudiant'}, {'username': 1})]
-        requests = list(mongo.db.rental_requests.find({'user_name': {'$in': student_users}}).sort('created_at', -1))
-    else:
-        # Admin and technicien can see all requests
-        requests = list(mongo.db.rental_requests.find().sort('created_at', -1))
+    requests = list(mongo.db.rental_requests.find().sort('created_at', -1))
     
     # Process requests for JSON response
     processed_requests = []
@@ -2059,16 +2021,16 @@ def api_staff_requests():
             item_names = []
             for item_data in reservation['items']:
                 if isinstance(item_data, dict):
-                    equipment = mongo.db.equipment.find_one({'id': item_data.get('item_id')})
-                    if equipment:
-                        item_names.append(f"{equipment.get('designation', 'Unknown')} (x{item_data.get('quantity', 1)})")
+                    car = mongo.db.cars.find_one({'id': item_data.get('item_id')})
+                    if car:
+                        item_names.append(f"{car.get('designation', 'Unknown')} (x{item_data.get('quantity', 1)})")
                     else:
                         item_names.append(f"Unknown (x{item_data.get('quantity', 1)})")
-            reservation['equipment_name'] = ' + '.join(item_names) if item_names else 'Unknown'
+            reservation['car_name'] = ' + '.join(item_names) if item_names else 'Unknown'
         else:
             # Single-item request (legacy)
-            equipment = mongo.db.equipment.find_one({'id': reservation.get('item_id')})
-            reservation['equipment_name'] = equipment['designation'] if equipment else 'Unknown'
+            car = mongo.db.cars.find_one({'id': reservation.get('item_id')})
+            reservation['car_name'] = car['designation'] if car else 'Unknown'
         
         # Convert datetime objects to strings for JSON
         if reservation.get('start_date'):
@@ -2085,12 +2047,12 @@ def api_staff_requests():
     
     return jsonify({'requests': processed_requests})
 
-# Route to mark equipment as returned (AJAX)
+# Route to mark car as returned (AJAX)
 @app.route('/staff/mark-returned/<string:reservation_id>', methods=['POST'])
 @login_required
-def mark_equipment_returned(reservation_id):
-    """Mark equipment as returned via AJAX"""
-    if not (is_technicien() or current_user.role == 'admin'):
+def mark_car_returned(reservation_id):
+    """Mark car as returned via AJAX"""
+    if not (is_manager() or current_user.role == 'admin'):
         return jsonify({'success': False, 'message': 'Accès refusé'}), 403
     
     try:
@@ -2135,19 +2097,19 @@ def mark_equipment_returned(reservation_id):
                     if not status_selection:
                         continue
                     
-                    equipment = mongo.db.equipment.find_one({'id': item_data.get('item_id')})
-                    if equipment:
+                    car = mongo.db.cars.find_one({'id': item_data.get('item_id')})
+                    if car:
                         # Get current quantities
-                        current_available = equipment.get('quantite_disponible', 0)
-                        current_broken = equipment.get('quantite_cassée', 0)
-                        current_repair = equipment.get('quantite_en_réparation', 0)
-                        current_unavailable = equipment.get('quantite_indisponible', 0)
-                        current_lost = equipment.get('quantite_perdue', 0)
+                        current_available = car.get('quantite_disponible', 0)
+                        current_broken = car.get('quantite_cassée', 0)
+                        current_repair = car.get('quantite_en_réparation', 0)
+                        current_unavailable = car.get('quantite_indisponible', 0)
+                        current_lost = car.get('quantite_perdue', 0)
                         
                         returned_quantity = item_data.get('quantity', 1)
                         new_status = status_selection['status']
                         
-                        print(f"Updating equipment {item_data.get('item_id')}: status={new_status}, quantity={returned_quantity}")
+                        print(f"Updating car {item_data.get('item_id')}: status={new_status}, quantity={returned_quantity}")
                         
                         # Update quantities based on selected status
                         update_fields = {
@@ -2170,8 +2132,8 @@ def mark_equipment_returned(reservation_id):
                             update_fields['quantite_perdue'] = current_lost + returned_quantity
                             update_fields['status'] = 'Perdue'
                         
-                        # Update equipment
-                        mongo.db.equipment.update_one(
+                        # Update car
+                        mongo.db.cars.update_one(
                             {'id': item_data.get('item_id')},
                             {'$set': update_fields}
                         )
@@ -2180,19 +2142,19 @@ def mark_equipment_returned(reservation_id):
                 print("Processing single-item reservation")
                 if len(status_selections) > 0:
                     status_selection = status_selections[0]
-                    equipment = mongo.db.equipment.find_one({'id': reservation.get('item_id')})
-                    if equipment:
+                    car = mongo.db.cars.find_one({'id': reservation.get('item_id')})
+                    if car:
                         # Get current quantities
-                        current_available = equipment.get('quantite_disponible', 0)
-                        current_broken = equipment.get('quantite_cassée', 0)
-                        current_repair = equipment.get('quantite_en_réparation', 0)
-                        current_unavailable = equipment.get('quantite_indisponible', 0)
-                        current_lost = equipment.get('quantite_perdue', 0)
+                        current_available = car.get('quantite_disponible', 0)
+                        current_broken = car.get('quantite_cassée', 0)
+                        current_repair = car.get('quantite_en_réparation', 0)
+                        current_unavailable = car.get('quantite_indisponible', 0)
+                        current_lost = car.get('quantite_perdue', 0)
                         
                         returned_quantity = reservation.get('quantity', 1)
                         new_status = status_selection['status']
                         
-                        print(f"Updating equipment {reservation.get('item_id')}: status={new_status}, quantity={returned_quantity}")
+                        print(f"Updating car {reservation.get('item_id')}: status={new_status}, quantity={returned_quantity}")
                         
                         # Update quantities based on selected status
                         update_fields = {
@@ -2215,8 +2177,8 @@ def mark_equipment_returned(reservation_id):
                             update_fields['quantite_perdue'] = current_lost + returned_quantity
                             update_fields['status'] = 'Perdue'
                         
-                        # Update equipment
-                        mongo.db.equipment.update_one(
+                        # Update car
+                        mongo.db.cars.update_one(
                             {'id': reservation.get('item_id')},
                             {'$set': update_fields}
                         )
@@ -2234,7 +2196,7 @@ def mark_equipment_returned(reservation_id):
             return jsonify({'success': False, 'message': 'Action non reconnue'}), 400
             
     except Exception as e:
-        print(f"Error marking equipment as returned: {e}")
+        print(f"Error marking car as returned: {e}")
         import traceback
         traceback.print_exc()
         return jsonify({'success': False, 'message': f'Erreur lors du marquage: {str(e)}'}), 500

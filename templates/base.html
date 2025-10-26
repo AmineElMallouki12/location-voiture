@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
 </head>
 <body>
-  {% if current_user.is_authenticated and current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire', 'professeur', 'etudiant'] %}
+  {% if current_user.is_authenticated and current_user.role in ['admin', 'manager', 'utilisateur'] %}
   <!-- Sidebar and overlay for authenticated users -->
   <div id="sidebar" class="sidebar">
     <div class="sidebar-header d-flex align-items-center justify-content-between px-3 py-2">
@@ -22,24 +22,24 @@
       <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt me-2"></i>Tableau de bord</a></li>
       <li><a href="{{ url_for('inventory') }}"><i class="fas fa-list me-2"></i>Inventaire</a></li>
       
-      <!-- Equipment management - only for technicien, manager, and admin -->
-      {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire'] %}
-      <li><a href="{{ url_for('add_item') }}"><i class="fas fa-plus me-2"></i>Ajouter un objet</a></li>
+      <!-- Car management - only for manager and admin -->
+      {% if current_user.role in ['admin', 'manager'] %}
+      <li><a href="{{ url_for('add_item') }}"><i class="fas fa-plus me-2"></i>Ajouter une voiture</a></li>
       {% endif %}
       
-      <!-- Reservations - for all except manager laboratoire -->
-      {% if current_user.role in ['admin', 'technicien laboratoire', 'professeur', 'etudiant'] %}
+      <!-- Reservations - for utilisateur only -->
+      {% if current_user.role == 'utilisateur' %}
       <li><a href="{{ url_for('reservations') }}"><i class="fas fa-calendar-alt me-2"></i>Réservations</a></li>
       {% endif %}
       
-      <!-- Reports - for all except étudiant -->
-      {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire', 'professeur'] %}
+      <!-- Reports - for manager and admin -->
+      {% if current_user.role in ['admin', 'manager'] %}
       <li><a href="{{ url_for('generate_report') }}"><i class="fas fa-chart-bar me-2"></i>Rapports</a></li>
       {% endif %}
       
-      <!-- Staff management - only for technicien laboratoire and admin -->
-      {% if current_user.role in ['admin', 'technicien laboratoire'] %}
-              <li><a href="{{ url_for('staff_equipment_used') }}"><i class="fas fa-box-open me-2"></i>Matériel utilisé</a></li>
+      <!-- Staff management - only for manager and admin -->
+      {% if current_user.role in ['admin', 'manager'] %}
+              <li><a href="{{ url_for('staff_cars_used') }}"><i class="fas fa-car me-2"></i>Voitures utilisées</a></li>
       {% endif %}
       
       <!-- Admin only -->
@@ -60,13 +60,13 @@
       <button class="btn btn-link text-light ms-0 ps-0" id="sidebarToggle" onclick="toggleSidebar()" style="font-size: 1.5rem;">
         <i class="fas fa-bars" style="color: #3388ff;"></i>
       </button>
-      {% if current_user.role in ['admin', 'technicien laboratoire', 'manager laboratoire', 'professeur', 'etudiant'] %}
+      {% if current_user.role in ['admin', 'manager', 'utilisateur'] %}
         <a href="{{ url_for('dashboard') }}" class="navbar-brand ms-2 d-flex align-items-center" style="text-decoration: none;">
-          <i class="fas fa-boxes me-2"></i>Inventory System
+          <i class="fas fa-car me-2"></i>Car Rental System
         </a>
       {% else %}
         <a href="{{ url_for('index') }}" class="navbar-brand ms-2 d-flex align-items-center" style="text-decoration: none;">
-          <i class="fas fa-boxes me-2"></i>Inventory System
+          <i class="fas fa-car me-2"></i>Car Rental System
         </a>
       {% endif %}
       <button class="navbar-toggler ms-auto order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

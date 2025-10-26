@@ -15,7 +15,7 @@
     <div class="text-center mb-4">
       <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
       <h3 class="fw-bold">University Inventory</h3>
-      <p class="text-muted">Sign in to manage equipment</p>
+      <p class="text-muted">Sign in to manage cars</p>
     </div>
     
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -49,6 +49,13 @@
       <button type="submit" class="btn btn-primary w-100" style="background: var(--accent); border: none;">
         <i class="fas fa-sign-in-alt me-2"></i>Connexion
       </button>
+      
+      <!-- Back Button -->
+      <div class="mt-3">
+        <a href="{{ url_for('index') }}" class="btn btn-primary w-100" style="background: var(--accent); border: none;">
+          <i class="fas fa-arrow-left me-2"></i>Retour au catalogue
+        </a>
+      </div>
     </form>
     
     <div class="text-center mt-4">
