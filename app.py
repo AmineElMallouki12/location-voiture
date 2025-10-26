@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key'
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb://localhost:27017/voiture_de_location"
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI", "mongodb://localhost:27017/voiture_de_location")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
