@@ -882,9 +882,9 @@ def get_reservation_history():
 @app.route('/generate-report', methods=['GET', 'POST'])
 @login_required
 def generate_report():
-    # Students cannot access reports
-    if current_user.role == 'etudiant':
-        flash('Accès refusé. Les étudiants ne peuvent pas accéder aux rapports.', 'error')
+    # Only manager and admin can access reports
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager et admin.', 'error')
         return redirect(url_for('dashboard'))
     if request.method == 'POST':
         report_type = request.form.get('report_type', 'inventory')
@@ -937,9 +937,9 @@ def generate_report():
 @app.route('/export-report/pdf')
 @login_required
 def export_report_pdf():
-    # Students cannot export reports
-    if current_user.role == 'etudiant':
-        flash('Accès refusé. Les étudiants ne peuvent pas exporter des rapports.', 'error')
+    # Only manager and admin can export reports
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager et admin.', 'error')
         return redirect(url_for('dashboard'))
     report_type = request.args.get('report_type', 'inventory')
     output = BytesIO()
@@ -1078,9 +1078,9 @@ def export_report_pdf():
 @app.route('/export-report/excel')
 @login_required
 def export_report_excel():
-    # Students cannot export reports
-    if current_user.role == 'etudiant':
-        flash('Accès refusé. Les étudiants ne peuvent pas exporter des rapports.', 'error')
+    # Only manager and admin can export reports
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager et admin.', 'error')
         return redirect(url_for('dashboard'))
     report_type = request.args.get('report_type', 'inventory')
     output = BytesIO()
@@ -1185,9 +1185,9 @@ def export_report_excel():
 @app.route('/export/inventory-excel')
 @login_required
 def export_inventory_excel():
-    # Students cannot export inventory
-    if current_user.role == 'etudiant':
-        flash('Accès refusé. Les étudiants ne peuvent pas exporter l\'inventaire.', 'error')
+    # Only manager and admin can export inventory
+    if not (is_manager() or current_user.role == 'admin'):
+        flash('Accès refusé. Réservé au manager et admin.', 'error')
         return redirect(url_for('dashboard'))
     output = BytesIO()
     wb = Workbook()
@@ -2216,7 +2216,3 @@ if __name__ == '__main__':
     debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     app.run(host='0.0.0.0', port=port, debug=debug_mode)
 
-# Add URL rules for the staff request routes
-app.add_url_rule('/staff/approve-request/<string:req_id>', 'approve_request', approve_request)
-app.add_url_rule('/staff/reject-request/<string:req_id>', 'reject_request', reject_request)
-app.add_url_rule('/staff/reset-request-status/<string:req_id>', 'reset_request_status', reset_request_status)
