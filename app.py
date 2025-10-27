@@ -1273,6 +1273,10 @@ def index():
     for item in items:
         quantite_disponible = item.get('quantite_disponible', item.get('quantite_totale', 1))
         if quantite_disponible > 0:
+            # Convert ObjectId to string for JSON serialization
+            if '_id' in item:
+                item['_id'] = str(item['_id'])
+            
             # Don't overwrite the actual 'id' field with MongoDB _id
             # The 'id' field should remain as the car's custom ID
             item['created_at'] = item.get('created_at', '').strftime('%Y-%m-%d %H:%M') if item.get('created_at') else ''
